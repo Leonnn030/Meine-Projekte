@@ -97,26 +97,6 @@
   }
 
   /* ------------------------------------------------------------------------
-     Projektfilter
-     ---------------------------------------------------------------------- */
-  var filters = document.querySelectorAll(".filter");
-  var projects = document.querySelectorAll(".project");
-
-  filters.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var wanted = button.dataset.filter;
-
-      filters.forEach(function (other) {
-        other.setAttribute("aria-pressed", String(other === button));
-      });
-
-      projects.forEach(function (project) {
-        project.hidden = wanted !== "alle" && project.dataset.kategorie !== wanted;
-      });
-    });
-  });
-
-  /* ------------------------------------------------------------------------
      Vorher/Nachher-Regler
      ---------------------------------------------------------------------- */
   document.querySelectorAll("[data-compare]").forEach(function (box) {

@@ -32,7 +32,7 @@ In `assets/img/` liegen Platzhalter als SVG. Ersetze sie durch echte Fotos
 | Datei | Verwendung | Empfohlenes Format |
 |---|---|---|
 | `projekt-01.svg` … `projekt-06.svg` | Projektgalerie | 1200 × 900 px, 4:3 |
-| `vorher.svg` / `nachher.svg` | Vergleichsregler | 1600 × 1000 px, 16:10 |
+| `vorher.svg` / `nachher.svg` | Vergleichsregler | 1600 × 900 px, 16:9 |
 | `hero-fahrzeug.svg` | Fahrzeug im Hero | freigestelltes PNG mit transparentem Hintergrund |
 | `og-bild.jpg` | Vorschaubild beim Teilen | 1200 × 630 px — **fehlt noch** |
 
@@ -85,10 +85,30 @@ Wenn die Seite unter `haufeshine.com` läuft, in den Pages-Einstellungen die
 eigene Domain eintragen und beim Domain-Anbieter den passenden DNS-Eintrag
 setzen.
 
+## Farben
+
+Die Palette folgt dem Flyer. Alle Werte stehen als CSS-Variablen ganz oben in
+`assets/css/style.css` — dort einmal ändern genügt, die ganze Seite zieht nach.
+
+| Rolle | Wert |
+|---|---|
+| Grundschwarz | `#050505` |
+| Abgesetztes Band | `#0b0b0b` |
+| Gold (Kernton) | `#c8942e` |
+| Gold hell | `#e3bc6a` |
+| Gold dunkel | `#8a651b` |
+| Weiß | `#ffffff` |
+| Fließtext | `#9c9c9c` |
+
+Bewusst neutrale Graustufen ohne Farbstich — genau wie auf dem Flyer.
+
 ## Technische Hinweise
 
 - Die Seite ist bewusst durchgehend dunkel gehalten — Schwarz und Gold sind
   die Markenfarben, ein heller Modus würde diese Wirkung brechen.
+- Gestaltet wird über Schwarzraum und Haarlinien, nicht über Rahmen. Der
+  einzige echte Rahmen auf der Seite ist das Siegel aus dem Flyer — und genau
+  deshalb fällt er auf.
 - Schriften kommen von Google Fonts. Wer das vermeiden möchte (Datenschutz),
   kann sie herunterladen und lokal einbinden; die Datenschutzerklärung ist
   dann entsprechend zu kürzen.

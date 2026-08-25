@@ -1,75 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
   <defs>
-    <linearGradient id="l" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#221f22"/><stop offset="0.45" stop-color="#100f10"/><stop offset="1" stop-color="#080807"/></linearGradient>
-    <radialGradient id="s" cx="62%" cy="26%" r="55%"><stop offset="0" stop-color="#f0d894" stop-opacity=".42"/><stop offset="1" stop-color="#c6982e" stop-opacity="0"/></radialGradient>
+    <linearGradient id="l" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#131313"/><stop offset="0.45" stop-color="#0a0a0a"/><stop offset="1" stop-color="#050505"/></linearGradient>
   </defs>
-  <rect width="1200" height="750" fill="url(#l)"/>
-<rect width="1200" height="750" fill="url(#s)"/>
-<ellipse cx="760" cy="215" rx="250" ry="52" fill="#fffaf0" opacity=".30"/>
-<ellipse cx="760" cy="215" rx="150" ry="26" fill="#fffdf7" opacity=".55"/>
-<ellipse cx="410" cy="520" rx="190" ry="34" fill="#e9cc7e" opacity=".14"/>
-<path d="M120 640C300 560 560 500 860 470c130-13 190-16 230-14" fill="none" stroke="#f0d894" stroke-opacity=".22" stroke-width="3"/>
-<path d="M120 660C310 578 580 516 900 486" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+  <rect width="1600" height="900" fill="url(#l)"/>
+<ellipse cx="980" cy="255" rx="340" ry="60" fill="#ffffff" opacity=".16"/>
+<ellipse cx="980" cy="252" rx="205" ry="28" fill="#ffffff" opacity=".42"/>
+<ellipse cx="980" cy="250" rx="110" ry="13" fill="#ffffff" opacity=".72"/>
+<path d="M150 790C420 690 780 606 1210 574" fill="none" stroke="#ffffff" stroke-opacity=".14" stroke-width="2.5"/>
+<path d="M150 818C430 714 800 634 1250 602" fill="none" stroke="#c8942e" stroke-opacity=".22" stroke-width="2.5"/>
+<ellipse cx="430" cy="700" rx="200" ry="30" fill="#c8942e" opacity=".10"/>
 <g fill="#ffffff" fill-opacity=".22">
-<circle cx="410" cy="155" r="3.5"/>
-<circle cx="138" cy="398" r="2.6"/>
-<circle cx="123" cy="380" r="1.6"/>
-<circle cx="528" cy="104" r="1.8"/>
-<circle cx="518" cy="581" r="1.9"/>
-<circle cx="301" cy="455" r="4.3"/>
-<circle cx="683" cy="310" r="4.4"/>
-<circle cx="110" cy="601" r="2.4"/>
-<circle cx="216" cy="134" r="2.4"/>
-<circle cx="941" cy="174" r="3.2"/>
-<circle cx="750" cy="295" r="3.1"/>
-<circle cx="128" cy="98" r="2.1"/>
-<circle cx="795" cy="329" r="2.4"/>
-<circle cx="692" cy="346" r="2.4"/>
-<circle cx="918" cy="500" r="2.2"/>
-<circle cx="680" cy="391" r="4.1"/>
-<circle cx="848" cy="241" r="4.4"/>
-<circle cx="188" cy="323" r="3.8"/>
-<circle cx="224" cy="368" r="1.6"/>
-<circle cx="782" cy="542" r="3.2"/>
-<circle cx="1006" cy="258" r="3.6"/>
-<circle cx="702" cy="425" r="2.9"/>
-<circle cx="967" cy="655" r="2.9"/>
-<circle cx="777" cy="98" r="3.6"/>
-<circle cx="759" cy="686" r="4.0"/>
-<circle cx="367" cy="303" r="3.5"/>
-<circle cx="84" cy="351" r="2.0"/>
-<circle cx="186" cy="97" r="3.8"/>
-<circle cx="200" cy="216" r="2.7"/>
-<circle cx="1001" cy="111" r="2.8"/>
-<circle cx="653" cy="617" r="4.0"/>
-<circle cx="993" cy="235" r="2.7"/>
-<circle cx="447" cy="617" r="4.4"/>
-<circle cx="223" cy="171" r="2.2"/>
-<circle cx="312" cy="366" r="3.3"/>
-<circle cx="344" cy="63" r="2.8"/>
-<circle cx="459" cy="417" r="4.4"/>
-<circle cx="806" cy="385" r="3.4"/>
-<circle cx="790" cy="94" r="4.2"/>
-<circle cx="902" cy="611" r="3.9"/>
-<circle cx="484" cy="311" r="1.8"/>
-<circle cx="745" cy="99" r="1.7"/>
-<circle cx="285" cy="162" r="2.5"/>
-<circle cx="117" cy="60" r="2.0"/>
-<circle cx="170" cy="289" r="1.6"/>
-<circle cx="1004" cy="447" r="1.9"/>
-<circle cx="332" cy="279" r="2.6"/>
-<circle cx="193" cy="595" r="4.5"/>
-<circle cx="563" cy="365" r="1.8"/>
-<circle cx="170" cy="276" r="2.3"/>
-<circle cx="955" cy="162" r="1.6"/>
-<circle cx="1087" cy="393" r="1.9"/>
-<circle cx="647" cy="77" r="3.1"/>
-<circle cx="1117" cy="604" r="3.6"/>
-<circle cx="342" cy="291" r="2.0"/>
-<circle cx="894" cy="396" r="3.8"/>
-<circle cx="416" cy="201" r="3.9"/>
-<circle cx="1124" cy="597" r="3.9"/>
-<circle cx="944" cy="526" r="2.2"/>
-<circle cx="619" cy="284" r="1.6"/>
+<circle cx="730" cy="495" r="4.4"/>
+<circle cx="750" cy="456" r="3.4"/>
+<circle cx="340" cy="459" r="3.5"/>
+<circle cx="1228" cy="142" r="2.5"/>
+<circle cx="202" cy="685" r="3.7"/>
+<circle cx="131" cy="816" r="4.5"/>
+<circle cx="1025" cy="538" r="2.1"/>
+<circle cx="92" cy="472" r="1.8"/>
+<circle cx="348" cy="254" r="1.7"/>
+<circle cx="747" cy="405" r="4.1"/>
+<circle cx="828" cy="557" r="3.1"/>
+<circle cx="1037" cy="418" r="2.4"/>
+<circle cx="1527" cy="827" r="4.1"/>
+<circle cx="1103" cy="310" r="2.3"/>
+<circle cx="492" cy="123" r="3.9"/>
+<circle cx="655" cy="713" r="2.8"/>
+<circle cx="1469" cy="714" r="1.6"/>
+<circle cx="376" cy="762" r="3.0"/>
+<circle cx="1501" cy="372" r="1.8"/>
+<circle cx="989" cy="662" r="2.4"/>
+<circle cx="197" cy="323" r="4.5"/>
+<circle cx="1177" cy="160" r="2.3"/>
+<circle cx="218" cy="116" r="4.0"/>
+<circle cx="329" cy="495" r="2.9"/>
+<circle cx="348" cy="626" r="2.0"/>
+<circle cx="1010" cy="159" r="2.9"/>
+<circle cx="381" cy="275" r="4.5"/>
+<circle cx="1243" cy="301" r="4.3"/>
+<circle cx="378" cy="370" r="4.2"/>
+<circle cx="1007" cy="146" r="4.6"/>
+<circle cx="381" cy="266" r="3.9"/>
+<circle cx="550" cy="295" r="1.8"/>
+<circle cx="202" cy="513" r="2.3"/>
+<circle cx="948" cy="352" r="3.0"/>
+<circle cx="1470" cy="438" r="3.3"/>
+<circle cx="1335" cy="209" r="2.1"/>
+<circle cx="1396" cy="692" r="2.3"/>
+<circle cx="347" cy="632" r="4.4"/>
+<circle cx="357" cy="792" r="4.2"/>
+<circle cx="951" cy="390" r="1.9"/>
+<circle cx="126" cy="802" r="2.3"/>
+<circle cx="1099" cy="265" r="4.1"/>
+<circle cx="941" cy="293" r="2.1"/>
+<circle cx="1122" cy="122" r="2.3"/>
+<circle cx="887" cy="718" r="3.4"/>
+<circle cx="479" cy="767" r="2.2"/>
+<circle cx="94" cy="275" r="2.9"/>
+<circle cx="158" cy="204" r="2.7"/>
+<circle cx="905" cy="170" r="2.7"/>
+<circle cx="1371" cy="815" r="3.6"/>
+<circle cx="1079" cy="514" r="2.0"/>
+<circle cx="121" cy="84" r="4.3"/>
+<circle cx="1093" cy="802" r="1.7"/>
+<circle cx="999" cy="436" r="3.8"/>
+<circle cx="536" cy="830" r="1.8"/>
+<circle cx="867" cy="630" r="4.3"/>
+<circle cx="1146" cy="605" r="4.0"/>
+<circle cx="1406" cy="337" r="3.7"/>
+<circle cx="1385" cy="732" r="2.9"/>
+<circle cx="1224" cy="726" r="3.3"/>
+<circle cx="982" cy="361" r="3.3"/>
+<circle cx="959" cy="131" r="3.5"/>
+<circle cx="1520" cy="739" r="3.8"/>
+<circle cx="637" cy="629" r="3.3"/>
+<circle cx="713" cy="707" r="1.9"/>
+<circle cx="1165" cy="93" r="3.4"/>
+<circle cx="772" cy="245" r="3.7"/>
+<circle cx="796" cy="537" r="4.4"/>
+<circle cx="444" cy="79" r="2.5"/>
+<circle cx="1060" cy="224" r="2.1"/>
+<circle cx="1392" cy="572" r="2.9"/>
+<circle cx="1372" cy="318" r="3.6"/>
+<circle cx="360" cy="397" r="4.0"/>
+<circle cx="1405" cy="739" r="2.8"/>
+<circle cx="921" cy="311" r="2.0"/>
+<circle cx="795" cy="706" r="4.1"/>
+<circle cx="1108" cy="792" r="2.4"/>
+<circle cx="317" cy="412" r="2.4"/>
+<circle cx="383" cy="385" r="3.5"/>
+<circle cx="791" cy="310" r="4.1"/>
 </g>
 </svg>
