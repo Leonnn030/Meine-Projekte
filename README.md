@@ -66,17 +66,16 @@ Nach der Freigabe: Beträge ersetzen, die drei `<span class="tag-draft">`
 entfernen, den Hinweis `<p class="pending">` darunter löschen sowie den
 Satz über der Zusatzleistungstabelle streichen.
 
-### 2. Impressum unvollständig
+### 2. Impressum: zwei Angaben fehlen
 
-In `impressum.html` und `datenschutz.html` sind offene Stellen mit
-`[eckigen Klammern]` markiert. Es fehlen:
+Anschrift (Ritterfelddamm 93, 14089 Berlin), Telefon und E-Mail stehen.
+In `impressum.html` und `datenschutz.html` fehlen noch:
 
 - Vor- und Nachname des Inhabers
-- **Ladungsfähige Berliner Anschrift** — auch ein rein mobiler Betrieb
-  braucht eine; ein Postfach genügt nicht
-- Umsatzsteuer-Identifikationsnummer oder Hinweis auf § 19 UStG
+- Umsatzsteuer-Identifikationsnummer — oder, bei Kleinunternehmerstatus,
+  der Hinweis auf § 19 UStG statt einer Nummer
 
-Telefonnummer und E-Mail stammen vom Flyer und sind belegt.
+Beide Stellen sind mit `[eckigen Klammern]` markiert.
 
 ### 3. Bildmaterial
 
@@ -117,13 +116,7 @@ gezeichnete Fahrzeuggrafik.
 Für diese Fahrzeuge fehlt jedes Material: BMW M4, BMW X3 M Sport,
 Mercedes CLA, Mercedes A-Klasse, Mercedes-AMG GLE 63.
 
-### 4. Kundennennung freigeben lassen
-
-Die Cases nennen **Marlo** (Audi SQ8) und **Bane** (Mercedes-AMG GLE 63)
-namentlich. Vor dem Veröffentlichen eine schriftliche Freigabe beider
-einholen — bei bekannten Personen greift das Persönlichkeitsrecht.
-
-### 5. Anfrageformular
+### 4. Anfrageformular
 
 Das Formular öffnet das E-Mail-Programm des Besuchers (`mailto:`). Das
 funktioniert ohne Server, aber Anfragen landen nicht automatisch im
@@ -174,5 +167,8 @@ auswählen und die eigene Domain eintragen.
 - Ein Vorher/Nachher-Regler ist bewusst **nicht** eingebaut, solange keine
   passenden Bildpaare vorliegen. Die Struktur lässt sich später ergänzen.
 - Alle Animationen respektieren `prefers-reduced-motion`.
-- Strukturierte Daten als `AutoDetailing` (schema.org) im `<head>`.
+- Strukturierte Daten als `AutoDetailing` (schema.org) im `<head>`, mit
+  vollständiger Anschrift und Einsatzgebieten. Adresse, Name und Telefon
+  stimmen auf Startseite, Fußzeile und Impressum überein — Google bewertet
+  diese Übereinstimmung für die lokale Suche.
 - Textkontraste liegen über 7:1, getestet bei 390 px und 1440 px.
