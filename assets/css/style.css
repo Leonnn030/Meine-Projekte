@@ -1187,6 +1187,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .plan__price small:first-child { margin-right: 0.1rem; }
 
+/* Kennzeichnung, solange die Beträge nicht freigegeben sind.
+   Nach der Freigabe entfällt sie zusammen mit dem Hinweis darunter. */
+.tag-draft {
+  align-self: center;
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px dashed var(--gold-deep);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.addons .tag-draft { margin-left: 0.5rem; }
+
 .plan__features {
   display: flex;
   flex-direction: column;

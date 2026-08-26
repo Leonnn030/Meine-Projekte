@@ -45,11 +45,26 @@ Neutrale Graustufen ohne Farbstich, wie auf dem Flyer.
 
 ## Offene Punkte
 
-### 1. Preise fehlen
+### 1. Preise sind Vorschläge
 
-In den drei Paketen steht `——` statt eines Betrags. Sobald die Preise
-feststehen, in `index.html` im Abschnitt `#leistungen` ersetzen und den
-Hinweiskasten darunter (`<p class="pending">`) entfernen.
+Die Beträge in `index.html` (Abschnitt `#leistungen`) sind hergeleitet, nicht
+freigegeben — erkennbar am Hinweis „Vorschlag" an jedem Paketpreis.
+
+| Paket | Vorschlag | Dauer |
+|---|---|---|
+| Basic | ab 149 € | 2–3 Stunden |
+| Komplett | ab 349 € | 5–7 Stunden |
+| Premium | ab 749 € | 1–2 Tage |
+
+Herleitung: Der Wettbewerber Zera Detailing verlangt stationär 79/99/139 €
+für reine Innenraumpakete. HAUFE SHINE bietet mobilen Komplettservice für
+hochwertige Fahrzeuge — Anfahrt, autarkes Arbeiten und Zielgruppe
+rechtfertigen ein deutlich höheres Niveau. Wer sich preislich neben einen
+günstigen Anbieter stellt, wird auch so wahrgenommen.
+
+Nach der Freigabe: Beträge ersetzen, die drei `<span class="tag-draft">`
+entfernen, den Hinweis `<p class="pending">` darunter löschen sowie den
+Satz über der Zusatzleistungstabelle streichen.
 
 ### 2. Impressum unvollständig
 
