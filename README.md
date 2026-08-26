@@ -115,8 +115,15 @@ der verlässlichste Kanal und deshalb überall prominent verlinkt.
 
 ## Videos
 
-`assets/video/marlo-sq8.mp4` (900 KB) mit `marlo-sq8.webm` als Fallback.
-Beide ohne Tonspur, weil Autoplay nur stumm erlaubt ist.
+| Datei | Inhalt | Größe | Platz |
+|---|---|---|---|
+| `marlo-sq8.*` | Schaumwäsche des Audi SQ8 | 900 KB | Case Marlo |
+| `marlo-sq8-ergebnis.*` | SQ8 fertig, Berliner Straße und Halle | 1,1 MB | Case Marlo |
+| `interieur-berlin.*` | Innenraum-Detailing, Lenkrad unter Schutzfolie | 809 KB | Results |
+
+Jedes Video liegt als MP4 (H.264) und WebM (VP9) vor, alle ohne Tonspur,
+weil Autoplay nur stumm erlaubt ist. Beim `interieur-berlin`-Video wurde der
+obere Rand beschnitten — dort war ein Instagram-Standortsticker eingebrannt.
 
 Videos laden mit `preload="none"` und starten erst, wenn sie im sichtbaren
 Bereich sind; verlassen sie ihn, pausieren sie wieder. Neue Videos nach

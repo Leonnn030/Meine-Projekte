@@ -801,9 +801,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .work:hover .work__media img,
 .work:hover .work__media video { transform: scale(1.04); }
 
-/* Video-Karte: das Hochformat des Originals bleibt erhalten */
-.work--film .work__media { aspect-ratio: 4 / 3; }
-
 .work__film-badge {
   position: absolute;
   top: 1rem;
