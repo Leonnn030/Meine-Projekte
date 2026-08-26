@@ -78,26 +78,44 @@ In `impressum.html` und `datenschutz.html` sind offene Stellen mit
 
 Telefonnummer und E-Mail stammen vom Flyer und sind belegt.
 
-### 3. Fotos fehlen
+### 3. Bildmaterial
 
-In `assets/img/` liegen Platzhalter (`work-*.svg`) für sechs Fahrzeuge, die
-in den bisherigen Aufnahmen erkennbar waren. Ersetze sie durch echte Fotos
-(JPG oder WebP) und passe die Dateiendung in `index.html` an.
+Die Seite zeigt ausschließlich echtes Material. Weil keine Fotodateien
+vorlagen, stammen alle Standbilder aus dem Schaumwäsche-Video des Audi SQ8
+— an den schärfsten Stellen entnommen, moderat hochskaliert und
+nachgeschärft. Die Quelle ist nur 464 × 832 Pixel, deshalb sind die Bilder
+auf 742 Pixel Breite begrenzt.
 
-| Datei | Fahrzeug | Verwendung | Format |
-|---|---|---|---|
-| `work-m4.svg` | BMW M4 | Results, groß | 1600 × 1000, 16:10 |
-| `work-a-klasse-rot.svg` | Mercedes A-Klasse rot | Results, hochkant | 900 × 1200, 3:4 |
-| `work-cla.svg` | Mercedes CLA | Results | 1200 × 900, 4:3 |
-| `work-x3.svg` | BMW X3 | Results | 1200 × 900, 4:3 |
-| `work-sq8.svg` | Audi SQ8 | Case Marlo | hochkant, 9:16 |
-| `work-gle-amg.svg` | Mercedes-AMG GLE 63 | Case Bane | 1600 × 1000, 16:10 |
-| `og-bild.jpg` | — | Vorschau beim Teilen | 1200 × 630 — **fehlt** |
+| Datei | Motiv | Entnommen bei |
+|---|---|---|
+| `sq8-aussen.jpg` | Fahrzeug nach der Aufbereitung | 11,2 s |
+| `detail-felge.jpg` | Felge mit rotem Bremssattel | 6,1 s |
+| `detail-emblem.jpg` | S-line-Emblem, Lackspiegelung | 9,2 s |
+| `prozess-felge.jpg` | Felge wird von Hand gereinigt | 7,1 s |
+| `prozess-schaum.jpg` | Front unter Schaum | 4,1 s |
+| `sq8-innenraum.jpg` | Sitz mit Rautensteppung | 5,1 s |
+| `sq8-cockpit.jpg` | Cockpit mit Ambientebeleuchtung | 10,7 s |
 
-Auch die `alt`-Texte anpassen, sobald die echten Bilder drin sind.
+Neue Bilder nach demselben Muster gewinnen:
 
-Für den Hero fehlt weiterhin eine **Außenaufnahme**. Alle bisherigen Fotos
-sind Innenraumaufnahmen; aktuell steht dort eine gezeichnete Fahrzeuggrafik.
+```bash
+ffmpeg -ss <sekunde> -i video.mov -frames:v 1 \
+  -vf "scale=iw*1.6:ih*1.6:flags=lanczos,unsharp=5:5:0.55:3:3:0.25" \
+  -q:v 3 assets/img/name.jpg
+```
+
+**Kennzeichen:** Auf `sq8-aussen.jpg` war das Kennzeichen lesbar und wurde
+unkenntlich gemacht — ein Kfz-Kennzeichen ist ein personenbezogenes Datum.
+Das Schaumwäsche-Video endet bei 10,8 Sekunden, weil danach die Frontansicht
+mit lesbarem Kennzeichen folgt. **Bei neuem Material immer prüfen.**
+
+Sobald echte Fotos vorliegen, ersetzen sie die Videostandbilder direkt —
+gleiche Dateinamen genügen. Besonders wertvoll wäre eine helle
+Außenaufnahme bei Tageslicht für den Hero; dort steht bislang eine
+gezeichnete Fahrzeuggrafik.
+
+Für diese Fahrzeuge fehlt jedes Material: BMW M4, BMW X3 M Sport,
+Mercedes CLA, Mercedes A-Klasse, Mercedes-AMG GLE 63.
 
 ### 4. Kundennennung freigeben lassen
 
@@ -120,6 +138,10 @@ der verlässlichste Kanal und deshalb überall prominent verlinkt.
 | `marlo-sq8.*` | Schaumwäsche des Audi SQ8 | 900 KB | Case Marlo |
 | `marlo-sq8-ergebnis.*` | SQ8 fertig, Berliner Straße und Halle | 1,1 MB | Case Marlo |
 | `interieur-berlin.*` | Innenraum-Detailing, Lenkrad unter Schutzfolie | 809 KB | Results |
+
+Das Schaumwäsche-Video ist auf 10,8 Sekunden gekürzt (Kennzeichen im
+Anschluss), das Innenraumvideo auf 12 Sekunden. Zusammen belegen alle drei
+2,4 MB als MP4 — nichts davon lädt beim Seitenaufruf.
 
 Jedes Video liegt als MP4 (H.264) und WebM (VP9) vor, alle ohne Tonspur,
 weil Autoplay nur stumm erlaubt ist. Beim `interieur-berlin`-Video wurde der

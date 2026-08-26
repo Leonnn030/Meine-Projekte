@@ -951,6 +951,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.03em;
 }
 
+/* Case ohne Aufnahmen: eine Zeile statt eines leeren Bildkastens */
+.case--text {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  align-items: center;
+}
+
+.case__note--wide {
+  max-width: 56ch;
+  margin-top: 0;
+}
+
+.case__soon {
+  display: block;
+  margin-top: 1.2rem;
+  color: var(--gold);
+  font-size: var(--step--2);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
 .case__note {
   max-width: 40ch;
   margin-top: 1.8rem;
