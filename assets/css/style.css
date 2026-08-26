@@ -43,7 +43,7 @@
   --step-1:  clamp(1.12rem, 1.02rem + 0.5vw, 1.38rem);
   --step-2:  clamp(1.45rem, 1.2rem + 1.1vw, 2.15rem);
   --step-3:  clamp(2rem, 1.5rem + 2.3vw, 3.6rem);
-  --step-4:  clamp(2.7rem, 1.9rem + 4.1vw, 5.4rem);
+  --step-4:  clamp(2.3rem, 1.6rem + 3.4vw, 4.6rem);
 
   /* Raster — großzügige Ränder gehören zum Eindruck */
   --shell:        min(1280px, 100% - 4rem);
@@ -569,16 +569,27 @@ ul { margin: 0; padding: 0; list-style: none; }
   animation: rise 1.1s var(--ease) both;
 }
 .hero__mark   { animation-delay: 0.1s; }
-.hero h1      { animation-delay: 0.3s; }
-.hero__rule   { animation-delay: 0.55s; }
-.hero__claim  { animation-delay: 0.7s; }
-.hero__cta    { animation-delay: 0.85s; }
+.hero__kicker { animation-delay: 0.25s; }
+.hero h1      { animation-delay: 0.4s; }
+.hero__rule   { animation-delay: 0.6s; }
+.hero__claim  { animation-delay: 0.75s; }
+.hero__cta    { animation-delay: 0.9s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(26px); }
 }
 
-.hero__mark { margin-bottom: clamp(2.2rem, 4.5vw, 3.6rem); }
+.hero__mark { margin-bottom: clamp(1.8rem, 3.5vw, 2.8rem); }
+
+/* Zeile über der Überschrift: sagt in vier Worten, worum es geht */
+.hero__kicker {
+  margin-bottom: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--gold);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
 
 .hero h1 {
   font-family: var(--font-display);
@@ -1311,6 +1322,593 @@ ul { margin: 0; padding: 0; list-style: none; }
 .fineprint strong { color: var(--soft); font-weight: 500; }
 
 /* --------------------------------------------------------------------------
+   12a. Fahrzeugklasse — bestimmt alle Preise darunter
+   -------------------------------------------------------------------------- */
+.klassen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 1px;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+}
+
+.klasse { position: relative; margin: 0; }
+
+.klasse input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.klasse__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  padding: 1.2rem 1.4rem;
+  background: var(--ink);
+  cursor: pointer;
+  transition: background 0.35s var(--ease);
+}
+
+.klasse__body:hover { background: var(--ink-panel); }
+
+.klasse input:checked + .klasse__body {
+  background: linear-gradient(180deg, rgba(200, 148, 46, 0.1), transparent 70%), var(--ink-panel);
+  box-shadow: inset 0 0 0 1px var(--gold);
+}
+
+.klasse input:focus-visible + .klasse__body {
+  outline: 1px solid var(--gold-light);
+  outline-offset: -3px;
+}
+
+.klasse__name {
+  color: var(--white);
+  font-size: var(--step-0);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.klasse input:checked + .klasse__body .klasse__name { color: var(--gold-light); }
+
+.klasse__bsp {
+  color: var(--dim);
+  font-size: var(--step--2);
+  letter-spacing: 0.08em;
+}
+
+/* --------------------------------------------------------------------------
+   12b. Preis-Konfigurator — anklickbar statt Tabelle
+   -------------------------------------------------------------------------- */
+.konfig {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* Reiter für die Leistungsbereiche */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.tab {
+  position: relative;
+  padding: 1rem 1.6rem;
+  border: 0;
+  background: transparent;
+  color: var(--dim);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s var(--ease);
+}
+
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.4s var(--ease);
+}
+
+.tab:hover { color: var(--soft); }
+
+.tab[aria-selected="true"] { color: var(--white); }
+.tab[aria-selected="true"]::after { transform: scaleX(1); }
+
+.tab-panel[hidden] { display: none; }
+
+/* Auswählbare Paketkarten */
+.optionen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+}
+
+.option { position: relative; margin: 0; }
+
+.option input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.option__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  height: 100%;
+  padding: clamp(1.6rem, 3vw, 2.2rem) clamp(1.3rem, 2.5vw, 1.8rem);
+  background: var(--ink);
+  cursor: pointer;
+  transition: background 0.35s var(--ease);
+}
+
+.option__body:hover { background: var(--ink-panel); }
+
+/* Ausgewählt: Goldrahmen von innen, kein Layoutsprung */
+.option input:checked + .option__body {
+  background: linear-gradient(180deg, rgba(200, 148, 46, 0.09), transparent 60%), var(--ink-panel);
+  box-shadow: inset 0 0 0 1px var(--gold);
+}
+
+.option input:focus-visible + .option__body {
+  outline: 1px solid var(--gold-light);
+  outline-offset: -3px;
+}
+
+.option__kopf {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.option__name {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.1;
+}
+
+/* Der Haken erscheint erst bei Auswahl */
+.option__haken {
+  position: relative;
+  width: 1.4rem;
+  height: 1.4rem;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.option__haken::after {
+  content: "";
+  position: absolute;
+  top: 0.34rem; left: 0.45rem;
+  width: 0.32rem; height: 0.6rem;
+  border-right: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.3s var(--ease);
+}
+
+.option input:checked + .option__body .option__haken {
+  border-color: var(--gold);
+  background: var(--gold);
+}
+
+.option input:checked + .option__body .option__haken::after { transform: rotate(45deg) scale(1); }
+
+.option__preis {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.option__preis small {
+  color: var(--dim);
+  font-family: var(--font-sans);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.option__liste {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.option__liste li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  line-height: 1.55;
+}
+
+.option__liste li::before {
+  content: "";
+  width: 3px; height: 3px;
+  flex: none;
+  background: var(--gold-deep);
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.option__dauer {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--dim);
+  font-size: var(--step--2);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.option__flag {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 2;
+  padding: 0.3rem 0.7rem;
+  background: var(--gold);
+  color: #000;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Zusatzleistungen als Chip-Raster */
+.extras {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  gap: 0.7rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.extra { position: relative; }
+
+.extra input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.extra__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  height: 100%;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: var(--step--1);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.extra__body:hover { border-color: var(--dim); color: var(--white); }
+
+.extra__preis {
+  flex: none;
+  color: var(--gold);
+  font-size: var(--step--2);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.extra input:checked + .extra__body {
+  border-color: var(--gold);
+  background: rgba(200, 148, 46, 0.08);
+  color: var(--white);
+}
+
+.extra input:focus-visible + .extra__body {
+  outline: 1px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+/* Die Zusammenfassung bleibt beim Scrollen sichtbar */
+.summe {
+  position: sticky;
+  top: 6.5rem;
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  border: 1px solid var(--line);
+  background: var(--ink-panel);
+}
+
+.summe__klasse {
+  margin-top: 0.6rem;
+  color: var(--gold);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+}
+
+.summe h3 {
+  color: var(--dim);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.summe__posten {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.6rem 0;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line-soft);
+  min-height: 3rem;
+}
+
+.summe__posten li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--soft);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+.summe__posten li span:last-child {
+  flex: none;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+.summe__leer {
+  color: var(--dim);
+  font-size: var(--step--1);
+  line-height: 1.7;
+}
+
+.summe__zeile {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.summe__zeile dt {
+  color: var(--white);
+  font-size: var(--step--2);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.summe__zeile dd {
+  margin: 0;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.summe__hinweis {
+  margin-top: 1.4rem;
+  color: var(--dim);
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+
+.summe .btn { margin-top: 1.6rem; }
+
+/* --------------------------------------------------------------------------
+   12c. Kunden — Kategorien, Karten und aufklappbare Galerien
+   -------------------------------------------------------------------------- */
+.kunden-karten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  align-items: start;
+}
+
+/* Eine Kundenkarte: Porträt oben, Name darunter, Galerie beim Aufklappen */
+.kunde {
+  border: 1px solid var(--line-soft);
+  background: var(--ink);
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease);
+}
+
+.kunde[open] { border-color: var(--gold-deep); }
+
+.kunde > summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+}
+
+.kunde > summary::-webkit-details-marker { display: none; }
+
+.kunde__portrait {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--ink-panel);
+  overflow: hidden;
+}
+
+.kunde__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transition: transform 1s var(--ease);
+}
+
+.kunde:hover .kunde__portrait img { transform: scale(1.04); }
+
+/* Verlauf, damit der Name auf jedem Foto lesbar bleibt */
+.kunde__portrait::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.92) 12%, transparent);
+  pointer-events: none;
+}
+
+.kunde__text {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.5rem;
+}
+
+.kunde__rolle {
+  color: var(--gold);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.kunde__name {
+  margin-top: 0.5rem;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem);
+  line-height: 1;
+}
+
+.kunde__fahrzeuge {
+  margin-top: 0.7rem;
+  color: var(--soft);
+  font-size: var(--step--1);
+}
+
+/* Der Aufklapp-Hinweis dreht sich beim Öffnen */
+.kunde__mehr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-top: 1px solid var(--line-soft);
+  color: var(--gold);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.kunde__mehr::after {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  flex: none;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.35s var(--ease);
+}
+
+.kunde[open] .kunde__mehr::after { transform: rotate(225deg) translate(-2px, -2px); }
+
+.kunde[open] .kunde__mehr { color: var(--gold-light); }
+
+/* Galerie im aufgeklappten Zustand */
+.kunde__galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+  gap: 1px;
+  background: var(--line-soft);
+  border-top: 1px solid var(--line-soft);
+  animation: aufklappen 0.5s var(--ease);
+}
+
+@keyframes aufklappen {
+  from { opacity: 0; transform: translateY(-8px); }
+}
+
+.kunde__medium {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  background: var(--ink-panel);
+  overflow: hidden;
+}
+
+.kunde__medium img,
+.kunde__medium video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kunde__medium figcaption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 2rem 0.7rem 0.6rem;
+  background: linear-gradient(to top, rgba(5, 5, 5, 0.9), transparent);
+  color: var(--soft);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Platzhalter, solange ein Bild fehlt — ruhig statt bunt */
+.platz {
+  display: grid;
+  place-content: center;
+  gap: 0.7rem;
+  height: 100%;
+  padding: 1rem;
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.012) 0 8px, transparent 8px 16px),
+    var(--ink-panel);
+  text-align: center;
+}
+
+.platz::before {
+  content: "";
+  width: 1.8rem;
+  height: 1px;
+  margin-inline: auto;
+  background: var(--gold-deep);
+}
+
+.platz span {
+  color: var(--dim);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+.platz--gross span { font-size: var(--step--2); }
+
+/* --------------------------------------------------------------------------
    13. Über uns
    -------------------------------------------------------------------------- */
 .about {
@@ -2010,6 +2608,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     grid-column: 2;
     color: var(--gold);
   }
+
+  .konfig { grid-template-columns: minmax(0, 1fr); }
+  .summe { position: static; }
 
   .case {
     grid-template-columns: minmax(0, 1fr);

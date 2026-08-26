@@ -89,9 +89,9 @@
   <div class="site-header__inner">
     <a href="#top" aria-label="HAUFE SHINE – zur Startseite">
       <span class="wordmark wordmark--sm">
-        <svg class="wordmark__car" viewBox="0 0 240 52" fill="none" aria-hidden="true">
-          <path d="M4 46c14-2 26-9 40-17 18-10 38-18 62-21 26-3 50 1 72 9 20 7 38 17 58 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M62 30c12-8 26-14 42-16 15-2 29-1 42 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <svg class="wordmark__car" viewBox="0 0 240 62" fill="none" aria-hidden="true">
+          <path d="M4 50C22 49 40 45 58 39c14-4.7 26-10.6 40-16.4C112 16.6 127 12 143 11.4c14-.5 27 2.4 38 8.6 9 5 16 11.4 24 17.4 8 6 17 10.6 27 12.4" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+          <path d="M76 31.4c11-5.4 22-10.4 34-13.4 11-2.8 22-3.4 32-.6 8 2.2 15 6.4 21 11.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <span class="wordmark__name">HAUFE <span>SHINE</span></span>
         <span class="wordmark__rule">Autoaufbereitung</span>
@@ -101,8 +101,7 @@
     <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#ablauf">Ablauf</a>
-      <a href="#results">Results</a>
-      <a href="#clients">Clients</a>
+      <a href="#clients">Kunden</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn" href="#kontakt" data-nav-cta>Termin anfragen</a>
     </nav>
@@ -130,23 +129,25 @@
     <div class="hero__copy">
       <div class="hero__mark">
         <span class="wordmark wordmark--lg">
-          <svg class="wordmark__car" viewBox="0 0 240 52" fill="none" aria-hidden="true">
-            <path d="M4 46c14-2 26-9 40-17 18-10 38-18 62-21 26-3 50 1 72 9 20 7 38 17 58 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M62 30c12-8 26-14 42-16 15-2 29-1 42 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <svg class="wordmark__car" viewBox="0 0 240 62" fill="none" aria-hidden="true">
+            <path d="M4 50C22 49 40 45 58 39c14-4.7 26-10.6 40-16.4C112 16.6 127 12 143 11.4c14-.5 27 2.4 38 8.6 9 5 16 11.4 24 17.4 8 6 17 10.6 27 12.4" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+            <path d="M76 31.4c11-5.4 22-10.4 34-13.4 11-2.8 22-3.4 32-.6 8 2.2 15 6.4 21 11.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <span class="wordmark__name">HAUFE <span>SHINE</span></span>
           <span class="wordmark__rule">Autoaufbereitung</span>
         </span>
       </div>
 
+      <p class="hero__kicker">Mobile Autoaufbereitung · Berlin</p>
+
       <h1>
-        <span class="line">Mobile Detailing.</span>
-        <span class="line line--gold">Elevated.</span>
+        <span class="line">Weil dein Auto</span>
+        <span class="line line--gold">nicht nur ein Auto ist.</span>
       </h1>
 
       <div class="hero__rule" aria-hidden="true"></div>
 
-      <p class="hero__claim">Mobile Premium-Autoaufbereitung<br>direkt bei dir vor Ort in Berlin.</p>
+      <p class="hero__claim">Wir kommen zu dir — nach Hause,<br>ins Büro oder in die Tiefgarage.</p>
 
       <div class="hero__cta">
         <a class="btn" href="#kontakt">Termin anfragen</a>
@@ -173,112 +174,254 @@
 </section>
 
 <!-- ======================================================================
-     Leistungen und Pakete
+     Leistungen und Preise — zum Anklicken
      ====================================================================== -->
 <section class="section" id="leistungen">
   <div class="shell">
     <div class="section-head section-head--split reveal">
       <div>
-        <p class="eyebrow">Leistungen</p>
-        <h2 class="title">Drei Pakete.<br><em>Ein Anspruch.</em></h2>
+        <p class="eyebrow">Leistungen &amp; Preise</p>
+        <h2 class="title">Stell dir zusammen,<br><em>was dein Auto braucht.</em></h2>
       </div>
-      <p class="intro">Jedes Paket wird vor Ort an deinem Fahrzeug ausgeführt. Der Umfang steht vorher fest — auf der Rechnung erscheint nie etwas, das nicht besprochen war.</p>
+      <p class="intro">Fahrzeugklasse wählen, Bereich anklicken, Paket aussuchen. Die Summe steht sofort da — und geht mit einem Klick als Anfrage raus.</p>
     </div>
 
-    <div class="plans reveal">
+    <div class="klassen reveal" role="radiogroup" aria-label="Fahrzeugklasse">
+      <label class="klasse">
+        <input type="radio" name="klasse" value="kw" checked>
+        <span class="klasse__body">
+          <span class="klasse__name">Kleinwagen</span>
+          <span class="klasse__bsp">Polo · A1 · Fiesta</span>
+        </span>
+      </label>
+      <label class="klasse">
+        <input type="radio" name="klasse" value="mk">
+        <span class="klasse__body">
+          <span class="klasse__name">Mittelklasse</span>
+          <span class="klasse__bsp">3er · C-Klasse · A4</span>
+        </span>
+      </label>
+      <label class="klasse">
+        <input type="radio" name="klasse" value="suv">
+        <span class="klasse__body">
+          <span class="klasse__name">SUV &amp; Van</span>
+          <span class="klasse__bsp">GLE · Q8 · X5</span>
+        </span>
+      </label>
+    </div>
 
-      <article class="plan">
-        <div>
-          <h3>Basic</h3>
-          <p class="plan__for">Einstieg in die professionelle Pflege</p>
+    <div class="konfig reveal">
+      <div>
+        <div class="tabs" role="tablist" aria-label="Leistungsbereich wählen">
+          <button class="tab" role="tab" id="tab-komplett" aria-controls="panel-komplett" aria-selected="true" type="button">Komplettpakete</button>
+          <button class="tab" role="tab" id="tab-innen" aria-controls="panel-innen" aria-selected="false" type="button">Innenraum</button>
+          <button class="tab" role="tab" id="tab-aussen" aria-controls="panel-aussen" aria-selected="false" type="button">Außen &amp; Lack</button>
         </div>
-        <p class="plan__price"><small>ab</small>149<small>&euro;</small><span class="tag-draft">Vorschlag</span></p>
-        <ul class="plan__features">
-          <li>Handwäsche außen, Felgen und Reifen</li>
-          <li>Innenraum, Teppiche und Kofferraum gesaugt</li>
-          <li>Cockpit, Armaturen und Einstiegsleisten</li>
-          <li>Scheiben innen und außen</li>
-          <li>Kunststoffe gereinigt und gepflegt</li>
-        </ul>
-        <p class="plan__duration">ca. 2–3 Stunden</p>
-        <a class="arrow-link" href="#kontakt" data-paket="Basic">Anfragen</a>
-      </article>
 
-      <article class="plan plan--featured">
-        <p class="plan__flag">Beliebteste Wahl</p>
-        <div>
-          <h3>Komplett</h3>
-          <p class="plan__for">Innen und außen, im Detail</p>
+        <div class="tab-panel" role="tabpanel" id="panel-komplett" aria-labelledby="tab-komplett">
+          <div class="optionen">
+            <label class="option">
+              <input type="radio" name="paket" value="Kombi Basis" data-bereich="Komplettpakete"
+                     data-kw="69.99" data-mk="84.99" data-suv="99.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Kombi Basis</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>69,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Auffrischung und Handwäsche kombiniert</li>
+                  <li>Innen ausgesaugt, Oberflächen entstaubt</li>
+                  <li>Handwäsche außen mit Felgen und Reifen</li>
+                  <li>Mit Sparvorteil gegenüber Einzelbuchung</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Kundenliebling</span>
+              <input type="radio" name="paket" value="Rundum" data-bereich="Komplettpakete"
+                     data-kw="149.99" data-mk="189.99" data-suv="229.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Rundum</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>149,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Komfort und Glanz &amp; Schutz kombiniert</li>
+                  <li>Innenraum im Detail, inklusive Sitzschienen</li>
+                  <li>Lackknete, Politur und Versiegelung</li>
+                  <li>Mit Kombi-Rabatt</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Exklusiv</span>
+              <input type="radio" name="paket" value="Luxus Komplett" data-bereich="Komplettpakete"
+                     data-kw="329.99" data-mk="389.99" data-suv="449.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Luxus Komplett</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>329,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Tiefenreinigung und Lackvollendung</li>
+                  <li>Sprühextraktion, Lederpflege, alle Ritzen</li>
+                  <li>Mehrstufen-Politur und Keramikversiegelung</li>
+                  <li>Ozonbehandlung gratis dabei</li>
+                </ul>
+              </span>
+            </label>
+          </div>
         </div>
-        <p class="plan__price"><small>ab</small>349<small>&euro;</small><span class="tag-draft">Vorschlag</span></p>
-        <ul class="plan__features">
-          <li>Alles aus Basic</li>
-          <li>Sitzschienen, Pedale, Türen und Lüftungsdüsen</li>
-          <li>Ablagen, Getränkehalter und Fugen im Detail</li>
-          <li>Hartnäckige Flecken behandelt</li>
-          <li>Türfalze, Tankdeckel und Gummidichtungen</li>
-          <li>Lackpflege mit Wachsversiegelung</li>
-        </ul>
-        <p class="plan__duration">ca. 5–7 Stunden</p>
-        <a class="arrow-link" href="#kontakt" data-paket="Komplett">Anfragen</a>
-      </article>
-
-      <article class="plan">
-        <div>
-          <h3>Premium</h3>
-          <p class="plan__for">Die vollständige Aufbereitung</p>
+        <div class="tab-panel" role="tabpanel" id="panel-innen" aria-labelledby="tab-innen" hidden>
+          <div class="optionen">
+            <label class="option">
+              <input type="radio" name="paket" value="Auffrischung" data-bereich="Innenraum"
+                     data-kw="29.99" data-mk="39.99" data-suv="49.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Auffrischung</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>29,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Gründliches Aussaugen, innen und Kofferraum</li>
+                  <li>Grobe Staubentfernung der Oberflächen</li>
+                  <li>Fußmatten ausklopfen</li>
+                  <li>Scheiben innen reinigen</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Beliebteste</span>
+              <input type="radio" name="paket" value="Komfort" data-bereich="Innenraum"
+                     data-kw="69.99" data-mk="89.99" data-suv="109.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Komfort</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>69,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Intensives Aussaugen inklusive Sitzschienen</li>
+                  <li>Gründliche Kunststoff- und Cockpit-Reinigung</li>
+                  <li>Türverkleidungen, Einstiege, Kofferraum</li>
+                  <li>Fußmatten-Intensivreinigung, schmierfreie Scheiben</li>
+                  <li>Leichte Fleckenbehandlung und Kunststoffpflege</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Premium</span>
+              <input type="radio" name="paket" value="Tiefenreinigung" data-bereich="Innenraum"
+                     data-kw="129.99" data-mk="149.99" data-suv="179.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Tiefenreinigung</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>129,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Vollständige Innenraum-Tiefenreinigung</li>
+                  <li>Heißwasser-Sprühextraktion für Polster und Teppiche</li>
+                  <li>Intensive Sitzreinigung, Stoff oder Leder</li>
+                  <li>Pinselreinigung aller Ritzen und Lüftungsdüsen</li>
+                  <li>Ozon-Geruchsneutralisierung und Lederpflege inklusive</li>
+                </ul>
+              </span>
+            </label>
+          </div>
         </div>
-        <p class="plan__price"><small>ab</small>749<small>&euro;</small><span class="tag-draft">Vorschlag</span></p>
-        <ul class="plan__features">
-          <li>Alles aus Komplett</li>
-          <li>Mehrstufige Politur, hologrammfreies Finish</li>
-          <li>Langzeitversiegelung für den Lack</li>
-          <li>Leder, Stoff oder Alcantara aufbereitet</li>
-          <li>Dachhimmel und Sitze nassgesaugt</li>
-          <li>Geruchsneutralisierung inklusive</li>
+        <div class="tab-panel" role="tabpanel" id="panel-aussen" aria-labelledby="tab-aussen" hidden>
+          <div class="optionen">
+            <label class="option">
+              <input type="radio" name="paket" value="Handwäsche" data-bereich="Außen & Lack"
+                     data-kw="39.99" data-mk="49.99" data-suv="59.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Handwäsche</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>39,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Gründliche Handwäsche, Zwei-Eimer-Methode</li>
+                  <li>Felgenvorreinigung und schonende Felgenwäsche</li>
+                  <li>Insektenentfernung und schonende Trocknung</li>
+                  <li>Scheiben außen und Reifenpflege</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Beliebteste</span>
+              <input type="radio" name="paket" value="Glanz & Schutz" data-bereich="Außen & Lack"
+                     data-kw="99.99" data-mk="129.99" data-suv="159.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Glanz &amp; Schutz</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>99,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Alle Leistungen der Handwäsche</li>
+                  <li>Chemische Dekontamination gegen Flugrost und Teer</li>
+                  <li>Lackreinigung mit professioneller Lackknete</li>
+                  <li>1-Step Hochglanzpolitur gegen leichte Swirls</li>
+                  <li>Synthetische Versiegelung, 2–4 Monate Schutz</li>
+                </ul>
+              </span>
+            </label>
+            <label class="option">
+              <span class="option__flag">Premium</span>
+              <input type="radio" name="paket" value="Lackvollendung" data-bereich="Außen & Lack"
+                     data-kw="249.99" data-mk="299.99" data-suv="349.99">
+              <span class="option__body">
+                <span class="option__kopf">
+                  <span class="option__name">Lackvollendung</span>
+                  <span class="option__haken" aria-hidden="true"></span>
+                </span>
+                <span class="option__preis"><span data-preis-anzeige>249,99</span><small>&euro;</small></span>
+                <ul class="option__liste">
+                  <li>Vorwäsche, Dekontamination und Lackknetung</li>
+                  <li>Mehrstufen-Politur zur Kratzer-Korrektur</li>
+                  <li>Keramik- oder Langzeit-Versiegelung</li>
+                  <li>Kunststoffpflege außen mit Nano-Schutz</li>
+                  <li>Frontscheiben-Versiegelung</li>
+                </ul>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <h3 class="eyebrow" style="margin-top: clamp(2.5rem, 5vw, 3.5rem);">Zusätzlich buchen</h3>
+        <div class="extras">
+          <label class="extra"><input type="checkbox" name="extra" value="Ozonbehandlung" data-preis="24.99" data-ab="0"><span class="extra__body">Ozonbehandlung<span class="extra__preis">+24,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Polsterreinigung, ein Sitz" data-preis="10.0" data-ab="0"><span class="extra__body">Polsterreinigung, ein Sitz<span class="extra__preis">+10,00 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Polsterreinigung, alle Sitze" data-preis="25.0" data-ab="0"><span class="extra__body">Polsterreinigung, alle Sitze<span class="extra__preis">+25,00 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Lederreinigung & Pflege" data-preis="49.99" data-ab="0"><span class="extra__body">Lederreinigung &amp; Pflege<span class="extra__preis">+49,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Tierhaarentfernung" data-preis="24.99" data-ab="1"><span class="extra__body">Tierhaarentfernung<span class="extra__preis">ab 24,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Fleckenentfernung" data-preis="19.99" data-ab="1"><span class="extra__body">Fleckenentfernung<span class="extra__preis">ab 19,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Motorraumreinigung" data-preis="29.99" data-ab="0"><span class="extra__body">Motorraumreinigung<span class="extra__preis">+29,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Scheinwerfer, Paar" data-preis="69.99" data-ab="0"><span class="extra__body">Scheinwerfer, Paar<span class="extra__preis">+69,99 &euro;</span></span></label>
+          <label class="extra"><input type="checkbox" name="extra" value="Glanzpolitur, 1-Step" data-preis="89.99" data-ab="1"><span class="extra__body">Glanzpolitur, 1-Step<span class="extra__preis">ab 89,99 &euro;</span></span></label>
+        </div>
+      </div>
+
+      <aside class="summe" aria-live="polite">
+        <h3>Deine Auswahl</h3>
+        <p class="summe__klasse" data-summe-klasse>Kleinwagen</p>
+        <ul class="summe__posten" data-summe-posten>
+          <li class="summe__leer">Noch nichts gewählt. Such dir oben ein Paket aus.</li>
         </ul>
-        <p class="plan__duration">1–2 Tage</p>
-        <a class="arrow-link" href="#kontakt" data-paket="Premium">Anfragen</a>
-      </article>
-
+        <dl class="summe__zeile">
+          <dt>Gesamt</dt>
+          <dd><span data-summe-betrag>0,00</span> &euro;</dd>
+        </dl>
+        <p class="summe__hinweis">Endpreise inklusive Mehrwertsteuer. Bei starker Verschmutzung oder Tierhaaren nennen wir vorher einen Aufpreis — nie im Nachhinein.</p>
+        <a class="btn btn--wide" href="#kontakt" data-summe-senden>Auswahl anfragen</a>
+      </aside>
     </div>
-
-    <p class="pending reveal"><span><strong>Preise sind ein Vorschlag, noch nicht freigegeben.</strong> Sie sind auf mobilen Premium-Service in Berlin gerechnet und liegen bewusst über dem Niveau stationärer Anbieter — Anfahrt, autarkes Arbeiten und die Zielgruppe rechtfertigen das. Sag mir deine echten Zahlen, dann tausche ich sie aus und die Kennzeichnung verschwindet.</span></p>
-
-    <!-- Zusatzleistungen -->
-    <div class="section-head reveal" style="margin-top: clamp(5rem, 9vw, 8rem); margin-bottom: clamp(2.5rem, 5vw, 4rem);">
-      <p class="eyebrow">Zusatzleistungen</p>
-      <h2 class="title title--sm">Einzeln buchbar,<br>zu jedem Paket.</h2>
-      <p class="intro">Auch die Beträge unten sind Vorschläge und stehen erst nach deiner Freigabe fest.</p>
-    </div>
-
-    <div class="table-scroll reveal">
-      <table class="addons">
-        <caption class="sr-only">Optionale Zusatzleistungen</caption>
-        <thead>
-          <tr>
-            <th scope="col">Leistung</th>
-            <th scope="col">Beschreibung</th>
-            <th scope="col">Preis</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Lederreinigung &amp; -pflege</th><td>Gereinigt, rückgefettet und imprägniert</td><td>ab 59 &euro;</td></tr>
-          <tr><th scope="row">Polsterreinigung</th><td>Tiefenreinigung von Stoff und Alcantara</td><td>ab 49 &euro;</td></tr>
-          <tr><th scope="row">Tierhaarentfernung</th><td>Je nach Menge und Polsterart</td><td>ab 39 &euro;</td></tr>
-          <tr><th scope="row">Geruchsbeseitigung</th><td>Gegen Rauch- und Tiergeruch</td><td>ab 69 &euro;</td></tr>
-          <tr><th scope="row">Dachhimmelreinigung</th><td>Schonend, ohne Ausbau</td><td>ab 49 &euro;</td></tr>
-          <tr><th scope="row">Motorraumreinigung</th><td>Gereinigt und konserviert</td><td>ab 59 &euro;</td></tr>
-          <tr><th scope="row">Felgenintensivreinigung</th><td>Eingebrannter Bremsstaub gelöst</td><td>ab 49 &euro;</td></tr>
-          <tr><th scope="row">Lackpolitur</th><td>Ein- bis mehrstufig, nach Lackzustand</td><td>ab 199 &euro;</td></tr>
-          <tr><th scope="row">Keramikversiegelung</th><td>Langzeitschutz für den Lack</td><td>ab 399 &euro;</td></tr>
-          <tr><th scope="row">Scheinwerferaufbereitung</th><td>Vergilbung entfernt, poliert, versiegelt</td><td>ab 79 &euro;</td></tr>
-          <tr><th scope="row">Sonderreinigung</th><td>Bei extremer Verschmutzung, nach Aufwand</td><td>nach Aufwand</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="fineprint reveal"><strong>Der finale Preis</strong> hängt von Fahrzeuggröße, Verschmutzungsgrad und gewünschtem Leistungsumfang ab. Ein Kleinwagen kostet weniger als ein SUV, ein gepflegtes Fahrzeug weniger als eines mit Tierhaaren. Nach kurzer Sichtung oder anhand deiner Fotos bekommst du einen verbindlichen Festpreis — kostenfrei und ohne Verpflichtung.</p>
   </div>
 </section>
 
@@ -313,179 +456,187 @@
 </section>
 
 <!-- ======================================================================
-     Results — echte Detail- und Prozessaufnahmen
-     ====================================================================== -->
-<section class="section" id="results">
-  <div class="shell">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <p class="eyebrow">Selected Work</p>
-        <h2 class="title">The <em>results.</em></h2>
-      </div>
-      <p class="intro">Kein Hochglanzkatalog, sondern Aufnahmen aus der laufenden Arbeit. Wer Felgen und Fugen so sauber bekommt, kann auch den Rest.</p>
-    </div>
-
-    <div class="works reveal">
-
-      <figure class="work work--lead">
-        <div class="work__media">
-          <img src="assets/img/sq8-aussen.jpg" alt="Schwarzer Audi SQ8 nach der Aufbereitung, der Lack spiegelt die Umgebung" loading="lazy" width="742" height="1331">
-        </div>
-        <figcaption>
-          <h3>Nach der Aufbereitung</h3>
-          <span class="work__kind">Audi SQ8</span>
-          <p class="work__note">Kein Wasserfleck, kein Schleier. Der Lack gibt das Licht sauber zurück — daran erkennt man, ob wirklich gearbeitet wurde.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="work work--side">
-        <div class="work__media">
-          <img src="assets/img/detail-felge.jpg" alt="Schwarze Felge mit rotem Bremssattel nach der Reinigung, ohne Bremsstaub" loading="lazy" width="742" height="1331">
-        </div>
-        <figcaption>
-          <h3>Felgen</h3>
-          <span class="work__kind">Detail</span>
-          <p class="work__note">Bis zwischen die Speichen, nicht nur außen herum.</p>
-        </figcaption>
-      </figure>
-
-      <figure class="work work--third">
-        <div class="work__media">
-          <img src="assets/img/prozess-felge.jpg" alt="Felge wird mit Schaum und der Hand gereinigt" loading="lazy" width="742" height="1331">
-        </div>
-        <figcaption>
-          <h3>Handarbeit</h3>
-          <span class="work__kind">Prozess</span>
-        </figcaption>
-      </figure>
-
-      <figure class="work work--third">
-        <div class="work__media">
-          <img src="assets/img/detail-emblem.jpg" alt="S-line-Emblem auf frisch versiegeltem Lack mit klarer Spiegelung" loading="lazy" width="742" height="1331">
-        </div>
-        <figcaption>
-          <h3>Lack</h3>
-          <span class="work__kind">Detail</span>
-        </figcaption>
-      </figure>
-
-      <figure class="work work--third work--film">
-        <div class="work__media">
-          <video
-            poster="assets/img/interieur-berlin-poster.jpg"
-            muted loop playsinline preload="none"
-            data-inview-video
-            aria-label="Innenraum eines Fahrzeugs während der Aufbereitung, Lenkrad noch unter Schutzfolie">
-            <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
-            <source src="assets/video/interieur-berlin.webm" type="video/webm">
-          </video>
-          <span class="work__film-badge">Film</span>
-        </div>
-        <figcaption>
-          <h3>Innenraum</h3>
-          <span class="work__kind">Berlin</span>
-        </figcaption>
-      </figure>
-
-    </div>
-
-    <p class="pending reveal"><span><strong>Weitere Fahrzeuge, noch ohne Aufnahmen:</strong> BMW M4, BMW X3 M Sport, Mercedes CLA, Mercedes A-Klasse. Sobald du davon Fotos oder Videos hast, bekommen sie hier ihren Platz.</span></p>
-  </div>
-</section>
-
-<!-- ======================================================================
-     Clients — benannte Cases, danach die Kundengruppen
+     Kunden & Partner
      ====================================================================== -->
 <section class="section" id="clients" style="background: var(--ink-raised); border-block: 1px solid var(--line-soft);">
   <div class="shell">
     <div class="section-head section-head--split reveal">
       <div>
-        <p class="eyebrow">Trusted by</p>
-        <h2 class="title">Clients <em>&amp; Partners.</em></h2>
+        <p class="eyebrow">Kunden &amp; Partner</p>
+        <h2 class="title">Wer uns <em>vertraut.</em></h2>
       </div>
-      <p class="intro">Künstler, Privatkunden mit hochwertigen Fahrzeugen, Unternehmen und Autovermietungen. Im Mittelpunkt steht das Fahrzeug — und was daran gemacht wurde.</p>
+      <p class="intro">Künstler, Unternehmen und Privatkunden mit hochwertigen Fahrzeugen. Klick auf eine Karte, um die Arbeiten zu sehen.</p>
     </div>
 
-    <!-- Case: Marlo -->
-    <article class="case reveal">
-      <div class="case__intro">
-        <p class="case__label">HAUFE SHINE Client</p>
-        <h3 class="case__name">Marlo</h3>
-        <dl class="case__meta">
-          <div><dt>Fahrzeug</dt><dd>Audi SQ8</dd></div>
-          <div><dt>Leistung</dt><dd>Premium</dd></div>
-        </dl>
-        <p class="case__note">Von der Schaumwäsche bis zum fertigen Wagen: rautengesteppte Sitze, Alcantara im Fußraum, Carbon-Einlagen und Ambientelinien im Detail. Am Ende steht er wieder da, als käme er vom Hof.</p>
-      </div>
-
-      <div class="case__media">
-        <figure class="case__film">
-          <video
-            poster="assets/img/marlo-sq8-poster.jpg"
-            muted loop playsinline preload="none"
-            data-inview-video
-            aria-label="Audi SQ8 von Marlo während der Schaumwäsche">
-            <source src="assets/video/marlo-sq8.mp4" type="video/mp4">
-            <source src="assets/video/marlo-sq8.webm" type="video/webm">
-          </video>
-          <figcaption class="case__film-cap">Schaumwäsche</figcaption>
-        </figure>
-
-        <figure class="case__film">
-          <video
-            poster="assets/img/marlo-sq8-ergebnis-poster.jpg"
-            muted loop playsinline preload="none"
-            data-inview-video
-            aria-label="Der fertig aufbereitete Audi SQ8 von Marlo auf der Straße und in der Halle">
-            <source src="assets/video/marlo-sq8-ergebnis.mp4" type="video/mp4">
-            <source src="assets/video/marlo-sq8-ergebnis.webm" type="video/webm">
-          </video>
-          <figcaption class="case__film-cap">Ergebnis &middot; Berlin</figcaption>
-        </figure>
-
-        <figure class="case__still">
-          <img src="assets/img/sq8-innenraum.jpg" alt="Sitz des Audi SQ8 mit Rautensteppung, Carbon-Verkleidung und Ambientebeleuchtung" loading="lazy" width="742" height="1331">
-          <figcaption class="case__film-cap">Innenraum</figcaption>
-        </figure>
-      </div>
-    </article>
-
-    <!-- Case: Bane — Aufnahmen liegen noch nicht vor -->
-    <article class="case case--text reveal">
-      <div class="case__intro">
-        <p class="case__label">HAUFE SHINE Client</p>
-        <h3 class="case__name">Bane</h3>
-        <dl class="case__meta">
-          <div><dt>Fahrzeug</dt><dd>Mercedes-AMG GLE 63</dd></div>
-          <div><dt>Leistung</dt><dd>Komplett</dd></div>
-        </dl>
-      </div>
-      <p class="case__note case__note--wide">Perforiertes Leder, AMG-Einstiegsleisten und das Widescreen-Cockpit im Detail. Roter Ambienteverlauf und Chrom ohne einen einzigen Fingerabdruck. <span class="case__soon">Aufnahmen folgen.</span></p>
-    </article>
-
-    <!-- Kundengruppen -->
-    <div class="section-head reveal" style="margin-top: clamp(5rem, 9vw, 8rem); margin-bottom: clamp(2.5rem, 5vw, 3.5rem);">
-      <h3 class="title title--sm">Wer sonst noch zu uns kommt.</h3>
+    <!-- Kategorien -->
+    <div class="tabs reveal" role="tablist" aria-label="Kundengruppe wählen">
+      <button class="tab" role="tab" id="tab-artists" aria-controls="panel-artists" aria-selected="true" type="button">Artists</button>
+      <button class="tab" role="tab" id="tab-vermietung" aria-controls="panel-vermietung" aria-selected="false" type="button">Autovermietungen</button>
+      <button class="tab" role="tab" id="tab-privat" aria-controls="panel-privat" aria-selected="false" type="button">Privat &amp; Flotten</button>
     </div>
 
-    <dl class="clients reveal">
-      <div class="client">
-        <dt>Privatkunden</dt>
-        <dd>Sport- und Luxusfahrzeuge, gepflegt von Menschen, denen ihr Auto etwas bedeutet.</dd>
+    <!-- Artists -->
+    <div class="tab-panel reveal" role="tabpanel" id="panel-artists" aria-labelledby="tab-artists">
+      <div class="kunden-karten">
+
+        <details class="kunde">
+          <summary>
+            <div class="kunde__portrait">
+              <div class="platz platz--gross"><span>Foto Marlo<br>folgt</span></div>
+              <div class="kunde__text">
+                <p class="kunde__rolle">Artist</p>
+                <p class="kunde__name">Marlo</p>
+                <p class="kunde__fahrzeuge">Audi SQ8 · Premium</p>
+              </div>
+            </div>
+            <p class="kunde__mehr">Arbeiten ansehen</p>
+          </summary>
+
+          <div class="kunde__galerie">
+            <figure class="kunde__medium">
+              <video poster="assets/img/marlo-sq8-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Audi SQ8 von Marlo bei der Schaumwäsche">
+                <source src="assets/video/marlo-sq8.mp4" type="video/mp4">
+                <source src="assets/video/marlo-sq8.webm" type="video/webm">
+              </video>
+              <figcaption>Schaumwäsche</figcaption>
+            </figure>
+
+            <figure class="kunde__medium">
+              <video poster="assets/img/marlo-sq8-ergebnis-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Der fertige Audi SQ8 in Berlin">
+                <source src="assets/video/marlo-sq8-ergebnis.mp4" type="video/mp4">
+                <source src="assets/video/marlo-sq8-ergebnis.webm" type="video/webm">
+              </video>
+              <figcaption>Ergebnis · Berlin</figcaption>
+            </figure>
+
+            <figure class="kunde__medium">
+              <div class="platz"><span>SQ8<br>Innenraum</span></div>
+              <figcaption>Innenraum</figcaption>
+            </figure>
+
+            <figure class="kunde__medium">
+              <div class="platz"><span>SQ8<br>Cockpit</span></div>
+              <figcaption>Cockpit</figcaption>
+            </figure>
+          </div>
+        </details>
+
+        <details class="kunde">
+          <summary>
+            <div class="kunde__portrait">
+              <div class="platz platz--gross"><span>Foto Bane<br>folgt</span></div>
+              <div class="kunde__text">
+                <p class="kunde__rolle">Artist</p>
+                <p class="kunde__name">Bane</p>
+                <p class="kunde__fahrzeuge">Mercedes-AMG GLE Coupé · Komplett</p>
+              </div>
+            </div>
+            <p class="kunde__mehr">Arbeiten ansehen</p>
+          </summary>
+
+          <div class="kunde__galerie">
+            <figure class="kunde__medium">
+              <video poster="assets/img/bane-gle-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Mercedes-AMG GLE Coupé von Bane in Berlin">
+                <source src="assets/video/bane-gle.mp4" type="video/mp4">
+                <source src="assets/video/bane-gle.webm" type="video/webm">
+              </video>
+              <figcaption>Ergebnis · Berlin</figcaption>
+            </figure>
+
+            <figure class="kunde__medium">
+              <div class="platz"><span>GLE 63<br>Cockpit</span></div>
+              <figcaption>Cockpit</figcaption>
+            </figure>
+            <figure class="kunde__medium">
+              <div class="platz"><span>GLE 63<br>Sitze</span></div>
+              <figcaption>Leder</figcaption>
+            </figure>
+            <figure class="kunde__medium">
+              <div class="platz"><span>GLE 63<br>Einstieg</span></div>
+              <figcaption>AMG-Einstieg</figcaption>
+            </figure>
+          </div>
+        </details>
+
       </div>
-      <div class="client">
-        <dt>Autovermietungen</dt>
-        <dd>Fahrzeuge, die zwischen zwei Buchungen wieder aussehen müssen wie beim ersten Mal.</dd>
+    </div>
+
+    <!-- Autovermietungen -->
+    <div class="tab-panel reveal" role="tabpanel" id="panel-vermietung" aria-labelledby="tab-vermietung" hidden>
+      <p class="pending" style="margin-top: 0;"><span><strong>Wird gerade zusammengestellt.</strong> Namen und Logos der Vermietungen kommen hier hin, sobald die Freigaben vorliegen. Der Bereich ist angelegt und wartet nur auf Inhalte.</span></p>
+    </div>
+
+    <!-- Privat & Flotten -->
+    <div class="tab-panel reveal" role="tabpanel" id="panel-privat" aria-labelledby="tab-privat" hidden>
+      <div class="kunden-karten">
+
+        <details class="kunde">
+          <summary>
+            <div class="kunde__portrait">
+              <div class="platz platz--gross"><span>Mercedes<br>A-Klasse</span></div>
+              <div class="kunde__text">
+                <p class="kunde__rolle">Privatkunde</p>
+                <p class="kunde__name">A-Klasse</p>
+                <p class="kunde__fahrzeuge">Rotes Leder · Komplett</p>
+              </div>
+            </div>
+            <p class="kunde__mehr">Arbeiten ansehen</p>
+          </summary>
+          <div class="kunde__galerie">
+            <figure class="kunde__medium"><div class="platz"><span>Innenraum</span></div><figcaption>Innenraum</figcaption></figure>
+            <figure class="kunde__medium"><div class="platz"><span>Sitze</span></div><figcaption>Rotes Leder</figcaption></figure>
+          </div>
+        </details>
+
+        <details class="kunde">
+          <summary>
+            <div class="kunde__portrait">
+              <div class="platz platz--gross"><span>BMW M4</span></div>
+              <div class="kunde__text">
+                <p class="kunde__rolle">Privatkunde</p>
+                <p class="kunde__name">BMW M4</p>
+                <p class="kunde__fahrzeuge">Carbon-Schalensitze · Premium</p>
+              </div>
+            </div>
+            <p class="kunde__mehr">Arbeiten ansehen</p>
+          </summary>
+          <div class="kunde__galerie">
+            <figure class="kunde__medium"><div class="platz"><span>Cockpit</span></div><figcaption>Cockpit</figcaption></figure>
+            <figure class="kunde__medium"><div class="platz"><span>Weißes Leder</span></div><figcaption>Schalensitze</figcaption></figure>
+          </div>
+        </details>
+
+        <details class="kunde">
+          <summary>
+            <div class="kunde__portrait">
+              <div class="platz platz--gross"><span>Weitere<br>Fahrzeuge</span></div>
+              <div class="kunde__text">
+                <p class="kunde__rolle">Aus der Werkstatt</p>
+                <p class="kunde__name">Mehr Arbeiten</p>
+                <p class="kunde__fahrzeuge">BMW X3 · Mercedes CLA</p>
+              </div>
+            </div>
+            <p class="kunde__mehr">Arbeiten ansehen</p>
+          </summary>
+          <div class="kunde__galerie">
+            <figure class="kunde__medium">
+              <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Innenraum-Detailing, Lenkrad unter Schutzfolie">
+                <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
+                <source src="assets/video/interieur-berlin.webm" type="video/webm">
+              </video>
+              <figcaption>Im Detail</figcaption>
+            </figure>
+            <figure class="kunde__medium"><div class="platz"><span>BMW X3</span></div><figcaption>BMW X3</figcaption></figure>
+            <figure class="kunde__medium"><div class="platz"><span>Mercedes CLA</span></div><figcaption>Mercedes CLA</figcaption></figure>
+          </div>
+        </details>
+
       </div>
-      <div class="client">
-        <dt>Unternehmen &amp; Flotten</dt>
-        <dd>Regelmäßige Aufbereitung mehrerer Fahrzeuge, terminiert nach eurem Ablauf.</dd>
-      </div>
-      <div class="client client--open">
-        <dt>Partner folgen</dt>
-        <dd>Logos von Vermietungen und Unternehmen kommen hier hin, sobald die Freigaben vorliegen.</dd>
-      </div>
-    </dl>
+    </div>
   </div>
 </section>
 
@@ -712,9 +863,9 @@
 
       <div>
         <span class="wordmark wordmark--sm" style="align-items: flex-start;">
-          <svg class="wordmark__car" viewBox="0 0 240 52" fill="none" aria-hidden="true">
-            <path d="M4 46c14-2 26-9 40-17 18-10 38-18 62-21 26-3 50 1 72 9 20 7 38 17 58 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M62 30c12-8 26-14 42-16 15-2 29-1 42 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <svg class="wordmark__car" viewBox="0 0 240 62" fill="none" aria-hidden="true">
+            <path d="M4 50C22 49 40 45 58 39c14-4.7 26-10.6 40-16.4C112 16.6 127 12 143 11.4c14-.5 27 2.4 38 8.6 9 5 16 11.4 24 17.4 8 6 17 10.6 27 12.4" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
+            <path d="M76 31.4c11-5.4 22-10.4 34-13.4 11-2.8 22-3.4 32-.6 8 2.2 15 6.4 21 11.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <span class="wordmark__name">HAUFE <span>SHINE</span></span>
           <span class="wordmark__rule">Autoaufbereitung</span>
