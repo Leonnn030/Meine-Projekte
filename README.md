@@ -1,18 +1,22 @@
-# Haufe Shine — Autoaufbereitung
+# HAUFE SHINE
 
-Website für Haufe Shine Autoaufbereitung in Stockstadt am Main.
-Statisches HTML, CSS und JavaScript — kein Build-Schritt, keine Abhängigkeiten.
+Website für **HAUFE SHINE** — mobile Premium-Autoaufbereitung in Berlin.
+Statisches HTML, CSS und JavaScript, kein Build-Schritt, keine Abhängigkeiten.
 
 ## Aufbau
 
 ```
-index.html          Startseite (Hero, Leistungen, Ablauf, Projekte, Preise, Über uns, Anfrage, FAQ)
+index.html          Startseite
 impressum.html      Impressum
 datenschutz.html    Datenschutzerklärung
 assets/css/style.css
 assets/js/main.js
-assets/img/         Logo, Hero-Grafik und Projektbilder
+assets/img/         Logo, Hero-Grafik, Fahrzeugbilder
+assets/video/       Aufbereitungsvideos (MP4 + WebM)
 ```
+
+Seitenstruktur: Hero → Statement → Leistungen (3 Pakete + Zusatzleistungen) →
+We come to you → Results → Clients → Kontakt → FAQ → Abschluss-CTA.
 
 ## Lokal ansehen
 
@@ -20,97 +24,111 @@ assets/img/         Logo, Hero-Grafik und Projektbilder
 python3 -m http.server 8000
 ```
 
-Dann http://localhost:8000 im Browser öffnen.
+## Farben
 
-## Was du anpassen solltest
+Die Palette stammt vom Flyer. Alle Werte stehen als CSS-Variablen oben in
+`assets/css/style.css`; dort einmal ändern genügt.
 
-### 1. Eigene Fotos einsetzen
-
-In `assets/img/` liegen Platzhalter als SVG. Ersetze sie durch echte Fotos
-(JPG oder WebP) und passe die Dateiendung in `index.html` an:
-
-| Datei | Verwendung | Empfohlenes Format |
+| Rolle | Token | Wert |
 |---|---|---|
-| `projekt-01.svg` … `projekt-06.svg` | Projektgalerie | 1200 × 900 px, 4:3 |
-| `vorher.svg` / `nachher.svg` | Vergleichsregler | 1600 × 900 px, 16:9 |
-| `hero-fahrzeug.svg` | Fahrzeug im Hero | freigestelltes PNG mit transparentem Hintergrund |
-| `og-bild.jpg` | Vorschaubild beim Teilen | 1200 × 630 px — **fehlt noch** |
+| Grundschwarz | `--ink` / `--background-primary` | `#050505` |
+| Abgesetztes Band | `--ink-raised` / `--background-secondary` | `#0b0b0b` |
+| Fläche | `--ink-panel` / `--surface` | `#111111` |
+| Gold (Kernton) | `--gold` / `--brand-primary` | `#c8942e` |
+| Gold hell | `--gold-light` / `--brand-accent` | `#e3bc6a` |
+| Gold dunkel | `--gold-deep` / `--brand-secondary` | `#8a651b` |
+| Weiß | `--white` / `--text-primary` | `#ffffff` |
+| Fließtext | `--muted` / `--text-secondary` | `#9c9c9c` |
+| Haarlinie | `--line-soft` / `--border-hairline` | `#191919` |
 
-Denk daran, auch den `alt`-Text jedes Bildes anzupassen — er beschreibt, was
-zu sehen ist, und hilft sowohl blinden Besuchern als auch bei Google.
+Neutrale Graustufen ohne Farbstich, wie auf dem Flyer.
 
-### 2. Preise prüfen
+## Offene Punkte
 
-Die Preise in `index.html` (Abschnitt `#preise`) sind Vorschläge. Trag deine
-echten Werte ein oder sag Bescheid, dann passen wir sie gemeinsam an.
+### 1. Preise fehlen
 
-### 3. Rechtstexte vervollständigen
+In den drei Paketen steht `——` statt eines Betrags. Sobald die Preise
+feststehen, in `index.html` im Abschnitt `#leistungen` ersetzen und den
+Hinweiskasten darunter (`<p class="pending">`) entfernen.
 
-In `impressum.html` und `datenschutz.html` sind die offenen Stellen mit
-`[eckigen Klammern]` markiert und zusätzlich in einem gold umrandeten Kasten
-zusammengefasst. **Vor dem Veröffentlichen ausfüllen** — ein unvollständiges
-Impressum kann abgemahnt werden. Offen sind:
+### 2. Impressum unvollständig
+
+In `impressum.html` und `datenschutz.html` sind offene Stellen mit
+`[eckigen Klammern]` markiert. Es fehlen:
 
 - Vor- und Nachname des Inhabers
-- Umsatzsteuer-Identifikationsnummer oder Hinweis auf § 19 UStG (Kleinunternehmer)
+- **Ladungsfähige Berliner Anschrift** — auch ein rein mobiler Betrieb
+  braucht eine; ein Postfach genügt nicht
+- Umsatzsteuer-Identifikationsnummer oder Hinweis auf § 19 UStG
 
-Lass die Texte vor dem Start einmal von jemandem mit Rechtskenntnis prüfen.
+Telefonnummer und E-Mail stammen vom Flyer und sind belegt.
 
-### 4. Anfrageformular
+### 3. Fotos fehlen
 
-Das Formular öffnet aktuell das E-Mail-Programm des Besuchers mit einer fertig
-ausgefüllten Nachricht (`mailto:`). Das funktioniert ohne Server, hat aber zwei
-Haken: auf Geräten ohne eingerichtetes Mail-Programm passiert nichts, und die
-Anfrage landet nicht automatisch bei dir.
+In `assets/img/` liegen Platzhalter (`work-*.svg`) für sechs Fahrzeuge, die
+in den bisherigen Aufnahmen erkennbar waren. Ersetze sie durch echte Fotos
+(JPG oder WebP) und passe die Dateiendung in `index.html` an.
 
-Wenn Anfragen zuverlässig ankommen sollen, brauchst du einen Formular-Dienst
-(z. B. Formspree, Web3Forms) oder ein kleines Server-Skript. Sag Bescheid,
-dann bauen wir das um.
+| Datei | Fahrzeug | Verwendung | Format |
+|---|---|---|---|
+| `work-m4.svg` | BMW M4 | Results, groß | 1600 × 1000, 16:10 |
+| `work-a-klasse-rot.svg` | Mercedes A-Klasse rot | Results, hochkant | 900 × 1200, 3:4 |
+| `work-cla.svg` | Mercedes CLA | Results | 1200 × 900, 4:3 |
+| `work-x3.svg` | BMW X3 | Results | 1200 × 900, 4:3 |
+| `work-sq8.svg` | Audi SQ8 | Case Marlo | hochkant, 9:16 |
+| `work-gle-amg.svg` | Mercedes-AMG GLE 63 | Case Bane | 1600 × 1000, 16:10 |
+| `og-bild.jpg` | — | Vorschau beim Teilen | 1200 × 630 — **fehlt** |
 
-### 5. Adresse prüfen
+Auch die `alt`-Texte anpassen, sobald die echten Bilder drin sind.
 
-Auf dem Flyer steht `Untermainstraße 24, 63811 Stockstadt am Main` — diese
-Adresse ist überall auf der Seite eingetragen. Der Google-Maps-Eintrag zeigt
-allerdings auf Berlin. Bitte klär, welche Angabe stimmt, und korrigiere sie
-gegebenenfalls in `index.html`, `impressum.html`, `datenschutz.html` und im
-strukturierten Datenblock (`application/ld+json`) im `<head>` der Startseite.
+Für den Hero fehlt weiterhin eine **Außenaufnahme**. Alle bisherigen Fotos
+sind Innenraumaufnahmen; aktuell steht dort eine gezeichnete Fahrzeuggrafik.
+
+### 4. Kundennennung freigeben lassen
+
+Die Cases nennen **Marlo** (Audi SQ8) und **Bane** (Mercedes-AMG GLE 63)
+namentlich. Vor dem Veröffentlichen eine schriftliche Freigabe beider
+einholen — bei bekannten Personen greift das Persönlichkeitsrecht.
+
+### 5. Anfrageformular
+
+Das Formular öffnet das E-Mail-Programm des Besuchers (`mailto:`). Das
+funktioniert ohne Server, aber Anfragen landen nicht automatisch im
+Postfach. Für zuverlässigen Empfang einen Formular-Dienst (Formspree,
+Web3Forms) oder ein kleines Server-Skript ergänzen. WhatsApp ist aktuell
+der verlässlichste Kanal und deshalb überall prominent verlinkt.
+
+## Videos
+
+`assets/video/marlo-sq8.mp4` (900 KB) mit `marlo-sq8.webm` als Fallback.
+Beide ohne Tonspur, weil Autoplay nur stumm erlaubt ist.
+
+Videos laden mit `preload="none"` und starten erst, wenn sie im sichtbaren
+Bereich sind; verlassen sie ihn, pausieren sie wieder. Neue Videos nach
+demselben Muster einbinden:
+
+```bash
+ffmpeg -i original.mov -an -c:v libx264 -crf 28 -preset slow \
+  -movflags +faststart -pix_fmt yuv420p ausgabe.mp4
+ffmpeg -i ausgabe.mp4 -frames:v 1 -ss 4 -q:v 4 poster.jpg
+```
+
+Am `<video>`-Element `data-inview-video` setzen, dann übernimmt
+`assets/js/main.js` den Rest.
 
 ## Veröffentlichen
 
-Die Seite braucht keinen Build. Alle Dateien auf einen Webspace hochladen —
-fertig. Alternativ über GitHub Pages: in den Repository-Einstellungen unter
-*Pages* den gewünschten Branch auswählen.
-
-Wenn die Seite unter `haufeshine.com` läuft, in den Pages-Einstellungen die
-eigene Domain eintragen und beim Domain-Anbieter den passenden DNS-Eintrag
-setzen.
-
-## Farben
-
-Die Palette folgt dem Flyer. Alle Werte stehen als CSS-Variablen ganz oben in
-`assets/css/style.css` — dort einmal ändern genügt, die ganze Seite zieht nach.
-
-| Rolle | Wert |
-|---|---|
-| Grundschwarz | `#050505` |
-| Abgesetztes Band | `#0b0b0b` |
-| Gold (Kernton) | `#c8942e` |
-| Gold hell | `#e3bc6a` |
-| Gold dunkel | `#8a651b` |
-| Weiß | `#ffffff` |
-| Fließtext | `#9c9c9c` |
-
-Bewusst neutrale Graustufen ohne Farbstich — genau wie auf dem Flyer.
+Kein Build nötig — alle Dateien auf einen Webspace hochladen. Alternativ
+GitHub Pages: in den Repository-Einstellungen unter *Pages* den Branch
+auswählen und die eigene Domain eintragen.
 
 ## Technische Hinweise
 
-- Die Seite ist bewusst durchgehend dunkel gehalten — Schwarz und Gold sind
-  die Markenfarben, ein heller Modus würde diese Wirkung brechen.
-- Gestaltet wird über Schwarzraum und Haarlinien, nicht über Rahmen. Der
-  einzige echte Rahmen auf der Seite ist das Siegel aus dem Flyer — und genau
-  deshalb fällt er auf.
-- Schriften kommen von Google Fonts. Wer das vermeiden möchte (Datenschutz),
-  kann sie herunterladen und lokal einbinden; die Datenschutzerklärung ist
-  dann entsprechend zu kürzen.
+- Durchgehend dunkel gehalten: Schwarz und Gold sind die Markenfarben.
+- Gestaltet über Schwarzraum und Haarlinien, nicht über Rahmen. Der einzige
+  Rahmen ist das Siegel aus dem Flyer — deshalb fällt er auf.
+- Ein Vorher/Nachher-Regler ist bewusst **nicht** eingebaut, solange keine
+  passenden Bildpaare vorliegen. Die Struktur lässt sich später ergänzen.
 - Alle Animationen respektieren `prefers-reduced-motion`.
-- Getestet in Chromium bei 390 px und 1440 px Breite, ohne horizontales Scrollen.
+- Strukturierte Daten als `AutoDetailing` (schema.org) im `<head>`.
+- Textkontraste liegen über 7:1, getestet bei 390 px und 1440 px.

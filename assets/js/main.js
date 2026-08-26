@@ -97,59 +97,55 @@
   }
 
   /* ------------------------------------------------------------------------
-     Vorher/Nachher-Regler
+     Videos: erst laden und abspielen, wenn die Karte im Bild ist
      ---------------------------------------------------------------------- */
-  document.querySelectorAll("[data-compare]").forEach(function (box) {
-    var handle = box.querySelector(".compare__handle");
-    if (!handle) return;
+  var videos = document.querySelectorAll("[data-inview-video]");
 
-    var dragging = false;
+  if (videos.length && "IntersectionObserver" in window && !reduceMotion) {
+    var videoSpy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var video = entry.target;
 
-    var setPosition = function (percent) {
-      var value = Math.min(100, Math.max(0, percent));
-      box.style.setProperty("--pos", value + "%");
-      handle.setAttribute("aria-valuenow", String(Math.round(value)));
-    };
-
-    var fromEvent = function (event) {
-      var bounds = box.getBoundingClientRect();
-      setPosition(((event.clientX - bounds.left) / bounds.width) * 100);
-    };
-
-    setPosition(50);
-
-    box.addEventListener("pointerdown", function (event) {
-      dragging = true;
-      box.setPointerCapture(event.pointerId);
-      fromEvent(event);
-    });
-
-    box.addEventListener("pointermove", function (event) {
-      if (dragging) fromEvent(event);
-    });
-
-    ["pointerup", "pointercancel"].forEach(function (name) {
-      box.addEventListener(name, function (event) {
-        dragging = false;
-        if (box.hasPointerCapture(event.pointerId)) {
-          box.releasePointerCapture(event.pointerId);
+        if (entry.isIntersecting) {
+          // Bei preload="none" hat der Browser die Quelle noch nicht
+          // ausgewählt — load() holt das nach, bevor play() greift.
+          if (video.preload === "none") {
+            video.preload = "auto";
+            video.load();
+          }
+          var start = video.play();
+          // Manche Browser lehnen Autoplay ab — dann bleibt das Poster stehen.
+          if (start && start.catch) start.catch(function () {});
+        } else if (!video.paused) {
+          video.pause();
         }
       });
-    });
+    }, { threshold: 0.4 });
 
-    handle.addEventListener("keydown", function (event) {
-      var current = Number(handle.getAttribute("aria-valuenow")) || 50;
-      var step = event.shiftKey ? 10 : 2;
+    videos.forEach(function (video) { videoSpy.observe(video); });
+  }
 
-      if (event.key === "ArrowLeft")       setPosition(current - step);
-      else if (event.key === "ArrowRight") setPosition(current + step);
-      else if (event.key === "Home")       setPosition(0);
-      else if (event.key === "End")        setPosition(100);
-      else return;
+  /* ------------------------------------------------------------------------
+     Mobiler Sticky-CTA: erscheint nach dem Hero, tritt am Seitenende zurück
+     ---------------------------------------------------------------------- */
+  var stickyCta = document.querySelector("[data-sticky-cta]");
+  var hero = document.querySelector(".hero");
+  var closing = document.querySelector(".closing");
 
-      event.preventDefault();
-    });
-  });
+  if (stickyCta && hero) {
+    var updateSticky = function () {
+      var heroVorbei = window.scrollY > hero.offsetHeight * 0.75;
+      var amAbschluss = closing
+        ? closing.getBoundingClientRect().top < window.innerHeight * 0.9
+        : false;
+
+      stickyCta.classList.toggle("is-shown", heroVorbei && !amAbschluss);
+    };
+
+    updateSticky();
+    window.addEventListener("scroll", updateSticky, { passive: true });
+    window.addEventListener("resize", updateSticky, { passive: true });
+  }
 
   /* ------------------------------------------------------------------------
      Paketauswahl aus der Preistabelle ins Formular übernehmen
