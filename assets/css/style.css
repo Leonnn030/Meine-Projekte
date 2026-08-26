@@ -1757,12 +1757,27 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .kunde__portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 22%;
   transition: transform 1s var(--ease);
 }
+
+.kunde__portrait .platz { position: absolute; inset: 0; }
+
+/* Das Bild liegt über dem Platzhalter und blendet sich ein, sobald es
+   geladen ist. Fehlt die Datei, bleibt es unsichtbar. */
+img[data-optional] {
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+img[data-optional].ist-da { opacity: 1; }
+
+.platz[hidden] { display: none; }
 
 .kunde:hover .kunde__portrait img { transform: scale(1.04); }
 
@@ -1859,10 +1874,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .kunde__medium img,
 .kunde__medium video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+.kunde__medium .platz { position: absolute; inset: 0; }
 
 .kunde__medium figcaption {
   position: absolute;
