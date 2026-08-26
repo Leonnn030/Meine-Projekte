@@ -1790,6 +1790,25 @@ img[data-optional].ist-da { opacity: 1; }
   pointer-events: none;
 }
 
+/* Profilkarte: der Name steht schon im Screenshot, deshalb kein
+   Verlauf darüber — die Hörerzahl soll lesbar bleiben. */
+.kunde__portrait--profil { aspect-ratio: 4 / 3; }
+
+.kunde__portrait--profil img { object-position: center top; }
+
+.kunde__portrait--profil::after { display: none; }
+
+.kunde__unten {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  padding: 1.1rem 1.4rem 0.3rem;
+}
+
+.kunde__unten .kunde__fahrzeuge { margin-top: 0; }
+
 .kunde__text {
   position: absolute;
   inset-inline: 0;

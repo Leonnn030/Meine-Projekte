@@ -1,48 +1,39 @@
-# Fotos einsetzen
+# Fotos in diesem Ordner
 
-Leg die Bilder mit **genau diesen Dateinamen** in diesen Ordner. Sie
-erscheinen dann von selbst auf der Website — am Code muss nichts geändert
-werden. Fehlt eine Datei, bleibt an ihrer Stelle ein ruhiger Platzhalter.
+Alle Bilder liegen mit festen Dateinamen hier. Wer eines austauschen will,
+lädt einfach eine neue Datei mit **demselben Namen** hoch — die Seite zieht
+sie automatisch, am Code muss nichts geändert werden.
 
-## Kunden & Partner → Artists
+## Belegt
 
 | Dateiname | Motiv |
 |---|---|
-| `marlo-portrait.jpg` | Porträt Marlo (Kartenbild, Hochformat) |
-| `sq8-innenraum.jpg` | Audi SQ8, Innenraum |
-| `sq8-cockpit.jpg` | Audi SQ8, Cockpit |
-| `bane-portrait.jpg` | Porträt Bane (Kartenbild, Hochformat) |
+| `marlo-portrait.jpg` | Spotify-Profil Marlo |
+| `sq8-innenraum.jpg` | Audi SQ8, Rautensteppung |
+| `sq8-cockpit.jpg` | Audi SQ8, Türansicht mit Ambientelicht |
+| `bane-portrait.jpg` | Spotify-Profil Bane |
 | `gle-cockpit.jpg` | Mercedes-AMG GLE, Cockpit |
-| `gle-sitze.jpg` | Mercedes-AMG GLE, Ledersitze |
-| `gle-einstieg.jpg` | Mercedes-AMG GLE, AMG-Einstiegsleiste |
+| `gle-sitze.jpg` | Mercedes-AMG GLE, Sitz und AMG-Einstieg |
+| `a-klasse-rot.jpg` | Mercedes A-Klasse, rotes Leder |
+| `bmw-m4.jpg` | BMW M4, Carbon-Schalensitze |
+| `bmw-x3.jpg` | BMW X3 M Sport |
+| `mercedes-cla.jpg` | Mercedes CLA, rote Ziernähte |
+| `weitere.jpg` | Kartenbild „Mehr Arbeiten" |
 
-## Kunden & Partner → Privat & Flotten
+## Noch frei
 
-| Dateiname | Motiv |
+| Dateiname | Wo es erscheint |
 |---|---|
-| `a-klasse-rot.jpg` | Mercedes A-Klasse rot (Kartenbild) |
-| `a-klasse-innen.jpg` | A-Klasse, Innenraum |
-| `a-klasse-sitze.jpg` | A-Klasse, rote Ledersitze |
-| `bmw-m4.jpg` | BMW M4 (Kartenbild) |
-| `m4-cockpit.jpg` | BMW M4, Cockpit |
-| `m4-sitze.jpg` | BMW M4, weiße Schalensitze |
-| `weitere.jpg` | Kartenbild für „Mehr Arbeiten" |
-| `bmw-x3.jpg` | BMW X3 M Sport, Innenraum |
-| `mercedes-cla.jpg` | Mercedes CLA, Innenraum |
+| `gle-einstieg.jpg` | Galerie Bane, dritte Kachel |
+| `a-klasse-innen.jpg` | Galerie A-Klasse |
+| `a-klasse-sitze.jpg` | Galerie A-Klasse |
+| `m4-cockpit.jpg` | Galerie BMW M4 |
+| `m4-sitze.jpg` | Galerie BMW M4 |
+| `og-bild.jpg` | Vorschaubild beim Teilen, 1200 × 630 |
 
 ## Hinweise
 
-- **Format:** JPG. Hochformat passt am besten, die Bilder werden
-  automatisch beschnitten.
-- **Größe:** 1200–2000 Pixel lange Kante reicht völlig. Größere Dateien
-  machen die Seite nur langsam.
-- **Kennzeichen:** Bitte vorher unkenntlich machen, falls eines zu lesen
-  ist — ein Kfz-Kennzeichen ist ein personenbezogenes Datum.
-
-## Hochladen über GitHub
-
-1. Repository im Browser öffnen, in den Ordner `assets/img` wechseln
-2. **Add file → Upload files**
-3. Bilder hineinziehen, unten **Commit changes**
-
-Das funktioniert auch am Handy.
+- **JPG**, lange Kante 1200–1600 Pixel. Größer bringt nichts und macht die
+  Seite nur langsam.
+- **Kennzeichen** vorher unkenntlich machen — ein Kfz-Kennzeichen ist ein
+  personenbezogenes Datum.
