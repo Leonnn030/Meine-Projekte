@@ -191,7 +191,7 @@
   /* ------------------------------------------------------------------------
      Preis-Konfigurator: Fahrzeugklasse, Bereich, Paket, Zusatzleistungen
      ---------------------------------------------------------------------- */
-  var konfig = document.querySelector(".konfig");
+  var konfig = document.getElementById("leistungen");
   var klassen = document.querySelector(".klassen");
 
   if (konfig) {
