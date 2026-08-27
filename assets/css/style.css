@@ -2214,13 +2214,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .post .film__start { z-index: 4; }
 
-/* Auf schmalen Schirmen teilen sich zwei Beiträge die Zeile */
+/* Auf schmalen Schirmen teilen sich zwei Beiträge die Zeile. Feste
+   Breiten statt Anteile: sonst zieht sich ein einzelner Beitrag über die
+   ganze Zeile und wäre doppelt so groß wie die daneben. */
 @media (max-width: 44rem) {
   .storys,
-  .artist__weitere { flex: 1 1 100%; }
+  .artist__weitere { flex: 0 1 auto; }
 
-  .post,
-  .artist__medium { flex: 1 1 calc(50% - 0.6rem); }
+  /* Untereinander gibt es keine rechte Seite mehr, an die etwas rücken
+     müsste — alles beginnt wieder am linken Rand. */
+  .artist--gedreht .artist__inhalt { justify-content: flex-start; }
+
+  .post { flex: 0 0 clamp(8.5rem, 42vw, 12rem); }
+  .artist__medium { flex: 0 0 clamp(7rem, 34vw, 10rem); }
 
   .post__namen b { font-size: 0.66rem; }
   .post__namen span { font-size: 0.55rem; }
