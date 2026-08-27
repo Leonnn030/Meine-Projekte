@@ -159,14 +159,11 @@
 <!-- ======================================================================
      Leistungen und Preise — zum Anklicken
      ====================================================================== -->
-<section class="section" id="leistungen" style="padding-top: clamp(3rem, 6vw, 5.5rem);">
+<section class="section" id="leistungen" style="padding-top: clamp(2rem, 4vw, 3.5rem);">
   <div class="shell">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <p class="eyebrow">Leistungen &amp; Preise</p>
-        <h2 class="title">Stell dir zusammen,<br><em>was dein Auto braucht.</em></h2>
-      </div>
-      <p class="intro">Feste Preise nach Fahrzeugklasse, keine versteckten Posten. Stell dir dein Paket zusammen &mdash; die Summe steht sofort, die Anfrage bleibt unverbindlich.</p>
+    <div class="section-head section-head--mitte reveal">
+      <p class="eyebrow">Leistungen &amp; Preise</p>
+      <h2 class="title">Stell dir zusammen,<br><em>was dein Auto braucht.</em></h2>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Leistungsbereich wählen">
@@ -456,7 +453,7 @@
   <div class="shell">
     <div class="losung reveal">
       <p class="eyebrow">Vorher / Nachher</p>
-      <p class="losung__satz">Sauber kann jeder. Wir arbeiten, <em>bis es aussieht wie am ersten Tag.</em></p>
+      <p class="losung__satz">Sauber machen kann jeder. Wir arbeiten, <em>bis es aussieht wie am ersten Tag.</em></p>
       <p class="losung__zeile">Der ehrlichste Beweis ist derselbe Wagen zweimal: einmal, wie er ankam &mdash; einmal, wie er zur&uuml;ckgeht.</p>
     </div>
 
@@ -497,7 +494,7 @@
         <p class="eyebrow">Kunden &amp; Partner</p>
         <h2 class="title">Wer uns <em>vertraut.</em></h2>
       </div>
-      <p class="intro">Wer sein Fahrzeug in fremde H&auml;nde gibt, tut das nicht leichtfertig. Diese Kunden und Partner haben sich f&uuml;r uns entschieden &mdash; K&uuml;nstler aus Berlin ebenso wie Vermietungen mit ganzen Flotten. Was wir f&uuml;r sie gemacht haben, steht direkt daneben.</p>
+      <p class="intro">Wer sein Fahrzeug in fremde H&auml;nde gibt, tut das nicht leichtfertig. Diese Kunden und Partner vertrauen uns.</p>
     </div>
 
     <div class="tabs reveal" role="tablist" aria-label="Kundenbereich w&auml;hlen">
@@ -516,50 +513,68 @@
           <p class="artist__fahrzeug">Audi SQ8 &middot; Komplettaufbereitung</p>
         </div>
 
-        <div class="artist__arbeiten">
-          <figure class="artist__medium artist__medium--film">
-            <video poster="assets/img/marlo-sq8-poster.jpg" muted loop playsinline preload="none"
-                   data-inview-video aria-label="Audi SQ8 von Marlo bei der Schaumw&auml;sche">
-              <source src="assets/video/marlo-sq8.mp4" type="video/mp4">
-              <source src="assets/video/marlo-sq8.webm" type="video/webm">
-            </video>
-            <button class="film__start" type="button"
-                    data-story-wer="Marlo"
-                    data-story-was="Audi SQ8 &middot; Schaumw&auml;sche">
-              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Schaumw&auml;sche</span>
-            </button>
-            <figcaption>Schaumw&auml;sche</figcaption>
-          </figure>
-          <figure class="artist__medium artist__medium--film">
-            <video poster="assets/img/marlo-sq8-ergebnis-poster.jpg" muted loop playsinline preload="none"
-                   data-inview-video aria-label="Der fertige Audi SQ8 in Berlin">
-              <source src="assets/video/marlo-sq8-ergebnis.mp4" type="video/mp4">
-              <source src="assets/video/marlo-sq8-ergebnis.webm" type="video/webm">
-            </video>
-            <button class="film__start" type="button"
-                    data-story-wer="Marlo"
-                    data-story-was="Audi SQ8 &middot; Ergebnis in Berlin">
-              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Ergebnis in Berlin</span>
-            </button>
-            <figcaption>Ergebnis &middot; Berlin</figcaption>
-          </figure>
-          <figure class="artist__medium artist__medium--film">
-            <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
-                   data-inview-video aria-label="Innenraum-Detailing am Audi SQ8 von Marlo">
-              <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
-              <source src="assets/video/interieur-berlin.webm" type="video/webm">
-            </video>
-            <button class="film__start" type="button"
-                    data-story-wer="Marlo"
-                    data-story-was="Audi SQ8 &middot; Innenraum-Detailing">
-              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Innenraum-Detailing</span>
-            </button>
-            <figcaption>Innenraum-Detailing</figcaption>
-          </figure>
-          <figure class="artist__medium">
-            <img src="assets/img/sq8-cockpit.jpg" alt="Cockpit des Audi SQ8 mit Ambientebeleuchtung" loading="lazy">
-            <figcaption>Cockpit</figcaption>
-          </figure>
+        <div class="artist__inhalt">
+          <!-- Diese beiden Aufnahmen hat Marlo selbst in seiner Story
+               gezeigt — deshalb stehen sie hier auch als Story. -->
+          <div class="storys">
+            <figure class="storykarte">
+              <span class="storykarte__balken" aria-hidden="true"><span class="ist-an"></span><span></span></span>
+              <span class="storykarte__kopf" aria-hidden="true">
+                <span class="storykarte__ring"></span>
+                <span class="storykarte__wer">Marlo</span>
+              </span>
+              <video poster="assets/img/marlo-sq8-ergebnis-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Der fertige Audi SQ8 in Berlin">
+                <source src="assets/video/marlo-sq8-ergebnis.mp4" type="video/mp4">
+                <source src="assets/video/marlo-sq8-ergebnis.webm" type="video/webm">
+              </video>
+              <button class="film__start" type="button"
+                      data-story-wer="Marlo"
+                      data-story-was="Audi SQ8 &middot; Ergebnis in Berlin">
+                <span class="sr-only">Story mit Ton ansehen: Marlo &ndash; Ergebnis in Berlin</span>
+              </button>
+              <figcaption>Ergebnis &middot; Berlin</figcaption>
+            </figure>
+
+            <figure class="storykarte">
+              <span class="storykarte__balken" aria-hidden="true"><span></span><span class="ist-an"></span></span>
+              <span class="storykarte__kopf" aria-hidden="true">
+                <span class="storykarte__ring"></span>
+                <span class="storykarte__wer">Marlo</span>
+              </span>
+              <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Innenraum-Detailing am Audi SQ8 von Marlo">
+                <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
+                <source src="assets/video/interieur-berlin.webm" type="video/webm">
+              </video>
+              <button class="film__start" type="button"
+                      data-story-wer="Marlo"
+                      data-story-was="Audi SQ8 &middot; Innenraum-Detailing">
+                <span class="sr-only">Story mit Ton ansehen: Marlo &ndash; Innenraum-Detailing</span>
+              </button>
+              <figcaption>Innenraum-Detailing</figcaption>
+            </figure>
+          </div>
+
+          <div class="artist__weitere">
+            <figure class="artist__medium artist__medium--film">
+              <video poster="assets/img/marlo-sq8-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Audi SQ8 von Marlo bei der Schaumw&auml;sche">
+                <source src="assets/video/marlo-sq8.mp4" type="video/mp4">
+                <source src="assets/video/marlo-sq8.webm" type="video/webm">
+              </video>
+              <button class="film__start" type="button"
+                      data-story-wer="Marlo"
+                      data-story-was="Audi SQ8 &middot; Schaumw&auml;sche">
+                <span class="sr-only">Video mit Ton ansehen: Schaumw&auml;sche</span>
+              </button>
+              <figcaption>Schaumw&auml;sche</figcaption>
+            </figure>
+            <figure class="artist__medium">
+              <img src="assets/img/sq8-cockpit.jpg" alt="Cockpit des Audi SQ8 mit Ambientebeleuchtung" loading="lazy">
+              <figcaption>Cockpit</figcaption>
+            </figure>
+          </div>
         </div>
       </article>
 
@@ -572,24 +587,34 @@
           <p class="artist__fahrzeug">Mercedes-AMG GLE Coup&eacute; &middot; Komplettaufbereitung</p>
         </div>
 
-        <div class="artist__arbeiten">
-          <figure class="artist__medium artist__medium--film">
-            <video poster="assets/img/bane-gle-poster.jpg" muted loop playsinline preload="none"
-                   data-inview-video aria-label="Mercedes-AMG GLE Coup&eacute; von Bane in Berlin">
-              <source src="assets/video/bane-gle.mp4" type="video/mp4">
-              <source src="assets/video/bane-gle.webm" type="video/webm">
-            </video>
-            <button class="film__start" type="button"
-                    data-story-wer="Bane"
-                    data-story-was="Mercedes-AMG GLE Coup&eacute; &middot; Ergebnis in Berlin">
-              <span class="sr-only">Video mit Ton ansehen: Bane &ndash; Mercedes-AMG GLE Coup&eacute; &middot; Ergebnis in Berlin</span>
-            </button>
-            <figcaption>Ergebnis &middot; Berlin</figcaption>
-          </figure>
-          <figure class="artist__medium">
-            <img src="assets/img/gle-cockpit.jpg" alt="Cockpit des Mercedes-AMG GLE nach der Aufbereitung" loading="lazy">
-            <figcaption>Cockpit</figcaption>
-          </figure>
+        <div class="artist__inhalt">
+          <div class="storys">
+            <figure class="storykarte">
+              <span class="storykarte__balken" aria-hidden="true"><span class="ist-an"></span></span>
+              <span class="storykarte__kopf" aria-hidden="true">
+                <span class="storykarte__ring"></span>
+                <span class="storykarte__wer">Bane</span>
+              </span>
+              <video poster="assets/img/bane-gle-poster.jpg" muted loop playsinline preload="none"
+                     data-inview-video aria-label="Mercedes-AMG GLE Coup&eacute; von Bane in Berlin">
+                <source src="assets/video/bane-gle.mp4" type="video/mp4">
+                <source src="assets/video/bane-gle.webm" type="video/webm">
+              </video>
+              <button class="film__start" type="button"
+                      data-story-wer="Bane"
+                      data-story-was="Mercedes-AMG GLE Coup&eacute; &middot; Ergebnis in Berlin">
+                <span class="sr-only">Story mit Ton ansehen: Bane &ndash; Ergebnis in Berlin</span>
+              </button>
+              <figcaption>Ergebnis &middot; Berlin</figcaption>
+            </figure>
+          </div>
+
+          <div class="artist__weitere">
+            <figure class="artist__medium">
+              <img src="assets/img/gle-cockpit.jpg" alt="Cockpit des Mercedes-AMG GLE nach der Aufbereitung" loading="lazy">
+              <figcaption>Cockpit</figcaption>
+            </figure>
+          </div>
         </div>
       </article>
 

@@ -219,6 +219,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .section-head--split .intro { margin-top: 0; max-width: 42ch; }
 
+/* Mittiger Abschnittskopf — dort, wo die Steuerung darunter mittig steht */
+.section-head--mitte { text-align: center; }
+.section-head--mitte .eyebrow { justify-content: center; }
+
 /* Schaltflächen ---------------------------------------------------------- */
 .btn {
   display: inline-flex;
@@ -499,7 +503,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100svh;
+  min-height: 108svh;
   padding-block: 8.5rem 0;
   overflow: hidden;
   background: var(--ink);
@@ -520,8 +524,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 50%;
-  transform: scale(1.02);
+  object-position: center 46%;
+  transform: scale(1);
   filter: blur(0.8px) brightness(1.12) saturate(0.96) contrast(1.04);
   animation: grund-ruhe 3s var(--ease) both;
 }
@@ -535,9 +539,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(46% 34% at 50% 44%, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.34) 66%, transparent 100%),
-    radial-gradient(126% 94% at 50% 46%, transparent 46%, rgba(5, 5, 5, 0.34) 80%, rgba(5, 5, 5, 0.8) 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.06) 20%, rgba(5, 5, 5, 0.14) 78%, rgba(5, 5, 5, 0.55) 94%, var(--ink) 100%);
+    radial-gradient(42% 26% at 50% 40%, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.34) 68%, transparent 100%),
+    radial-gradient(140% 100% at 50% 40%, transparent 52%, rgba(5, 5, 5, 0.24) 82%, rgba(5, 5, 5, 0.55) 100%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.05) 18%, rgba(5, 5, 5, 0.08) 62%, rgba(5, 5, 5, 0.4) 86%, var(--ink) 100%);
 }
 
 .hero__inner {
@@ -549,6 +553,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 14svh;
 }
 
 .hero__copy { max-width: 46rem; }
@@ -619,7 +624,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero__runter {
   position: absolute;
   left: 50%;
-  bottom: 3.4rem;
+  bottom: 4.5rem;
   z-index: 3;
   width: 1px;
   height: 2.6rem;
@@ -1454,10 +1459,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.6rem;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
+
+#leistungen .tabs { justify-content: center; }
 
 .tab {
   position: relative;
@@ -1944,6 +1950,10 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .artist--gedreht { grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.9fr); }
 .artist--gedreht .artist__kopf { order: 2; }
 
+/* Beim gespiegelten Künstler rückt der Inhalt an das Porträt heran,
+   damit in der Mitte keine Lücke steht. */
+.artist--gedreht .artist__inhalt { justify-content: flex-end; }
+
 .artist__portrait {
   position: relative;
   overflow: hidden;
@@ -1977,14 +1987,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.35;
 }
 
-.artist__arbeiten {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+/* Storys und die übrigen Kacheln stehen nebeneinander, solange sie
+   nebeneinander passen — sonst rutschen die Kacheln darunter. */
+.artist__inhalt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: clamp(0.7rem, 1.4vw, 1.1rem);
+}
+
+/* Die Mindestbreiten verhindern, dass die Karten im Flex-Fluss
+   zusammengedrückt werden — stattdessen bricht die Zeile um. */
+.storys { flex: 0 0 auto; max-width: 100%; }
+.artist__weitere { flex: 0 1 auto; max-width: 100%; }
+
+.artist__weitere {
+  display: flex;
+  flex-wrap: wrap;
   gap: clamp(0.6rem, 1.2vw, 1rem);
 }
 
 .artist__medium {
   position: relative;
+  flex: 0 0 11rem;
   margin: 0;
   aspect-ratio: 3 / 4;
   overflow: hidden;
@@ -2069,6 +2094,118 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .film__start:focus-visible::after { border-left-color: #000; }
 
 .film__start:focus-visible { outline: 2px solid var(--gold-light); outline-offset: -4px; }
+
+/* Storykarten: die drei Aufnahmen, die die Künstler selbst in ihrer Story
+   gezeigt haben, stehen auch hier im Hochformat einer Story — mit
+   Segmentbalken oben, Profilring und Namen. */
+.storys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.7rem, 1.4vw, 1.1rem);
+}
+
+.storykarte {
+  position: relative;
+  flex: 0 0 13.5rem;
+  margin: 0;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--line);
+  box-shadow: 0 26px 60px -40px rgba(0, 0, 0, 0.9);
+}
+
+.storykarte video,
+.storykarte img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ein leichter Schleier oben und unten, damit die Story-Aufschriften
+   auf jedem Bild lesbar bleiben */
+.storykarte::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, transparent 22%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.72) 0%, transparent 26%);
+}
+
+.storykarte__balken {
+  position: absolute;
+  top: 0.5rem;
+  inset-inline: 0.5rem;
+  z-index: 3;
+  display: flex;
+  gap: 0.24rem;
+}
+
+.storykarte__balken span {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.storykarte__balken span.ist-an { background: #fff; }
+
+.storykarte__kopf {
+  position: absolute;
+  top: 1.15rem;
+  inset-inline: 0.6rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Der Ring wie um ein Profilbild — ohne fremdes Bild zu verwenden */
+.storykarte__ring {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #0b0b0b 54%, transparent 55%),
+    conic-gradient(from 200deg, var(--gold-light), var(--gold), var(--gold-deep), var(--gold-light));
+}
+
+.storykarte__wer {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.storykarte figcaption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 0.6rem 0.8rem 0.85rem;
+  color: var(--gold-pale);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.storykarte .film__start { z-index: 4; }
+
+/* Auf schmalen Schirmen teilen sich zwei Karten die Zeile */
+@media (max-width: 44rem) {
+  .storys,
+  .artist__weitere { flex: 1 1 100%; }
+
+  .storykarte,
+  .artist__medium { flex: 1 1 calc(50% - 0.6rem); }
+}
 
 /* --------------------------------------------------------------------------
    12c2. Story-Ansicht — das Video im Hochformat, wie es aufgenommen wurde
@@ -3094,8 +3231,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
   .hero__schleier {
     background:
-      radial-gradient(70% 34% at 50% 42%, rgba(5, 5, 5, 0.74) 0%, rgba(5, 5, 5, 0.36) 70%, transparent 100%),
-      linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.12) 18%, rgba(5, 5, 5, 0.24) 76%, rgba(5, 5, 5, 0.6) 94%, var(--ink) 100%);
+      radial-gradient(72% 26% at 50% 38%, rgba(5, 5, 5, 0.76) 0%, rgba(5, 5, 5, 0.36) 70%, transparent 100%),
+      linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.1) 16%, rgba(5, 5, 5, 0.16) 60%, rgba(5, 5, 5, 0.45) 86%, var(--ink) 100%);
   }
 
   .hero__copy { max-width: 100%; }
