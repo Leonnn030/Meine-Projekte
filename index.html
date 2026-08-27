@@ -159,14 +159,14 @@
 <!-- ======================================================================
      Leistungen und Preise — zum Anklicken
      ====================================================================== -->
-<section class="section" id="leistungen">
+<section class="section" id="leistungen" style="padding-top: clamp(3rem, 6vw, 5.5rem);">
   <div class="shell">
     <div class="section-head section-head--split reveal">
       <div>
         <p class="eyebrow">Leistungen &amp; Preise</p>
         <h2 class="title">Stell dir zusammen,<br><em>was dein Auto braucht.</em></h2>
       </div>
-      <p class="intro">Fahrzeugklasse wählen, Bereich anklicken, Paket aussuchen. Die Summe steht sofort da — und geht mit einem Klick als Anfrage raus.</p>
+      <p class="intro">Feste Preise nach Fahrzeugklasse, keine versteckten Posten. Stell dir dein Paket zusammen &mdash; die Summe steht sofort, die Anfrage bleibt unverbindlich.</p>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Leistungsbereich wählen">
@@ -448,27 +448,16 @@
 </section>
 
 
-<!-- ======================================================================
-     Statement
-     ====================================================================== -->
-<section class="statement statement--klein">
-  <div class="shell reveal">
-    <p>Sauber kann jeder. Wir arbeiten, <em>bis es aussieht wie am ersten Tag.</em></p>
-    <span>Luxus · Präzision · Bequemlichkeit · Berlin</span>
-  </div>
-</section>
 
 <!-- ======================================================================
      Vorher / Nachher — wartet auf Bildpaare
      ====================================================================== -->
 <section class="section section--tight" id="vergleich" style="background: var(--ink-raised); border-block: 1px solid var(--line-soft);">
   <div class="shell">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <p class="eyebrow">Vorher / Nachher</p>
-        <h2 class="title">Sieh den <em>Unterschied.</em></h2>
-      </div>
-      <p class="intro">Der ehrlichste Beweis ist derselbe Wagen zweimal: einmal, wie er ankam &mdash; einmal, wie er zur&uuml;ckgeht.</p>
+    <div class="losung reveal">
+      <p class="eyebrow">Vorher / Nachher</p>
+      <p class="losung__satz">Sauber kann jeder. Wir arbeiten, <em>bis es aussieht wie am ersten Tag.</em></p>
+      <p class="losung__zeile">Der ehrlichste Beweis ist derselbe Wagen zweimal: einmal, wie er ankam &mdash; einmal, wie er zur&uuml;ckgeht.</p>
     </div>
 
     <div class="vergleich reveal">
@@ -508,7 +497,7 @@
         <p class="eyebrow">Kunden &amp; Partner</p>
         <h2 class="title">Wer uns <em>vertraut.</em></h2>
       </div>
-      <p class="intro">K&uuml;nstler und Unternehmen aus Berlin, die ihre Fahrzeuge uns &uuml;berlassen. Die Arbeiten stehen direkt darunter.</p>
+      <p class="intro">Wer sein Fahrzeug in fremde H&auml;nde gibt, tut das nicht leichtfertig. Diese Kunden und Partner haben sich f&uuml;r uns entschieden &mdash; K&uuml;nstler aus Berlin ebenso wie Vermietungen mit ganzen Flotten. Was wir f&uuml;r sie gemacht haben, steht direkt daneben.</p>
     </div>
 
     <div class="tabs reveal" role="tablist" aria-label="Kundenbereich w&auml;hlen">
@@ -528,28 +517,43 @@
         </div>
 
         <div class="artist__arbeiten">
-          <figure class="artist__medium">
+          <figure class="artist__medium artist__medium--film">
             <video poster="assets/img/marlo-sq8-poster.jpg" muted loop playsinline preload="none"
                    data-inview-video aria-label="Audi SQ8 von Marlo bei der Schaumw&auml;sche">
               <source src="assets/video/marlo-sq8.mp4" type="video/mp4">
               <source src="assets/video/marlo-sq8.webm" type="video/webm">
             </video>
+            <button class="film__start" type="button"
+                    data-story-wer="Marlo"
+                    data-story-was="Audi SQ8 &middot; Schaumw&auml;sche">
+              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Schaumw&auml;sche</span>
+            </button>
             <figcaption>Schaumw&auml;sche</figcaption>
           </figure>
-          <figure class="artist__medium">
+          <figure class="artist__medium artist__medium--film">
             <video poster="assets/img/marlo-sq8-ergebnis-poster.jpg" muted loop playsinline preload="none"
                    data-inview-video aria-label="Der fertige Audi SQ8 in Berlin">
               <source src="assets/video/marlo-sq8-ergebnis.mp4" type="video/mp4">
               <source src="assets/video/marlo-sq8-ergebnis.webm" type="video/webm">
             </video>
+            <button class="film__start" type="button"
+                    data-story-wer="Marlo"
+                    data-story-was="Audi SQ8 &middot; Ergebnis in Berlin">
+              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Ergebnis in Berlin</span>
+            </button>
             <figcaption>Ergebnis &middot; Berlin</figcaption>
           </figure>
-          <figure class="artist__medium">
+          <figure class="artist__medium artist__medium--film">
             <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
                    data-inview-video aria-label="Innenraum-Detailing am Audi SQ8 von Marlo">
               <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
               <source src="assets/video/interieur-berlin.webm" type="video/webm">
             </video>
+            <button class="film__start" type="button"
+                    data-story-wer="Marlo"
+                    data-story-was="Audi SQ8 &middot; Innenraum-Detailing">
+              <span class="sr-only">Video mit Ton ansehen: Marlo &ndash; Audi SQ8 &middot; Innenraum-Detailing</span>
+            </button>
             <figcaption>Innenraum-Detailing</figcaption>
           </figure>
           <figure class="artist__medium">
@@ -569,12 +573,17 @@
         </div>
 
         <div class="artist__arbeiten">
-          <figure class="artist__medium">
+          <figure class="artist__medium artist__medium--film">
             <video poster="assets/img/bane-gle-poster.jpg" muted loop playsinline preload="none"
                    data-inview-video aria-label="Mercedes-AMG GLE Coup&eacute; von Bane in Berlin">
               <source src="assets/video/bane-gle.mp4" type="video/mp4">
               <source src="assets/video/bane-gle.webm" type="video/webm">
             </video>
+            <button class="film__start" type="button"
+                    data-story-wer="Bane"
+                    data-story-was="Mercedes-AMG GLE Coup&eacute; &middot; Ergebnis in Berlin">
+              <span class="sr-only">Video mit Ton ansehen: Bane &ndash; Mercedes-AMG GLE Coup&eacute; &middot; Ergebnis in Berlin</span>
+            </button>
             <figcaption>Ergebnis &middot; Berlin</figcaption>
           </figure>
           <figure class="artist__medium">
@@ -600,9 +609,9 @@
     <div class="section-head section-head--split reveal">
       <div>
         <p class="eyebrow">Ergebnisse</p>
-        <h2 class="title" id="arbeiten-titel">Echte Fahrzeuge.<br><em>Echte Arbeit.</em></h2>
+        <h2 class="title" id="arbeiten-titel">Fertig aufbereitet.<br><em>Und wieder unterwegs.</em></h2>
       </div>
-      <p class="intro">Keine Stockfotos, keine Rendering-Tricks. Jede Aufnahme hier ist ein Fahrzeug, das wir in Berlin aufbereitet haben.</p>
+      <p class="intro">Eine Auswahl der Fahrzeuge, die zuletzt bei uns waren. Jede Aufnahme entstand nach der Arbeit, vor Ort in Berlin &mdash; unbearbeitet.</p>
     </div>
 
     <div class="galerie reveal">
@@ -923,6 +932,31 @@
     WhatsApp
   </a>
   <a href="#kontakt">Termin anfragen</a>
+</div>
+
+
+<!-- ======================================================================
+     Story-Ansicht — ein Video in voller Größe, mit Ton
+     ====================================================================== -->
+<div class="story" id="story" hidden>
+  <button class="story__grund" type="button" data-story-zu><span class="sr-only">Schlie&szlig;en</span></button>
+
+  <div class="story__rahmen" role="dialog" aria-modal="true" aria-labelledby="story-wer">
+    <div class="story__balken" aria-hidden="true"><span data-story-fortschritt></span></div>
+
+    <div class="story__kopf">
+      <span class="story__punkt" aria-hidden="true"></span>
+      <span class="story__namen">
+        <span class="story__wer" id="story-wer"></span>
+        <span class="story__was"></span>
+      </span>
+      <button class="story__zu" type="button" data-story-zu>
+        <span class="sr-only">Schlie&szlig;en</span>
+      </button>
+    </div>
+
+    <video class="story__video" playsinline controls preload="none"></video>
+  </div>
 </div>
 
 <script src="assets/js/main.js" defer></script>

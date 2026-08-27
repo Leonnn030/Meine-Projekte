@@ -520,8 +520,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 46%;
-  transform: scale(1);
+  object-position: center 50%;
+  transform: scale(1.02);
   filter: blur(0.8px) brightness(1.12) saturate(0.96) contrast(1.04);
   animation: grund-ruhe 3s var(--ease) both;
 }
@@ -537,7 +537,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   background:
     radial-gradient(46% 34% at 50% 44%, rgba(5, 5, 5, 0.7) 0%, rgba(5, 5, 5, 0.34) 66%, transparent 100%),
     radial-gradient(126% 94% at 50% 46%, transparent 46%, rgba(5, 5, 5, 0.34) 80%, rgba(5, 5, 5, 0.8) 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.06) 22%, rgba(5, 5, 5, 0.2) 72%, var(--ink) 100%);
+    linear-gradient(180deg, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.06) 20%, rgba(5, 5, 5, 0.14) 78%, rgba(5, 5, 5, 0.55) 94%, var(--ink) 100%);
 }
 
 .hero__inner {
@@ -745,20 +745,33 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   text-transform: uppercase;
 }
 
-/* Kleinere Fassung: der Satz steht weiter unten auf der Seite und soll
-   dort nicht mehr wie eine eigene Ansage wirken. */
-.statement--klein { padding-block: clamp(3.4rem, 7vw, 5.5rem); }
-
-.statement--klein p {
-  max-width: 30ch;
-  font-size: var(--step-1);
-  line-height: 1.35;
+/* --------------------------------------------------------------------------
+   9b. Losung über dem Vorher/Nachher — der Satz führt den Beweis an
+   -------------------------------------------------------------------------- */
+.losung {
+  max-width: 46rem;
+  margin: 0 auto clamp(2.4rem, 5vw, 3.6rem);
+  text-align: center;
 }
 
-.statement--klein span {
-  margin-top: 1.3rem;
-  font-size: 0.6rem;
-  letter-spacing: 0.3em;
+.losung .eyebrow { justify-content: center; margin-bottom: 1.4rem; }
+
+.losung__satz {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 1.16;
+}
+
+.losung__satz em { font-style: normal; color: var(--gold); }
+
+.losung__zeile {
+  max-width: 48ch;
+  margin: clamp(1.3rem, 2.6vw, 1.9rem) auto 0;
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.75;
 }
 
 /* --------------------------------------------------------------------------
@@ -2009,6 +2022,201 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .artist--gedreht .artist__kopf { order: 0; }
 }
 
+/* Kacheln mit Film bekommen einen Abspielknopf — sie fuehren in die
+   Story-Ansicht, wo das Video in voller Groesse und mit Ton laeuft. */
+.film__start {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.film__start::before {
+  content: "";
+  width: clamp(2.6rem, 4.5vw, 3.4rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(5, 5, 5, 0.42);
+  backdrop-filter: blur(3px);
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+/* Das Dreieck sitzt optisch mittig, nicht geometrisch */
+.film__start::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -0.42rem 0 0 -0.26rem;
+  border-left: 0.72rem solid var(--white);
+  border-block: 0.44rem solid transparent;
+  transition: border-left-color 0.35s var(--ease);
+}
+
+.film__start:hover::before,
+.film__start:focus-visible::before {
+  background: rgba(200, 148, 46, 0.9);
+  border-color: var(--gold-light);
+  transform: scale(1.06);
+}
+
+.film__start:hover::after,
+.film__start:focus-visible::after { border-left-color: #000; }
+
+.film__start:focus-visible { outline: 2px solid var(--gold-light); outline-offset: -4px; }
+
+/* --------------------------------------------------------------------------
+   12c2. Story-Ansicht — das Video im Hochformat, wie es aufgenommen wurde
+   -------------------------------------------------------------------------- */
+.story {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.8rem, 3vw, 2rem);
+}
+
+.story[hidden] { display: none; }
+
+.story__grund {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(3, 3, 3, 0.92);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.35s var(--ease);
+}
+
+.story.is-offen .story__grund { opacity: 1; }
+
+.story__rahmen {
+  position: relative;
+  width: min(26rem, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 120px -40px rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.story.is-offen .story__rahmen { opacity: 1; transform: none; }
+
+/* Der Fortschrittsbalken oben — das Zeichen einer Story */
+.story__balken {
+  height: 2px;
+  margin: 0.6rem 0.7rem 0;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+.story__balken span {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.story__kopf {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 0.75rem 0.7rem;
+}
+
+/* Ringsymbol wie bei einem Profilbild, nur als Marke */
+.story__punkt {
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--ink) 52%, transparent 53%),
+    conic-gradient(from 200deg, var(--gold-light), var(--gold), var(--gold-deep), var(--gold-light));
+}
+
+.story__namen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.story__wer {
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.story__was {
+  color: var(--muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.story__zu {
+  position: relative;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.story__zu::before,
+.story__zu::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1rem;
+  height: 1px;
+  margin: 0 0 0 -0.5rem;
+  background: var(--soft);
+  transition: background 0.3s var(--ease);
+}
+
+.story__zu::before { transform: rotate(45deg); }
+.story__zu::after  { transform: rotate(-45deg); }
+.story__zu:hover::before,
+.story__zu:hover::after { background: var(--gold-light); }
+
+.story__video {
+  display: block;
+  width: 100%;
+  max-height: calc(100svh - 10rem);
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  background: #000;
+}
+
+@media (max-width: 30rem) {
+  .story { padding: 0; }
+  .story__rahmen { width: 100%; height: 100%; border: 0; }
+  .story__video { flex: 1; max-height: none; aspect-ratio: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story__grund, .story__rahmen { transition: none; }
+}
+
 /* --------------------------------------------------------------------------
    12d. Ergebnisse — ein Mosaik aus allen echten Aufnahmen
    -------------------------------------------------------------------------- */
@@ -2887,7 +3095,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero__schleier {
     background:
       radial-gradient(70% 34% at 50% 42%, rgba(5, 5, 5, 0.74) 0%, rgba(5, 5, 5, 0.36) 70%, transparent 100%),
-      linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.12) 20%, rgba(5, 5, 5, 0.3) 68%, var(--ink) 100%);
+      linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, rgba(5, 5, 5, 0.12) 18%, rgba(5, 5, 5, 0.24) 76%, rgba(5, 5, 5, 0.6) 94%, var(--ink) 100%);
   }
 
   .hero__copy { max-width: 100%; }

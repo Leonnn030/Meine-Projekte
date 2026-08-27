@@ -126,6 +126,112 @@
   }
 
   /* ------------------------------------------------------------------------
+     Story-Ansicht: ein Video in voller Größe und mit Ton. Die Kacheln
+     zeigen nur die stumme Vorschau — geklickt wird das Original.
+     ---------------------------------------------------------------------- */
+  var story = document.getElementById("story");
+
+  if (story) {
+    var storyVideo = story.querySelector(".story__video");
+    var storyWer = story.querySelector(".story__wer");
+    var storyWas = story.querySelector(".story__was");
+    var fortschritt = story.querySelector("[data-story-fortschritt]");
+    var vorherFokus = null;
+    var pausierteVideos = [];
+
+    var storyOeffnen = function (knopf) {
+      vorherFokus = knopf;
+
+      // Die Quellen stehen bereits an der Vorschau in derselben Kachel —
+      // so bleibt das Video nur einmal in der Seite hinterlegt.
+      var vorschau = knopf.closest("figure").querySelector("video");
+
+      storyWer.textContent = knopf.dataset.storyWer;
+      storyWas.textContent = knopf.dataset.storyWas;
+      storyVideo.poster = vorschau.getAttribute("poster") || "";
+      storyVideo.innerHTML = "";
+
+      vorschau.querySelectorAll("source").forEach(function (quelle) {
+        storyVideo.appendChild(quelle.cloneNode());
+      });
+
+      // Die stummen Vorschauen auf der Seite anhalten, damit nichts
+      // gegen den Ton der Story anläuft.
+      pausierteVideos = [];
+      document.querySelectorAll("[data-inview-video]").forEach(function (v) {
+        if (!v.paused) { v.pause(); pausierteVideos.push(v); }
+      });
+
+      story.hidden = false;
+      document.body.style.overflow = "hidden";
+      if (fortschritt) fortschritt.style.transform = "scaleX(0)";
+
+      storyVideo.preload = "auto";
+      storyVideo.load();
+      storyVideo.muted = false;
+      storyVideo.volume = 1;
+      storyVideo.currentTime = 0;
+
+      var start = storyVideo.play();
+      // Lehnt der Browser Autoplay mit Ton ab, läuft es stumm weiter —
+      // die Bedienleiste steht bereit, um den Ton anzuschalten.
+      if (start && start.catch) {
+        start.catch(function () {
+          storyVideo.muted = true;
+          var zweiter = storyVideo.play();
+          if (zweiter && zweiter.catch) zweiter.catch(function () {});
+        });
+      }
+
+      requestAnimationFrame(function () {
+        story.classList.add("is-offen");
+        story.querySelector(".story__zu").focus();
+      });
+    };
+
+    var storySchliessen = function () {
+      story.classList.remove("is-offen");
+      storyVideo.pause();
+
+      window.setTimeout(function () {
+        story.hidden = true;
+        storyVideo.innerHTML = "";
+        storyVideo.removeAttribute("src");
+        storyVideo.load();
+        document.body.style.overflow = "";
+        pausierteVideos.forEach(function (v) {
+          var w = v.play();
+          if (w && w.catch) w.catch(function () {});
+        });
+        pausierteVideos = [];
+        if (vorherFokus) vorherFokus.focus();
+      }, 320);
+    };
+
+    document.querySelectorAll(".film__start").forEach(function (knopf) {
+      knopf.addEventListener("click", function () { storyOeffnen(knopf); });
+    });
+
+    story.querySelectorAll("[data-story-zu]").forEach(function (knopf) {
+      knopf.addEventListener("click", storySchliessen);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !story.hidden) storySchliessen();
+    });
+
+    // Fortschritt oben, wie man es von einer Story kennt
+    storyVideo.addEventListener("timeupdate", function () {
+      if (!fortschritt || !storyVideo.duration) return;
+      fortschritt.style.transform = "scaleX(" + (storyVideo.currentTime / storyVideo.duration) + ")";
+    });
+
+    storyVideo.addEventListener("ended", function () {
+      if (fortschritt) fortschritt.style.transform = "scaleX(1)";
+    });
+  }
+
+  /* ------------------------------------------------------------------------
      Mobiler Sticky-CTA: erscheint nach dem Hero, tritt am Seitenende zurück
      ---------------------------------------------------------------------- */
   var stickyCta = document.querySelector("[data-sticky-cta]");
