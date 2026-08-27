@@ -503,7 +503,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 108svh;
+  min-height: 128svh;
   padding-block: 8.5rem 0;
   overflow: hidden;
   background: var(--ink);
@@ -553,7 +553,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 14svh;
+  padding-bottom: 34svh;
 }
 
 .hero__copy { max-width: 46rem; }
@@ -2095,28 +2095,87 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .film__start:focus-visible { outline: 2px solid var(--gold-light); outline-offset: -4px; }
 
-/* Storykarten: die drei Aufnahmen, die die Künstler selbst in ihrer Story
-   gezeigt haben, stehen auch hier im Hochformat einer Story — mit
-   Segmentbalken oben, Profilring und Namen. */
+/* Instagram-Beitrag: die drei Aufnahmen, die Marlo und Bane selbst
+   gepostet haben, stehen hier so, wie man sie dort gesehen hat —
+   Kopfzeile, Bild im Hochformat, Aktionsleiste, Bildunterschrift.
+   Nachgebaut, nicht abfotografiert, und ohne erfundene Zahlen. */
 .storys {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(0.7rem, 1.4vw, 1.1rem);
 }
 
-.storykarte {
-  position: relative;
-  flex: 0 0 13.5rem;
+.post {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 14rem;
   margin: 0;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-  background: #000;
+  background: #0a0a0a;
   border: 1px solid var(--line);
   box-shadow: 0 26px 60px -40px rgba(0, 0, 0, 0.9);
 }
 
-.storykarte video,
-.storykarte img {
+.post__kopf {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.7rem;
+}
+
+/* Der Ring wie um ein Profilbild — ohne fremdes Bild zu verwenden */
+.post__ring {
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, #0a0a0a 54%, transparent 55%),
+    conic-gradient(from 200deg, var(--gold-light), var(--gold), var(--gold-deep), var(--gold-light));
+}
+
+.post__namen {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.post__namen b {
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.post__namen span {
+  color: var(--muted);
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* Die drei Punkte oben rechts */
+.post__mehr {
+  flex: none;
+  width: 1rem;
+  height: 3px;
+  background:
+    radial-gradient(circle, var(--soft) 1.4px, transparent 1.6px) 0 50% / 33.3% 100% no-repeat,
+    radial-gradient(circle, var(--soft) 1.4px, transparent 1.6px) 50% 50% / 33.3% 100% no-repeat,
+    radial-gradient(circle, var(--soft) 1.4px, transparent 1.6px) 100% 50% / 33.3% 100% no-repeat;
+}
+
+.post__medium {
+  position: relative;
+  display: block;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #000;
+  border-block: 1px solid var(--line-soft);
+}
+
+.post__medium video,
+.post__medium img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -2124,87 +2183,49 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
 }
 
-/* Ein leichter Schleier oben und unten, damit die Story-Aufschriften
-   auf jedem Bild lesbar bleiben */
-.storykarte::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, transparent 22%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.72) 0%, transparent 26%);
-}
-
-.storykarte__balken {
-  position: absolute;
-  top: 0.5rem;
-  inset-inline: 0.5rem;
-  z-index: 3;
-  display: flex;
-  gap: 0.24rem;
-}
-
-.storykarte__balken span {
-  flex: 1;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.34);
-}
-
-.storykarte__balken span.ist-an { background: #fff; }
-
-.storykarte__kopf {
-  position: absolute;
-  top: 1.15rem;
-  inset-inline: 0.6rem;
-  z-index: 3;
+.post__aktionen {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  padding: 0.7rem 0.7rem 0.2rem;
+  color: var(--soft);
 }
 
-/* Der Ring wie um ein Profilbild — ohne fremdes Bild zu verwenden */
-.storykarte__ring {
+.post__aktionen svg {
+  width: 1.05rem;
+  height: 1.05rem;
   flex: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, #0b0b0b 54%, transparent 55%),
-    conic-gradient(from 200deg, var(--gold-light), var(--gold), var(--gold-deep), var(--gold-light));
 }
 
-.storykarte__wer {
+.post__aktionen .post__merk { margin-left: auto; }
+
+.post figcaption {
+  padding: 0.35rem 0.7rem 0.8rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+  line-height: 1.5;
+}
+
+.post figcaption b {
   color: #fff;
-  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  margin-right: 0.3rem;
 }
 
-.storykarte figcaption {
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  z-index: 3;
-  padding: 0.6rem 0.8rem 0.85rem;
-  color: var(--gold-pale);
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-align: center;
-  text-transform: uppercase;
-}
+.post .film__start { z-index: 4; }
 
-.storykarte .film__start { z-index: 4; }
-
-/* Auf schmalen Schirmen teilen sich zwei Karten die Zeile */
+/* Auf schmalen Schirmen teilen sich zwei Beiträge die Zeile */
 @media (max-width: 44rem) {
   .storys,
   .artist__weitere { flex: 1 1 100%; }
 
-  .storykarte,
+  .post,
   .artist__medium { flex: 1 1 calc(50% - 0.6rem); }
+
+  .post__namen b { font-size: 0.66rem; }
+  .post__namen span { font-size: 0.55rem; }
+  .post__aktionen svg { width: 0.95rem; height: 0.95rem; }
+  .post figcaption { font-size: 0.6rem; }
 }
 
 /* --------------------------------------------------------------------------
@@ -3292,7 +3313,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .work--third { grid-column: span 6; }
   .work--third .work__media { aspect-ratio: 4 / 3; }
 
-  .hero { min-height: auto; padding-top: 7.5rem; }
+  .hero { min-height: 118svh; padding-top: 7.5rem; }
   .floating-wa { right: 1rem; bottom: 1rem; }
 }
 
