@@ -159,26 +159,6 @@
   });
 
   /* ------------------------------------------------------------------------
-     Bildplätze: liegt die Datei im Ordner, wird sie gezeigt — sonst
-     bleibt der Platzhalter stehen. So lassen sich Fotos nachreichen,
-     ohne dass am Code etwas geändert werden muss.
-     ---------------------------------------------------------------------- */
-  document.querySelectorAll("img[data-optional]").forEach(function (bild) {
-    var platz = bild.nextElementSibling;
-
-    // Das Bild startet unsichtbar statt versteckt — ein Element mit
-    // hidden lädt der Browser gar nicht erst.
-    var zeigeBild = function () {
-      if (!bild.naturalWidth) return;
-      bild.classList.add("ist-da");
-      if (platz) platz.hidden = true;
-    };
-
-    if (bild.complete) zeigeBild();
-    else bild.addEventListener("load", zeigeBild);
-  });
-
-  /* ------------------------------------------------------------------------
      Reiter — für den Konfigurator wie für den Kundenbereich
      ---------------------------------------------------------------------- */
   document.querySelectorAll('[role="tablist"]').forEach(function (liste) {

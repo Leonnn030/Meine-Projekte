@@ -101,6 +101,7 @@
     <nav class="nav" id="hauptnavigation" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#ablauf">Ablauf</a>
+      <a href="#arbeiten">Ergebnisse</a>
       <a href="#clients">Kunden</a>
       <a href="#kontakt">Kontakt</a>
       <a class="btn" href="#kontakt" data-nav-cta>Termin anfragen</a>
@@ -122,23 +123,23 @@
      Hero
      ====================================================================== -->
 <section class="hero" id="top">
-  <div class="hero__lights" aria-hidden="true"><i></i><i></i></div>
-  <img class="hero__vehicle" src="assets/img/hero-fahrzeug.svg" alt="" aria-hidden="true">
+  <!-- Zwei echte Aufnahmen bilden die rechte Bildwand; links steht die
+       Typografie auf ruhigem Schwarz. Auf dem Smartphone rückt nur die
+       Hauptaufnahme hinter den Text und wird abgedunkelt. -->
+  <div class="hero__wand">
+    <figure class="hero__platte hero__platte--haupt">
+      <img src="assets/img/sq8-innenraum.jpg" alt="Innenraum eines Audi SQ8 mit Ambientelicht nach der Aufbereitung"
+           fetchpriority="high" width="788" height="1400">
+    </figure>
+    <figure class="hero__platte hero__platte--schmal">
+      <img src="assets/img/gle-sitze.jpg" alt="Ledersitz und beleuchtete AMG-Einstiegsleiste eines Mercedes-AMG GLE"
+           fetchpriority="high" width="788" height="1400">
+    </figure>
+  </div>
 
   <div class="hero__inner">
     <div class="hero__copy">
-      <div class="hero__mark">
-        <span class="wordmark wordmark--lg">
-          <svg class="wordmark__car" viewBox="0 0 240 62" fill="none" aria-hidden="true">
-            <path d="M4 50C22 49 40 45 58 39c14-4.7 26-10.6 40-16.4C112 16.6 127 12 143 11.4c14-.5 27 2.4 38 8.6 9 5 16 11.4 24 17.4 8 6 17 10.6 27 12.4" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/>
-            <path d="M76 31.4c11-5.4 22-10.4 34-13.4 11-2.8 22-3.4 32-.6 8 2.2 15 6.4 21 11.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <span class="wordmark__name">HAUFE <span>SHINE</span></span>
-          <span class="wordmark__rule">Autoaufbereitung</span>
-        </span>
-      </div>
-
-      <p class="hero__kicker">Mobile Autoaufbereitung · Berlin</p>
+      <p class="hero__kicker">Mobile Autoaufbereitung &middot; Berlin</p>
 
       <h1>
         <span class="line">Weil dein Auto</span>
@@ -147,20 +148,29 @@
 
       <div class="hero__rule" aria-hidden="true"></div>
 
-      <p class="hero__claim">Wir kommen zu dir — nach Hause,<br>ins Büro oder in die Tiefgarage.</p>
+      <p class="hero__claim">Wir kommen zu dir &mdash; nach Hause, ins B&uuml;ro oder in die Tiefgarage. Du gibst den Ort vor, wir bringen alles mit.</p>
 
       <div class="hero__cta">
         <a class="btn" href="#kontakt">Termin anfragen</a>
-        <a class="btn btn--ghost" href="#leistungen">Leistungen entdecken</a>
+        <a class="btn btn--ghost" href="#leistungen">Preise ansehen</a>
       </div>
+
+      <p class="hero__vertrauen">
+        <a href="#arbeiten">Ergebnisse ansehen</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="https://wa.me/491784652133?text=Hallo%20HAUFE%20SHINE%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Fahrzeugaufbereitung." target="_blank" rel="noopener noreferrer">Direkt &uuml;ber WhatsApp schreiben</a>
+      </p>
     </div>
   </div>
 
-  <dl class="hero__facts">
-    <div><dt>Berlin</dt><dd>&amp; Umgebung</dd></div>
-    <div><dt>Mobile Aufbereitung</dt><dd>Wir kommen zu dir</dd></div>
-    <div><dt>Premium</dt><dd>Fahrzeugpflege</dd></div>
-  </dl>
+  <div class="hero__fuss">
+    <dl class="hero__facts">
+      <div><dt>Berlin</dt><dd>&amp; Umgebung</dd></div>
+      <div><dt>Ab</dt><dd>29,99 &euro;</dd></div>
+      <div><dt>Wir kommen</dt><dd>zu dir</dd></div>
+    </dl>
+    <p class="hero__bildzeile">Im Bild: Audi SQ8 &amp; Mercedes-AMG GLE &mdash; aufbereitet in Berlin</p>
+  </div>
 </section>
 
 <!-- ======================================================================
@@ -168,8 +178,8 @@
      ====================================================================== -->
 <section class="statement">
   <div class="shell reveal">
-    <p>Weil dein Auto <em>nicht nur</em> ein Auto ist.</p>
-    <span>Luxury · Precision · Convenience · Berlin</span>
+    <p>Sauber kann jeder. Wir arbeiten, <em>bis es aussieht wie am ersten Tag.</em></p>
+    <span>Luxus · Präzision · Bequemlichkeit · Berlin</span>
   </div>
 </section>
 
@@ -456,6 +466,54 @@
 </section>
 
 <!-- ======================================================================
+     Aus der Werkstatt
+     ====================================================================== -->
+<section class="band" id="arbeiten" aria-labelledby="arbeiten-titel">
+  <div class="shell">
+    <div class="band__head reveal">
+      <div>
+        <p class="eyebrow">Ergebnisse</p>
+        <h2 class="title" id="arbeiten-titel">Echte Fahrzeuge.<br><em>Echte Arbeit.</em></h2>
+      </div>
+      <p class="intro">Keine Stockfotos, keine Rendering-Tricks. Jedes Bild hier ist ein Fahrzeug, das wir in Berlin aufbereitet haben.</p>
+    </div>
+  </div>
+
+  <div class="band__spur reveal">
+    <ul class="band__liste">
+      <li class="band__karte">
+        <img src="assets/img/a-klasse-rot.jpg" alt="Rotes Leder einer Mercedes A-Klasse nach der Aufbereitung" loading="lazy" width="1050" height="1400">
+        <div class="band__label"><b>Mercedes A-Klasse</b><span>Rotes Leder</span></div>
+      </li>
+      <li class="band__karte">
+        <img src="assets/img/gle-cockpit.jpg" alt="Cockpit eines Mercedes-AMG GLE nach der Aufbereitung" loading="lazy" width="788" height="1400">
+        <div class="band__label"><b>Mercedes-AMG GLE</b><span>Cockpit &amp; Displays</span></div>
+      </li>
+      <li class="band__karte">
+        <img src="assets/img/bmw-m4.jpg" alt="Wei&szlig;e Carbon-Schalensitze eines BMW M4 nach der Aufbereitung" loading="lazy" width="788" height="1400">
+        <div class="band__label"><b>BMW M4</b><span>Carbon-Schalensitze</span></div>
+      </li>
+      <li class="band__karte">
+        <img src="assets/img/sq8-cockpit.jpg" alt="Cockpit eines Audi SQ8 nach der Aufbereitung" loading="lazy" width="707" height="1400">
+        <div class="band__label"><b>Audi SQ8</b><span>Cockpit &amp; Ambiente</span></div>
+      </li>
+      <li class="band__karte">
+        <img src="assets/img/bmw-x3.jpg" alt="Innenraum eines BMW X3 M Sport nach der Aufbereitung" loading="lazy" width="788" height="1400">
+        <div class="band__label"><b>BMW X3</b><span>Innenraum komplett</span></div>
+      </li>
+      <li class="band__karte">
+        <img src="assets/img/mercedes-cla.jpg" alt="Innenraum eines Mercedes CLA nach der Aufbereitung" loading="lazy" width="788" height="1400">
+        <div class="band__label"><b>Mercedes CLA</b><span>Innenraum komplett</span></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="shell">
+    <p class="band__hinweis reveal">Wische zur Seite &mdash; oder sieh dir unten an, f&uuml;r wen wir arbeiten.</p>
+  </div>
+</section>
+
+<!-- ======================================================================
      Kunden & Partner
      ====================================================================== -->
 <section class="section" id="clients" style="background: var(--ink-raised); border-block: 1px solid var(--line-soft);">
@@ -465,7 +523,7 @@
         <p class="eyebrow">Kunden &amp; Partner</p>
         <h2 class="title">Wer uns <em>vertraut.</em></h2>
       </div>
-      <p class="intro">Künstler, Unternehmen und Privatkunden mit hochwertigen Fahrzeugen. Klick auf eine Karte, um die Arbeiten zu sehen.</p>
+      <p class="intro">Künstler, Unternehmen und Privatkunden mit hochwertigen Fahrzeugen. Wähle einen Bereich — bei den Artists öffnet ein Klick auf die Karte die dazugehörigen Arbeiten.</p>
     </div>
 
     <!-- Kategorien -->
@@ -482,8 +540,7 @@
         <details class="kunde">
           <summary>
             <div class="kunde__portrait kunde__portrait--profil">
-              <img src="assets/img/marlo-portrait.jpg" alt="Spotify-Profil von Marlo, Kunde von HAUFE SHINE" loading="lazy" data-optional>
-              <div class="platz platz--gross"><span>Foto Marlo<br>folgt</span></div>
+              <img src="assets/img/marlo-portrait.jpg" alt="Spotify-Profil von Marlo, Kunde von HAUFE SHINE" loading="lazy" width="1179" height="880">
             </div>
             <div class="kunde__unten">
               <p class="kunde__rolle">Artist</p>
@@ -512,12 +569,12 @@
             </figure>
 
             <figure class="kunde__medium">
-              <img src="assets/img/sq8-innenraum.jpg" alt="Innenraum des Audi SQ8 nach der Aufbereitung" loading="lazy" data-optional><div class="platz"><span>SQ8<br>Innenraum</span></div>
+              <img src="assets/img/sq8-innenraum.jpg" alt="Innenraum des Audi SQ8 nach der Aufbereitung" loading="lazy">
               <figcaption>Innenraum</figcaption>
             </figure>
 
             <figure class="kunde__medium">
-              <img src="assets/img/sq8-cockpit.jpg" alt="Cockpit des Audi SQ8 nach der Aufbereitung" loading="lazy" data-optional><div class="platz"><span>SQ8<br>Cockpit</span></div>
+              <img src="assets/img/sq8-cockpit.jpg" alt="Cockpit des Audi SQ8 mit Ambientebeleuchtung" loading="lazy">
               <figcaption>Cockpit</figcaption>
             </figure>
           </div>
@@ -526,8 +583,7 @@
         <details class="kunde">
           <summary>
             <div class="kunde__portrait kunde__portrait--profil">
-              <img src="assets/img/bane-portrait.jpg" alt="Spotify-Profil von Bane, Kunde von HAUFE SHINE" loading="lazy" data-optional>
-              <div class="platz platz--gross"><span>Foto Bane<br>folgt</span></div>
+              <img src="assets/img/bane-portrait.jpg" alt="Spotify-Profil von Bane, Kunde von HAUFE SHINE" loading="lazy" width="1179" height="890">
             </div>
             <div class="kunde__unten">
               <p class="kunde__rolle">Artist</p>
@@ -547,16 +603,12 @@
             </figure>
 
             <figure class="kunde__medium">
-              <img src="assets/img/gle-cockpit.jpg" alt="Cockpit des Mercedes-AMG GLE nach der Aufbereitung" loading="lazy" data-optional><div class="platz"><span>GLE 63<br>Cockpit</span></div>
+              <img src="assets/img/gle-cockpit.jpg" alt="Cockpit des Mercedes-AMG GLE nach der Aufbereitung" loading="lazy">
               <figcaption>Cockpit</figcaption>
             </figure>
             <figure class="kunde__medium">
-              <img src="assets/img/gle-sitze.jpg" alt="Ledersitze des Mercedes-AMG GLE nach der Aufbereitung" loading="lazy" data-optional><div class="platz"><span>GLE 63<br>Sitze</span></div>
-              <figcaption>Leder</figcaption>
-            </figure>
-            <figure class="kunde__medium">
-              <img src="assets/img/gle-einstieg.jpg" alt="AMG-Einstiegsleiste des Mercedes GLE" loading="lazy" data-optional><div class="platz"><span>GLE 63<br>Einstieg</span></div>
-              <figcaption>AMG-Einstieg</figcaption>
+              <img src="assets/img/gle-sitze.jpg" alt="Ledersitz und AMG-Einstiegsleiste des Mercedes-AMG GLE" loading="lazy">
+              <figcaption>Leder &amp; Einstieg</figcaption>
             </figure>
           </div>
         </details>
@@ -571,72 +623,41 @@
 
     <!-- Privat & Flotten -->
     <div class="tab-panel reveal" role="tabpanel" id="panel-privat" aria-labelledby="tab-privat" hidden>
-      <div class="kunden-karten">
+      <p class="panel-intro">Privatfahrzeuge und kleine Flotten aus Berlin &mdash; aufbereitet dort, wo sie stehen: in der Einfahrt, vor dem B&uuml;ro, in der Tiefgarage.</p>
+      <div class="arbeiten">
 
-        <details class="kunde">
-          <summary>
-            <div class="kunde__portrait">
-              <img src="assets/img/a-klasse-rot.jpg" alt="Innenraum der roten Mercedes A-Klasse mit rotem Leder" loading="lazy" data-optional><div class="platz platz--gross"><span>Mercedes<br>A-Klasse</span></div>
-              <div class="kunde__text">
-                <p class="kunde__rolle">Privatkunde</p>
-                <p class="kunde__name">A-Klasse</p>
-                <p class="kunde__fahrzeuge">Rotes Leder · Komplett</p>
-              </div>
-            </div>
-            <p class="kunde__mehr">Arbeiten ansehen</p>
-          </summary>
-          <div class="kunde__galerie">
-            <figure class="kunde__medium"><img src="assets/img/a-klasse-innen.jpg" alt="Innenraum der Mercedes A-Klasse" loading="lazy" data-optional><div class="platz"><span>Innenraum</span></div><figcaption>Innenraum</figcaption></figure>
-            <figure class="kunde__medium"><img src="assets/img/a-klasse-sitze.jpg" alt="Rote Ledersitze der Mercedes A-Klasse" loading="lazy" data-optional><div class="platz"><span>Sitze</span></div><figcaption>Rotes Leder</figcaption></figure>
-          </div>
-        </details>
+        <figure class="arbeit">
+          <img src="assets/img/a-klasse-rot.jpg" alt="Innenraum einer Mercedes A-Klasse mit rotem Leder nach der Aufbereitung" loading="lazy" width="1050" height="1400">
+          <figcaption><b>Mercedes A-Klasse</b><span>Rotes Leder</span></figcaption>
+        </figure>
 
-        <details class="kunde">
-          <summary>
-            <div class="kunde__portrait">
-              <img src="assets/img/bmw-m4.jpg" alt="Innenraum des BMW M4 mit Carbon-Schalensitzen" loading="lazy" data-optional><div class="platz platz--gross"><span>BMW M4</span></div>
-              <div class="kunde__text">
-                <p class="kunde__rolle">Privatkunde</p>
-                <p class="kunde__name">BMW M4</p>
-                <p class="kunde__fahrzeuge">Carbon-Schalensitze · Premium</p>
-              </div>
-            </div>
-            <p class="kunde__mehr">Arbeiten ansehen</p>
-          </summary>
-          <div class="kunde__galerie">
-            <figure class="kunde__medium"><img src="assets/img/m4-cockpit.jpg" alt="Cockpit des BMW M4" loading="lazy" data-optional><div class="platz"><span>Cockpit</span></div><figcaption>Cockpit</figcaption></figure>
-            <figure class="kunde__medium"><img src="assets/img/m4-sitze.jpg" alt="Weiße Carbon-Schalensitze des BMW M4" loading="lazy" data-optional><div class="platz"><span>Weißes Leder</span></div><figcaption>Schalensitze</figcaption></figure>
-          </div>
-        </details>
+        <figure class="arbeit">
+          <img src="assets/img/bmw-m4.jpg" alt="Innenraum eines BMW M4 mit wei&szlig;en Carbon-Schalensitzen nach der Aufbereitung" loading="lazy" width="788" height="1400">
+          <figcaption><b>BMW M4</b><span>Carbon-Schalensitze</span></figcaption>
+        </figure>
 
-        <details class="kunde">
-          <summary>
-            <div class="kunde__portrait">
-              <img src="assets/img/weitere.jpg" alt="Weitere aufbereitete Fahrzeuge" loading="lazy" data-optional><div class="platz platz--gross"><span>Weitere<br>Fahrzeuge</span></div>
-              <div class="kunde__text">
-                <p class="kunde__rolle">Aus der Werkstatt</p>
-                <p class="kunde__name">Mehr Arbeiten</p>
-                <p class="kunde__fahrzeuge">BMW X3 · Mercedes CLA</p>
-              </div>
-            </div>
-            <p class="kunde__mehr">Arbeiten ansehen</p>
-          </summary>
-          <div class="kunde__galerie">
-            <figure class="kunde__medium">
-              <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
-                     data-inview-video aria-label="Innenraum-Detailing, Lenkrad unter Schutzfolie">
-                <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
-                <source src="assets/video/interieur-berlin.webm" type="video/webm">
-              </video>
-              <figcaption>Im Detail</figcaption>
-            </figure>
-            <figure class="kunde__medium"><img src="assets/img/bmw-x3.jpg" alt="Innenraum des BMW X3 M Sport" loading="lazy" data-optional><div class="platz"><span>BMW X3</span></div><figcaption>BMW X3</figcaption></figure>
-            <figure class="kunde__medium"><img src="assets/img/mercedes-cla.jpg" alt="Innenraum des Mercedes CLA" loading="lazy" data-optional><div class="platz"><span>Mercedes CLA</span></div><figcaption>Mercedes CLA</figcaption></figure>
-          </div>
-        </details>
+        <figure class="arbeit">
+          <img src="assets/img/bmw-x3.jpg" alt="Innenraum eines BMW X3 M Sport nach der Aufbereitung" loading="lazy" width="788" height="1400">
+          <figcaption><b>BMW X3</b><span>Innenraum komplett</span></figcaption>
+        </figure>
+
+        <figure class="arbeit">
+          <img src="assets/img/mercedes-cla.jpg" alt="Innenraum eines Mercedes CLA nach der Aufbereitung" loading="lazy" width="788" height="1400">
+          <figcaption><b>Mercedes CLA</b><span>Innenraum komplett</span></figcaption>
+        </figure>
+
+        <figure class="arbeit arbeit--breit">
+          <video poster="assets/img/interieur-berlin-poster.jpg" muted loop playsinline preload="none"
+                 data-inview-video aria-label="Innenraum-Detailing, Lenkrad unter Schutzfolie">
+            <source src="assets/video/interieur-berlin.mp4" type="video/mp4">
+            <source src="assets/video/interieur-berlin.webm" type="video/webm">
+          </video>
+          <figcaption><b>Innenraum-Detailing</b><span>Vor Ort in Berlin</span></figcaption>
+        </figure>
 
       </div>
     </div>
+
   </div>
 </section>
 
