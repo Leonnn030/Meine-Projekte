@@ -13,7 +13,6 @@ legt es hier ab und ergänzt eine Kachel in `index.html` — im Ergebnis-Band
 
 | Dateiname | Motiv | Wo es erscheint |
 |---|---|---|
-| `hero.jpg` | Mercedes-AMG GLE, Cockpit | Startbild oben |
 | `marlo-portrait.jpg` | Spotify-Profil Marlo | Kunden, Reiter „Artists“ |
 | `sq8-innenraum.jpg` | Audi SQ8, Rautensteppung | Galerie Marlo + Ergebnis-Band |
 | `sq8-cockpit.jpg` | Audi SQ8, Türansicht mit Ambientelicht | Galerie Marlo + Ergebnis-Band |
@@ -26,13 +25,32 @@ legt es hier ab und ergänzt eine Kachel in `index.html` — im Ergebnis-Band
 | `mercedes-cla.jpg` | Mercedes CLA, rote Ziernähte | Ergebnis-Band + Reiter „Privat & Flotten“ |
 
 Dazu die vier Standbilder `*-poster.jpg`, die vor dem jeweiligen Video liegen,
-bis es startet.
+bis es startet, und `og-bild.jpg` als Vorschaubild beim Teilen.
+
+## Videos
+
+| Datei | Motiv | Wo |
+|---|---|---|
+| `hero-sq8.*` | Audi SQ8, Schaumwäsche | Hintergrund der Startfläche, weich und stumm |
+| `marlo-sq8.*` | Audi SQ8, Schaumwäsche (voller Clip) | Galerie Marlo |
+| `marlo-sq8-ergebnis.*` | Audi SQ8, fertig, Berliner Straße | Galerie Marlo |
+| `bane-gle.*` | Mercedes-AMG GLE | Galerie Bane |
+| `interieur-berlin.*` | Innenraum-Detailing | Reiter „Privat & Flotten" |
 
 ## Noch frei
 
-| Dateiname | Wo es erscheint |
+Der Bereich **Vorher / Nachher** wartet auf zwei Bildpaare. Gebraucht wird
+jeweils dasselbe Fahrzeug, aus möglichst derselben Position:
+
+| Dateiname | Motiv |
 |---|---|
-| `og-bild.jpg` | Vorschaubild beim Teilen, 1200 × 630 — muss noch angelegt werden |
+| `vorher-1.jpg` | Fahrzeug 1, vor der Aufbereitung |
+| `nachher-1.jpg` | Fahrzeug 1, nach der Aufbereitung |
+| `vorher-2.jpg` | Fahrzeug 2, vor der Aufbereitung |
+| `nachher-2.jpg` | Fahrzeug 2, nach der Aufbereitung |
+
+Sobald die vier Dateien hier liegen, werden sie in `index.html` im Abschnitt
+`#vergleich` eingetragen — die leeren Flächen verschwinden dann.
 
 ## Hinweise
 
