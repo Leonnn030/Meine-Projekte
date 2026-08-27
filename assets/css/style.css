@@ -1993,6 +1993,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  align-content: flex-start;
   gap: clamp(0.7rem, 1.4vw, 1.1rem);
 }
 
@@ -2102,6 +2103,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .storys {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: clamp(0.7rem, 1.4vw, 1.1rem);
 }
 
@@ -2212,6 +2214,26 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin-right: 0.3rem;
 }
 
+/* Eine schlichte Karte im selben Format wie ein Beitrag: kein
+   Instagram-Rahmen, aber dieselbe Breite und Höhe, damit sie symmetrisch
+   daneben steht. */
+.post--schlicht { align-self: stretch; }
+
+.post--schlicht .post__medium {
+  flex: 1;
+  aspect-ratio: auto;
+  border-top: 0;
+}
+
+.post--schlicht figcaption {
+  padding: 0.75rem 0.7rem 0.85rem;
+  color: var(--soft);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .post .film__start { z-index: 4; }
 
 /* Auf schmalen Schirmen teilen sich zwei Beiträge die Zeile. Feste
@@ -2219,14 +2241,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    ganze Zeile und wäre doppelt so groß wie die daneben. */
 @media (max-width: 44rem) {
   .storys,
-  .artist__weitere { flex: 0 1 auto; }
+  .artist__weitere { flex: 1 1 100%; }
 
   /* Untereinander gibt es keine rechte Seite mehr, an die etwas rücken
      müsste — alles beginnt wieder am linken Rand. */
   .artist--gedreht .artist__inhalt { justify-content: flex-start; }
 
-  .post { flex: 0 0 clamp(8.5rem, 42vw, 12rem); }
-  .artist__medium { flex: 0 0 clamp(7rem, 34vw, 10rem); }
+  .post,
+  .artist__medium { flex: 1 1 calc(50% - 0.6rem); }
 
   .post__namen b { font-size: 0.66rem; }
   .post__namen span { font-size: 0.55rem; }
