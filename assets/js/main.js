@@ -265,6 +265,18 @@
   });
 
   /* ------------------------------------------------------------------------
+     Echte Logodatei: liegt sie im Ordner, ersetzt sie die gezeichnete
+     Marke. Fehlt sie, bleibt die Zeichnung stehen — ohne Lücke.
+     ---------------------------------------------------------------------- */
+  document.querySelectorAll("[data-logo]").forEach(function (bild) {
+    var zeigen = function () {
+      if (bild.naturalWidth) bild.classList.add("ist-da");
+    };
+    if (bild.complete) zeigen();
+    else bild.addEventListener("load", zeigen);
+  });
+
+  /* ------------------------------------------------------------------------
      Reiter — für den Konfigurator wie für den Kundenbereich
      ---------------------------------------------------------------------- */
   document.querySelectorAll('[role="tablist"]').forEach(function (liste) {

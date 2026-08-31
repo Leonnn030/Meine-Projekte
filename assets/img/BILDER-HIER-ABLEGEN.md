@@ -37,6 +37,16 @@ bis es startet, und `og-bild.jpg` als Vorschaubild beim Teilen.
 | `bane-gle.*` | Mercedes-AMG GLE | Galerie Bane |
 | `interieur-berlin.*` | Innenraum-Detailing | Reiter „Privat & Flotten" |
 
+## Logo
+
+| Dateiname | Was |
+|---|---|
+| `logo.svg` | Das Logo vom Flyer. **SVG bevorzugt** — dann bleibt es auf jedem Bildschirm scharf. Notfalls `logo.png` mit durchsichtigem Grund, mindestens 1200 Pixel breit; dann in `index.html`, `impressum.html` und `datenschutz.html` die drei Stellen `src="assets/img/logo.svg"` auf `.png` ändern. |
+
+Sobald die Datei hier liegt, erscheint sie automatisch an allen vier Stellen
+(Kopfzeile, Fußzeile, Impressum, Datenschutz). Bis dahin steht dort die
+gezeichnete Marke.
+
 ## Noch frei
 
 Der Bereich **Vorher / Nachher** wartet auf zwei Bildpaare. Gebraucht wird

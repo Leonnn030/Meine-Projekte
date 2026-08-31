@@ -395,6 +395,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .wordmark--sm .wordmark__rule { font-size: 0.38rem; letter-spacing: 0.36em; }
 
 
+/* Liegt die echte Logodatei im Ordner, tritt die gezeichnete Marke
+   zurueck. Bis dahin sieht man nichts davon — kein leerer Kasten. */
+.wordmark__bild {
+  display: none;
+  width: auto;
+  height: var(--logo-hoehe, 3.1rem);
+  max-width: 100%;
+}
+
+.wordmark__bild.ist-da { display: block; }
+.wordmark__bild.ist-da ~ .wordmark__zeichnung { display: none; }
+
+.wordmark__zeichnung {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  gap: inherit;
+}
+
+.wordmark--sm { --logo-hoehe: 2.9rem; }
+
 /* --------------------------------------------------------------------------
    5. Kopfzeile
    -------------------------------------------------------------------------- */
