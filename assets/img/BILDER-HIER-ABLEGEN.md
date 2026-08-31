@@ -39,13 +39,17 @@ bis es startet, und `og-bild.jpg` als Vorschaubild beim Teilen.
 
 ## Logo
 
-| Dateiname | Was |
-|---|---|
-| `logo.svg` | Das Logo vom Flyer. **SVG bevorzugt** — dann bleibt es auf jedem Bildschirm scharf. Notfalls `logo.png` mit durchsichtigem Grund, mindestens 1200 Pixel breit; dann in `index.html`, `impressum.html` und `datenschutz.html` die drei Stellen `src="assets/img/logo.svg"` auf `.png` ändern. |
+| Dateiname | Was | Wo |
+|---|---|---|
+| `logo.png` | Das Logo, freigestellt (schwarzer Grund entfernt) | Kopfzeile, Fußzeile, Impressum, Datenschutz |
+| `favicon.png` | Wagenlinie aus dem Logo, 64 × 64 | Symbol im Browser-Tab |
+| `marlo-profil.jpg` | Instagram-Profilbild Marlo, 160 × 160 | Kopf seiner Beiträge |
+| `bane-profil.jpg` | Profilbild Bane, 160 × 160 | Kopf seines Beitrags |
 
-Sobald die Datei hier liegt, erscheint sie automatisch an allen vier Stellen
-(Kopfzeile, Fußzeile, Impressum, Datenschutz). Bis dahin steht dort die
-gezeichnete Marke.
+Das Logo liegt als PNG mit 384 Pixel Breite vor und wird mit 120 Pixel
+angezeigt — mehr als scharf genug. **Falls es die Datei als SVG gibt**, ist
+die noch besser: dann hier als `logo.svg` ablegen und in den drei HTML-Dateien
+`logo.png` durch `logo.svg` ersetzen.
 
 ## Noch frei
 
