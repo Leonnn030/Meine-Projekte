@@ -1622,6 +1622,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.5;
 }
 
+/* Der Verweis auf das kleinere Paket wird hervorgehoben */
+.option__liste b {
+  color: var(--white);
+  font-weight: 600;
+}
+
 .option__liste li::before {
   content: "";
   width: 0.95rem;
