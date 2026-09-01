@@ -1764,6 +1764,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .extras {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  align-items: start;
   gap: 0 clamp(1.2rem, 3vw, 2.6rem);
 }
 
@@ -1825,6 +1826,74 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.04em;
+}
+
+/* Zusatzleistung mit Unterauswahl: die Stufen klappen erst auf, wenn
+   die Leistung angehakt ist. */
+.extra--gestuft { display: block; }
+
+.extra--gestuft .extra__zeile {
+  position: relative;
+  display: block;
+}
+
+.stufen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.85rem 2rem;
+  animation: stufen-auf 0.35s var(--ease);
+}
+
+.stufen[hidden] { display: none; }
+
+@keyframes stufen-auf {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
+.stufe { position: relative; }
+
+.stufe input {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.stufe span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.38rem 0.62rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.stufe span b {
+  color: var(--dim);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s var(--ease);
+}
+
+.stufe span:hover { border-color: var(--dim); color: var(--white); }
+
+.stufe input:checked + span {
+  border-color: var(--gold);
+  background: rgba(200, 148, 46, 0.1);
+  color: var(--white);
+}
+
+.stufe input:checked + span b { color: var(--gold); }
+
+.stufe input:focus-visible + span {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
 }
 
 .extra input:checked + .extra__body { color: var(--white); }

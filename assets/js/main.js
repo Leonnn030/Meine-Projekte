@@ -323,6 +323,24 @@
       return wert.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     };
 
+    /* Zusatzleistungen mit Unterauswahl, etwa die Anzahl der Sitze:
+       die Stufe bestimmt Preis und Beschriftung. */
+    var gewaehlteStufe = function (extra) {
+      if (!extra.dataset.stufen) return null;
+      return konfig.querySelector('[data-stufen-feld="' + extra.dataset.stufen + '"] input:checked');
+    };
+
+    var stufenPflegen = function () {
+      konfig.querySelectorAll("input[data-stufen]").forEach(function (extra) {
+        var name = extra.dataset.stufen;
+        var feld = konfig.querySelector('[data-stufen-feld="' + name + '"]');
+        var anzeige = konfig.querySelector('[data-stufen-preis="' + name + '"]');
+        if (feld) feld.hidden = !extra.checked;
+        var stufe = gewaehlteStufe(extra);
+        if (anzeige && stufe) anzeige.textContent = "+" + euro(Number(stufe.dataset.preis)) + " \u20AC";
+      });
+    };
+
     var aktuelleKlasse = function () {
       var gewaehlt = document.querySelector('input[name="klasse"]:checked');
       return gewaehlt ? gewaehlt.value : "kw";
@@ -342,6 +360,8 @@
     };
 
     var aktualisiere = function () {
+      stufenPflegen();
+
       var klasse = aktuelleKlasse();
       var zeilen = [];
       var gesamt = 0;
@@ -356,9 +376,18 @@
 
       konfig.querySelectorAll('input[name="extra"]:checked').forEach(function (extra) {
         var p = Number(extra.dataset.preis);
+        var zusatz = "";
+
+        // Zusatzleistungen mit Unterauswahl rechnen mit der gewählten Stufe
+        var stufe = gewaehlteStufe(extra);
+        if (stufe) {
+          p = Number(stufe.dataset.preis);
+          zusatz = stufe.value;
+        }
+
         gesamt += p;
         if (extra.dataset.ab === "1") abPreis = true;
-        zeilen.push({ name: extra.value, preis: p, ab: extra.dataset.ab === "1" });
+        zeilen.push({ name: extra.value, zusatz: zusatz, preis: p, ab: extra.dataset.ab === "1" });
       });
 
       posten.innerHTML = "";

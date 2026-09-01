@@ -419,13 +419,30 @@
 <h3 class="extras-block__titel">Zusätzlich buchen</h3>
 <div class="extras">
   <label class="extra"><input type="checkbox" name="extra" value="Ozonbehandlung" data-preis="24.99" data-ab="0"><span class="extra__body">Ozonbehandlung<span class="extra__preis">+24,99 &euro;</span></span></label>
-  <label class="extra"><input type="checkbox" name="extra" value="Polsterreinigung, ein Sitz" data-preis="10.0" data-ab="0"><span class="extra__body">Polsterreinigung, ein Sitz<span class="extra__preis">+10,00 &euro;</span></span></label>
-  <label class="extra"><input type="checkbox" name="extra" value="Polsterreinigung, alle Sitze" data-preis="25.0" data-ab="0"><span class="extra__body">Polsterreinigung, alle Sitze<span class="extra__preis">+25,00 &euro;</span></span></label>
+  <div class="extra extra--gestuft">
+    <label class="extra__zeile">
+      <input type="checkbox" name="extra" value="Polsterreinigung der Sitze" data-preis="10.0" data-ab="0" data-stufen="polster">
+      <span class="extra__body">Polsterreinigung der Sitze<span class="extra__preis" data-stufen-preis="polster">+10,00 &euro;</span></span>
+    </label>
+    <div class="stufen" data-stufen-feld="polster" role="radiogroup" aria-label="Wie viele Sitze?" hidden>
+      <label class="stufe">
+        <input type="radio" name="polster-sitze" value="1 Sitz" data-preis="10.0" checked>
+        <span>1 Sitz<b>10,00 &euro;</b></span>
+      </label>
+      <label class="stufe">
+        <input type="radio" name="polster-sitze" value="2 Sitze" data-preis="20.0">
+        <span>2 Sitze<b>20,00 &euro;</b></span>
+      </label>
+      <label class="stufe">
+        <input type="radio" name="polster-sitze" value="alle Sitze" data-preis="25.0">
+        <span>Alle Sitze<b>25,00 &euro;</b></span>
+      </label>
+    </div>
+  </div>
   <label class="extra"><input type="checkbox" name="extra" value="Lederreinigung & Pflege" data-preis="49.99" data-ab="0"><span class="extra__body">Lederreinigung &amp; Pflege<span class="extra__preis">+49,99 &euro;</span></span></label>
   <label class="extra"><input type="checkbox" name="extra" value="Tierhaarentfernung" data-preis="24.99" data-ab="1"><span class="extra__body">Tierhaarentfernung<span class="extra__preis">ab 24,99 &euro;</span></span></label>
   <label class="extra"><input type="checkbox" name="extra" value="Fleckenentfernung" data-preis="19.99" data-ab="1"><span class="extra__body">Fleckenentfernung<span class="extra__preis">ab 19,99 &euro;</span></span></label>
   <label class="extra"><input type="checkbox" name="extra" value="Motorraumreinigung" data-preis="29.99" data-ab="0"><span class="extra__body">Motorraumreinigung<span class="extra__preis">+29,99 &euro;</span></span></label>
-  <label class="extra"><input type="checkbox" name="extra" value="Scheinwerfer, Paar" data-preis="69.99" data-ab="0"><span class="extra__body">Scheinwerfer, Paar<span class="extra__preis">+69,99 &euro;</span></span></label>
   <label class="extra"><input type="checkbox" name="extra" value="Glanzpolitur, 1-Step" data-preis="89.99" data-ab="1"><span class="extra__body">Glanzpolitur, 1-Step<span class="extra__preis">ab 89,99 &euro;</span></span></label>
       </div>
     </div>
