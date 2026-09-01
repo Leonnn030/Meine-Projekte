@@ -1616,8 +1616,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 .option__liste li {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 0.7rem;
   line-height: 1.5;
 }
