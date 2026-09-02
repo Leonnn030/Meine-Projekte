@@ -527,7 +527,6 @@
     <div class="tabs reveal" role="tablist" aria-label="Kundenbereich w&auml;hlen">
       <button class="tab" role="tab" id="tab-artists" aria-controls="panel-artists" aria-selected="true" type="button">Artists</button>
       <button class="tab" role="tab" id="tab-vermietung" aria-controls="panel-vermietung" aria-selected="false" type="button">Autovermietungen</button>
-      <button class="tab" role="tab" id="tab-partner" aria-controls="panel-partner" aria-selected="false" type="button">Partner werden</button>
     </div>
 
     <div class="tab-panel reveal" role="tabpanel" id="panel-artists" aria-labelledby="tab-artists">
@@ -699,56 +698,16 @@
       <p class="pending" style="margin-top: 0;"><span><strong>Wird gerade zusammengestellt.</strong> Namen und Logos der Vermietungen kommen hier hin, sobald die Freigaben vorliegen. Der Bereich ist angelegt und wartet nur auf Inhalte.</span></p>
     </div>
 
-    <!-- Partner werden — Ansprache an Gewerbekunden, deshalb hier per Sie -->
-    <div class="tab-panel reveal" role="tabpanel" id="panel-partner" aria-labelledby="tab-partner" hidden>
-      <div class="partner">
-
-        <div class="partner__text">
-          <h3 class="partner__titel">Partner werden</h3>
-          <p class="partner__intro">Sie sind Unternehmer und suchen einen zuverl&auml;ssigen Partner f&uuml;r professionelle Fahrzeugaufbereitung? Werden Sie Teil unseres Partnernetzwerks und profitieren Sie von einer langfristigen Zusammenarbeit.</p>
-
-          <p class="partner__wer">F&uuml;r Autovermietungen, Autoh&auml;user und H&auml;ndler, Fuhrparks und Firmenwagen, Leasingr&uuml;ckl&auml;ufer und Werkst&auml;tten.</p>
-
-          <div class="partner__cta">
-            <a class="btn btn--wa" href="https://wa.me/491784652133?text=Hallo%20HAUFE%20SHINE%2C%20wir%20sind%20ein%20Unternehmen%20und%20interessieren%20uns%20f%C3%BCr%20eine%20Partnerschaft%20bei%20der%20Fahrzeugaufbereitung." target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37.99 2.53c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-              Partnerschaft anfragen
-            </a>
-            <a class="btn btn--ghost" href="#kontakt" data-paket="Partneranfrage">Zum Formular</a>
-          </div>
-
-          <p class="partner__hinweis">Wir melden uns in der Regel am selben Tag &mdash; unverbindlich und ohne Vertragsbindung.</p>
-        </div>
-
-        <ul class="vorteile">
-          <li>
-            <h4>Wir kommen zu Ihnen</h4>
-            <p>Auf den Hof, in die Tiefgarage, auf den Stellplatz. Kein Fahrzeug muss bewegt werden, niemand aus Ihrem Team f&auml;hrt etwas hin und her.</p>
-          </li>
-          <li>
-            <h4>Mehrere Fahrzeuge an einem Termin</h4>
-            <p>Ob zwei oder zwanzig &mdash; wir planen den Tag nach Ihrem Bestand und arbeiten sie der Reihe nach ab.</p>
-          </li>
-          <li>
-            <h4>Konditionen nach Umfang</h4>
-            <p>Je gr&ouml;&szlig;er der Bestand und je regelm&auml;&szlig;iger die Zusammenarbeit, desto besser der Preis. Wir legen ihn im Gespr&auml;ch gemeinsam fest.</p>
-          </li>
-          <li>
-            <h4>Feste Ansprechperson</h4>
-            <p>Sie schreiben direkt an uns, nicht an eine Zentrale. Kurze Wege, schnelle Termine, gleichbleibende Qualit&auml;t.</p>
-          </li>
-          <li>
-            <h4>Preise vorher, nicht hinterher</h4>
-            <p>Sie wissen vor dem Termin, was es kostet. Aufpreise bei starker Verschmutzung nennen wir vorab &mdash; nie im Nachhinein.</p>
-          </li>
-          <li>
-            <h4>Termine nach Ihrem Takt</h4>
-            <p>Vor der &Uuml;bergabe, zwischen zwei Vermietungen, vor dem Verkauf. Sie sagen, wann es passt.</p>
-          </li>
-        </ul>
-
+    <!-- Gewerbekunden: kurz, sichtbar, ein Weg. Hier per Sie, weil sich
+         der Block an Unternehmen richtet. -->
+    <aside class="gewerbe reveal">
+      <div class="gewerbe__text">
+        <p class="gewerbe__label">Partner werden</p>
+        <p class="gewerbe__satz">Sie sind Gewerbekunde und suchen einen zuverl&auml;ssigen Autoaufbereiter als festen Partner? Bei uns bekommen Sie <em>Sonderkonditionen</em>, eine feste Ansprechperson und Termine, die sich nach Ihrem Betrieb richten.</p>
+        <p class="gewerbe__wer">Ideal f&uuml;r Autovermietungen &middot; H&auml;ndler &middot; Fuhrparks &middot; Wohnmobile und Wohnwagen &middot; Leasingr&uuml;ckl&auml;ufer</p>
       </div>
-    </div>
+      <a class="btn gewerbe__btn" href="#kontakt" data-paket="Partneranfrage">Partnerschaft anfragen</a>
+    </aside>
   </div>
 </section>
 
