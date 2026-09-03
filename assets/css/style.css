@@ -1970,14 +1970,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Zusatzleistungen: ein eigener Block mit ruhigen Zeilen */
 .extras-block {
-  margin-top: clamp(2.2rem, 4vw, 3.2rem);
-  padding: clamp(1.6rem, 3vw, 2.4rem);
+  margin-top: clamp(1.8rem, 3.2vw, 2.6rem);
+  padding: clamp(1.1rem, 2.4vw, 1.7rem);
   border: 1px solid var(--line-soft);
   background: var(--ink-raised);
 }
 
 .extras-block__titel {
-  margin: 0 0 1.4rem;
+  margin: 0 0 1rem;
   color: var(--dim);
   font-family: var(--font-sans);
   font-size: 0.68rem;
@@ -1989,9 +1989,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .extras {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
   align-items: start;
-  gap: 0 clamp(1.2rem, 3vw, 2.6rem);
+  gap: 0 clamp(1rem, 2.2vw, 1.8rem);
 }
 
 .extra { position: relative; }
@@ -2006,8 +2006,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.8rem;
-  padding: 0.95rem 0.2rem 0.95rem 2rem;
+  gap: 0.7rem;
+  padding: 0.6rem 0.2rem 0.6rem 1.85rem;
   border-bottom: 1px solid var(--line-soft);
   color: var(--soft);
   font-size: var(--step--1);
@@ -2067,7 +2067,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin: 0 0 0.85rem 2rem;
+  margin: 0 0 0.7rem 1.85rem;
   animation: stufen-auf 0.35s var(--ease);
 }
 
@@ -2133,7 +2133,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Die Zusammenfassung bleibt beim Scrollen sichtbar */
 .summe {
-  padding: clamp(1.6rem, 3vw, 2.2rem);
+  padding: clamp(1.2rem, 2.4vw, 1.7rem);
   border: 1px solid var(--line);
   background: var(--ink-panel);
 }
@@ -2153,11 +2153,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .summe--breit { grid-template-rows: auto auto auto; align-content: start; }
 .summe--breit > h3 { grid-column: 1; grid-row: 1; }
 .summe--breit .summe__klasse { grid-column: 1; grid-row: 2; margin-top: 0.5rem; }
-.summe--breit .summe__posten { grid-column: 1; grid-row: 3; min-height: 0; margin: 1.1rem 0 0; padding-bottom: 0; border-bottom: 0; }
+.summe--breit .summe__posten { grid-column: 1; grid-row: 3; min-height: 0; margin: 0.8rem 0 0; padding-bottom: 0; border-bottom: 0; }
 .summe--breit .summe__zeile { grid-column: 2; grid-row: 1 / 3; align-self: start; }
 .summe--breit .summe__hinweis { grid-column: 2; grid-row: 3; margin-top: 0.4rem; }
-.summe--breit [data-summe-senden] { grid-column: 2; grid-row: 4; margin-top: 1.4rem; }
-.summe--breit .summe__zeile dd { font-size: clamp(2rem, 1.4rem + 2vw, 3rem); }
+.summe--breit [data-summe-senden] { grid-column: 2; grid-row: 4; margin-top: 1rem; }
+.summe--breit .summe__zeile dd { font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.3rem); }
 
 @media (max-width: 54rem) {
   .summe--breit { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
