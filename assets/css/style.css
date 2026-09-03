@@ -2552,61 +2552,186 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* --------------------------------------------------------------------------
-   12c3. Gewerbekunden — ein Streifen, kein eigener Abschnitt
+   12c3. Gewerbekunden — steht vor dem Kundenabschnitt und darf deshalb
+   eigenes Gewicht haben: goldene Kante oben, Goldschimmer aus der Ecke,
+   links das Angebot, rechts die drei Punkte, unten die Branchen.
    -------------------------------------------------------------------------- */
+.gewerbe-band { padding-bottom: 0; }
+
 .gewerbe {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(1.4rem, 3vw, 2.6rem);
-  margin-top: clamp(2.6rem, 5vw, 4rem);
-  padding: clamp(1.6rem, 3.2vw, 2.4rem) clamp(1.6rem, 3.2vw, 2.6rem);
-  border: 1px solid var(--gold-deep);
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  padding: clamp(2.2rem, 4.5vw, 3.6rem) clamp(1.8rem, 4vw, 3.4rem);
+  border: 1px solid var(--line);
+  border-top: 0;
   background:
-    radial-gradient(120% 180% at 0% 0%, rgba(200, 148, 46, 0.13), transparent 58%),
-    var(--ink-panel);
+    radial-gradient(90% 130% at 100% 0%, rgba(200, 148, 46, 0.14), transparent 62%),
+    radial-gradient(70% 110% at 0% 100%, rgba(200, 148, 46, 0.07), transparent 60%),
+    var(--ink-raised);
 }
 
-.gewerbe__text { flex: 1 1 22rem; min-width: 0; }
+/* Die goldene Oberkante — der Blickfang des Blocks */
+.gewerbe::before {
+  content: "";
+  position: absolute;
+  inset: -1px -1px auto;
+  height: 2px;
+  background: var(--gold-sheen);
+}
+
+.gewerbe__pitch { min-width: 0; }
 
 .gewerbe__label {
-  margin: 0 0 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.2rem;
   color: var(--gold);
-  font-size: 0.66rem;
+  font-size: var(--step--2);
   font-weight: 600;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
 }
 
-.gewerbe__satz {
+.gewerbe__label::before {
+  content: "";
+  width: 2.2rem;
+  height: 1px;
+  flex: none;
+  background: var(--gold);
+}
+
+.gewerbe__titel {
   margin: 0;
-  max-width: 58ch;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.gewerbe__titel em { font-style: italic; color: var(--gold); }
+
+.gewerbe__satz {
+  margin: clamp(1rem, 2vw, 1.4rem) 0 clamp(1.8rem, 3.4vw, 2.4rem);
+  max-width: 46ch;
   color: var(--soft);
   font-size: var(--step-0);
   font-weight: 300;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-.gewerbe__satz em { font-style: normal; color: var(--gold-light); font-weight: 500; }
+.gewerbe__btn { align-self: start; }
 
-.gewerbe__wer {
-  margin: clamp(0.9rem, 1.8vw, 1.2rem) 0 0;
-  color: var(--dim);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  line-height: 1.8;
+/* Die drei Punkte — Haarlinien dazwischen, kein Kasten um jeden */
+.gewerbe__nutzen {
+  display: grid;
+  align-content: center;
+  gap: clamp(1.1rem, 2.2vw, 1.6rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+}
+
+.gewerbe__nutzen li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.1rem;
+  padding-bottom: clamp(1.1rem, 2.2vw, 1.6rem);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.gewerbe__nutzen li:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.gewerbe__ikon {
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  flex: none;
+  border: 1px solid var(--line-gold);
+  color: var(--gold);
+  background: rgba(200, 148, 46, 0.06);
+}
+
+.gewerbe__ikon svg { width: 1.35rem; height: 1.35rem; }
+
+.gewerbe__nutzen-text {
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.gewerbe__nutzen-text b {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--white);
+  font-size: var(--step-0);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Branchen über die ganze Breite, abgesetzt durch eine Haarlinie */
+.gewerbe__fuss {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem clamp(1.4rem, 3vw, 2.4rem);
+  margin-top: clamp(0.4rem, 1vw, 0.8rem);
+  padding-top: clamp(1.6rem, 3vw, 2.2rem);
+  border-top: 1px solid var(--line);
+}
+
+.gewerbe__fuss-label {
+  margin: 0;
+  flex: none;
+  color: var(--gold);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
-.gewerbe__btn { flex: none; }
+.gewerbe__branchen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem clamp(0.9rem, 2vw, 1.8rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
-@media (max-width: 46rem) {
-  .gewerbe { flex-direction: column; align-items: stretch; }
-  /* In der Spalte ist die Hauptachse senkrecht: die 22rem waeren sonst
-     eine Mindesthoehe und rissen ein Loch ueber den Knopf. */
-  .gewerbe__text { flex: 0 0 auto; }
-  .gewerbe__btn { text-align: center; }
+.gewerbe__branchen li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--soft);
+  font-size: var(--step--1);
+  font-weight: 300;
+}
+
+.gewerbe__branchen svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  color: var(--gold-deep);
+}
+
+@media (max-width: 62rem) {
+  .gewerbe { grid-template-columns: minmax(0, 1fr); }
+  .gewerbe__nutzen { padding-top: clamp(1.4rem, 3vw, 2rem); border-top: 1px solid var(--line-soft); }
+}
+
+@media (max-width: 40rem) {
+  .gewerbe__btn { align-self: stretch; }
+  .gewerbe__fuss { display: grid; }
+  .gewerbe__fuss-label { margin-bottom: 0.2rem; }
 }
 
 /* --------------------------------------------------------------------------
