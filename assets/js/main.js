@@ -339,6 +339,18 @@
   })();
 
   /* ------------------------------------------------------------------------
+     Vorher/Nachher-Schieberegler: der Regler bestimmt, wie viel vom
+     Vorher-Bild ueber dem Nachher-Bild liegt (--pos).
+     ---------------------------------------------------------------------- */
+  document.querySelectorAll("[data-verg]").forEach(function (verg) {
+    var regler = verg.querySelector(".verg__range");
+    if (!regler) return;
+    var setzen = function () { verg.style.setProperty("--pos", regler.value + "%"); };
+    regler.addEventListener("input", setzen);
+    setzen();
+  });
+
+  /* ------------------------------------------------------------------------
      Preis-Konfigurator: Fahrzeugklasse, Bereich, Paket, Zusatzleistungen
      ---------------------------------------------------------------------- */
   var konfig = document.getElementById("leistungen");
