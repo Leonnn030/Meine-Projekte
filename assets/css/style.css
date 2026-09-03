@@ -584,6 +584,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero__kicker    { animation-delay: 0.15s; }
 .hero h1         { animation-delay: 0.32s; }
 .hero__cta       { animation-delay: 0.52s; }
+.hero__abo       { animation-delay: 0.7s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(26px); }
@@ -639,6 +640,56 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   gap: 1.1rem;
   margin-top: clamp(1.9rem, 3.4vw, 2.7rem);
+}
+
+/* Hinweis auf das Abo — klein, aber lebendig: pulsierender Punkt, der
+   beim Ueberfahren mit dem Pfeil nachzieht. Fuehrt per Anker zu #abo. */
+.hero__abo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: clamp(1.4rem, 2.6vw, 2rem) auto 0;
+  padding: 0.6rem 1.05rem 0.6rem 0.95rem;
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  background: rgba(200, 148, 46, 0.09);
+  color: var(--gold-pale);
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  text-align: left;
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.hero__abo b { color: var(--white); font-weight: 700; }
+
+.hero__abo-punkt {
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 0 var(--gold-glow);
+  animation: abo-puls 2.4s var(--ease) infinite;
+}
+
+.hero__abo-pfeil { color: var(--gold); transition: transform 0.4s var(--ease); }
+
+.hero__abo:hover {
+  border-color: var(--gold);
+  background: rgba(200, 148, 46, 0.16);
+  transform: translateY(-1px);
+}
+
+.hero__abo:hover .hero__abo-pfeil { transform: translateX(4px); }
+
+@keyframes abo-puls {
+  0%   { box-shadow: 0 0 0 0 var(--gold-glow); }
+  70%  { box-shadow: 0 0 0 0.6rem rgba(200, 148, 46, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(200, 148, 46, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__abo-punkt { animation: none; }
 }
 
 /* Ein leiser Hinweis, dass es weitergeht */
@@ -1470,6 +1521,153 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .klasse__text { align-items: center; gap: 0.15rem; }
   .klasse__name { font-size: 0.64rem; letter-spacing: 0.08em; }
   .klasse__bsp { font-size: 0.56rem; letter-spacing: 0.04em; }
+}
+
+/* --------------------------------------------------------------------------
+   12a2. Abomodell — der Blickfang oberhalb der Paketauswahl.
+   Voller Goldrahmen, laufender Schimmer, grosser Preis. Soll sofort die
+   Aufmerksamkeit binden, deshalb bewusst anders als der Rest der Seite.
+   -------------------------------------------------------------------------- */
+.abo {
+  position: relative;
+  overflow: hidden;
+  max-width: 40rem;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  padding: clamp(2.2rem, 4.5vw, 3.4rem) clamp(1.8rem, 4vw, 3rem) clamp(1.9rem, 4vw, 2.8rem);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(200, 148, 46, 0.18), transparent 60%),
+    var(--ink-raised);
+  box-shadow: 0 0 0 1px rgba(200, 148, 46, 0.16), 0 30px 70px -34px rgba(200, 148, 46, 0.5);
+  text-align: center;
+}
+
+/* Laufender Goldschimmer als diagonaler Streifen ueber die Karte */
+.abo__schimmer {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(242, 221, 176, 0.14), transparent);
+  transform: skewX(-18deg);
+  animation: abo-schimmer 6.5s var(--ease) 1.2s infinite;
+  pointer-events: none;
+}
+
+@keyframes abo-schimmer {
+  0%   { left: -60%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+.abo__fahne {
+  display: inline-block;
+  margin: 0 0 1rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  background: var(--gold-sheen);
+  background-size: 220% 100%;
+  color: #000;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.abo__titel {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.abo__unter {
+  margin: 0.9rem auto 0;
+  max-width: 34ch;
+  color: var(--soft);
+  font-size: var(--step-0);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.abo__preis {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: clamp(1.6rem, 3.2vw, 2.2rem) 0 clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--gold-light);
+}
+
+.abo__waehrung { font-size: var(--step-1); font-weight: 500; }
+
+.abo__zahl {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 9vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.abo__takt {
+  margin-left: 0.5rem;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.abo__leistungen {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0 auto clamp(1.8rem, 3.6vw, 2.4rem);
+  padding: 0;
+  max-width: 27rem;
+  list-style: none;
+  text-align: left;
+}
+
+.abo__leistungen li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.8rem;
+  color: var(--soft);
+  font-size: var(--step-0);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.abo__leistungen b { color: var(--white); font-weight: 600; }
+
+.abo__leistungen svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  flex: none;
+  color: var(--gold);
+}
+
+.abo__btn {
+  width: 100%;
+  max-width: 27rem;
+  padding-block: 1.3rem;
+}
+
+.abo__hinweis {
+  margin: 1.1rem 0 0;
+  color: var(--dim);
+  font-size: var(--step--2);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .abo__schimmer { animation: none; display: none; }
 }
 
 /* --------------------------------------------------------------------------

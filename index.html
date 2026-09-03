@@ -150,6 +150,12 @@
         <a class="btn" href="#kontakt">Termin anfragen</a>
         <a class="btn btn--ghost" href="#leistungen">Preise ansehen</a>
       </div>
+
+      <a class="hero__abo" href="#abo">
+        <span class="hero__abo-punkt" aria-hidden="true"></span>
+        <span class="hero__abo-text"><b>Neu:</b> W&auml;sche-Abo &middot; 99,99 &euro;/Monat</span>
+        <span class="hero__abo-pfeil" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </div>
 
@@ -167,6 +173,46 @@
     <div class="section-head section-head--mitte reveal">
       <p class="eyebrow">Leistungen &amp; Preise</p>
       <h2 class="title">Stell dir zusammen,<br><em>was dein Auto braucht.</em></h2>
+    </div>
+
+    <!-- Abomodell: bewusst der Blickfang oben im Leistungsbereich, vor der
+         Paketauswahl. Goldrahmen, Schimmer, grosser Preis. Der Anker #abo
+         wird aus dem Hero angesprungen. -->
+    <div class="abo reveal" id="abo">
+      <span class="abo__schimmer" aria-hidden="true"></span>
+      <div class="abo__kopf">
+        <p class="abo__fahne">Unser Abo</p>
+        <h3 class="abo__titel">Das W&auml;sche-Abo</h3>
+        <p class="abo__unter">Dein Auto jede Woche frisch &mdash; innen wie au&szlig;en, ganz ohne dran zu denken.</p>
+      </div>
+
+      <div class="abo__preis">
+        <span class="abo__waehrung">&euro;</span>
+        <span class="abo__zahl">99,99</span>
+        <span class="abo__takt">pro Monat</span>
+      </div>
+
+      <ul class="abo__leistungen">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+          <span><b>4&times; im Monat</b> &mdash; einmal jede Woche</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+          <span><b>Innen- und Au&szlig;enw&auml;sche</b> bei jedem Termin</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+          <span><b>Wir kommen zu dir</b> &mdash; du musst nichts organisieren</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7"/></svg>
+          <span><b>Monatlich k&uuml;ndbar</b> &mdash; keine lange Bindung</span>
+        </li>
+      </ul>
+
+      <a class="btn abo__btn" href="#kontakt" data-paket="Wäsche-Abo (99,99 €/Monat)">Abo anfragen</a>
+      <p class="abo__hinweis">Preis f&uuml;r Pkw &uuml;blicher Gr&ouml;&szlig;e. Details kl&auml;ren wir kurz bei der Anfrage.</p>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Leistungsbereich wählen">
@@ -911,6 +957,7 @@
             <label for="paket">Wunschpaket</label>
             <select id="paket" name="paket">
               <option value="">Noch unentschieden</option>
+              <option value="Wäsche-Abo (99,99 €/Monat)">Wäsche-Abo (99,99 &euro;/Monat)</option>
               <option value="Basis">Basis</option>
               <option value="Rundum">Rundum</option>
               <option value="Luxus Komplett">Luxus Komplett</option>
