@@ -1989,9 +1989,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .extras {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: 1fr;
+  max-width: 34rem;
+  margin-inline: auto;
   align-items: start;
-  gap: 0 clamp(1rem, 2.2vw, 1.8rem);
+  gap: 0;
 }
 
 .extra { position: relative; }
@@ -2133,7 +2135,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Die Zusammenfassung bleibt beim Scrollen sichtbar */
 .summe {
-  padding: clamp(1.2rem, 2.4vw, 1.7rem);
+  padding: clamp(1rem, 2vw, 1.4rem);
   border: 1px solid var(--line);
   background: var(--ink-panel);
 }
@@ -2157,7 +2159,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .summe--breit .summe__zeile { grid-column: 2; grid-row: 1 / 3; align-self: start; }
 .summe--breit .summe__hinweis { grid-column: 2; grid-row: 3; margin-top: 0.4rem; }
 .summe--breit [data-summe-senden] { grid-column: 2; grid-row: 4; margin-top: 1rem; }
-.summe--breit .summe__zeile dd { font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.3rem); }
+.summe--breit .summe__zeile dd { font-size: clamp(1.4rem, 1rem + 1.1vw, 1.95rem); }
 
 @media (max-width: 54rem) {
   .summe--breit { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
@@ -2780,8 +2782,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 4.5rem);
-  padding: clamp(2.2rem, 4.5vw, 3.6rem) clamp(1.8rem, 4vw, 3.4rem);
+  gap: clamp(1.6rem, 3.4vw, 3.6rem);
+  padding: clamp(1.7rem, 3.6vw, 2.8rem) clamp(1.5rem, 3.2vw, 2.7rem);
   border: 1px solid var(--line);
   border-top: 0;
   background:
@@ -2805,7 +2807,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1rem;
   color: var(--gold);
   font-size: var(--step--2);
   font-weight: 600;
@@ -2825,7 +2827,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   margin: 0;
   color: var(--white);
   font-family: var(--font-display);
-  font-size: var(--step-2);
+  font-size: var(--step-1);
   font-weight: 400;
   line-height: 1.15;
 }
@@ -2833,12 +2835,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .gewerbe__titel em { font-style: italic; color: var(--gold); }
 
 .gewerbe__satz {
-  margin: clamp(1rem, 2vw, 1.4rem) 0 clamp(1.8rem, 3.4vw, 2.4rem);
+  margin: clamp(0.8rem, 1.6vw, 1.1rem) 0 clamp(1.4rem, 2.8vw, 1.9rem);
   max-width: 46ch;
   color: var(--soft);
-  font-size: var(--step-0);
+  font-size: var(--step--1);
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .gewerbe__btn { align-self: start; }
@@ -2847,7 +2849,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .gewerbe__nutzen {
   display: grid;
   align-content: center;
-  gap: clamp(1.1rem, 2.2vw, 1.6rem);
+  gap: clamp(0.9rem, 1.8vw, 1.3rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2858,8 +2860,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: start;
-  gap: 1.1rem;
-  padding-bottom: clamp(1.1rem, 2.2vw, 1.6rem);
+  gap: 1rem;
+  padding-bottom: clamp(0.9rem, 1.8vw, 1.3rem);
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -2868,15 +2870,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .gewerbe__ikon {
   display: grid;
   place-items: center;
-  width: 2.9rem;
-  height: 2.9rem;
+  width: 2.5rem;
+  height: 2.5rem;
   flex: none;
   border: 1px solid var(--line-gold);
   color: var(--gold);
   background: rgba(200, 148, 46, 0.06);
 }
 
-.gewerbe__ikon svg { width: 1.35rem; height: 1.35rem; }
+.gewerbe__ikon svg { width: 1.2rem; height: 1.2rem; }
 
 .gewerbe__nutzen-text {
   color: var(--muted);
@@ -2887,9 +2889,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .gewerbe__nutzen-text b {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
   color: var(--white);
-  font-size: var(--step-0);
+  font-size: var(--step--1);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
