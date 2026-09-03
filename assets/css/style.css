@@ -2556,8 +2556,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    eigenes Gewicht haben: goldene Kante oben, Goldschimmer aus der Ecke,
    links das Angebot, rechts die drei Punkte, unten die Branchen.
    -------------------------------------------------------------------------- */
-.gewerbe-band { padding-bottom: 0; }
-
 .gewerbe {
   position: relative;
   display: grid;
