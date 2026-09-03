@@ -3030,31 +3030,106 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* --------------------------------------------------------------------------
-   12d2. Vorher / Nachher — zwei Bildpaare, hart aneinandergesetzt
+   12d2. Vorher / Nachher — pro Fahrzeug eine Karte mit Umschaltung
+   zwischen Aussen und Innen; weitere Karten klappen ueber einen Knopf auf.
    -------------------------------------------------------------------------- */
-.vergleich {
+.vabgliste {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-  gap: clamp(1.2rem, 2.5vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  gap: clamp(1.6rem, 3vw, 2.6rem);
 }
 
-.vergleich__paar {
+.vabg {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--ink-panel);
+}
+
+/* Ab der dritten Karte eingeklappt, bis der Knopf sie einblendet */
+.vabg.is-versteckt { display: none; }
+
+.vabg__kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1.1rem, 2.4vw, 1.5rem) clamp(1.2rem, 2.6vw, 1.6rem);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.vabg__titel h3 {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.vabg__titel p {
+  margin: 0.3rem 0 0;
+  color: var(--dim);
+  font-size: var(--step--2);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Umschaltung Aussen / Innen — zwei Kapseln in einer Schiene */
+.vabg__wahl {
+  display: inline-flex;
+  flex: none;
+  padding: 0.28rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.vabg__reiter {
+  padding: 0.5rem 1.15rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.vabg__reiter:hover { color: var(--soft); }
+
+.vabg__reiter[aria-selected="true"] {
+  background: var(--gold-sheen);
+  background-size: 220% 100%;
+  color: #000;
+}
+
+.vabg__reiter:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
+/* Bildpaar erbt Raster und Marken aus dem alten Vergleich-Stil */
+.vabg .vergleich__paar {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2px;
   margin: 0;
   background: var(--line-soft);
-  border: 1px solid var(--line-soft);
 }
 
-.vergleich__seite {
+/* display:grid wuerde das [hidden] der ausgeblendeten Ansicht schlagen */
+.vabg .vergleich__paar[hidden] { display: none; }
+
+.vabg .vergleich__seite {
   position: relative;
   aspect-ratio: 3 / 4;
   background: var(--ink);
   overflow: hidden;
 }
 
-.vergleich__seite img {
+.vabg .vergleich__seite img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -3062,6 +3137,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   object-fit: cover;
 }
 
+/* Vorher/Nachher-Marken oben in den Ecken */
 .vergleich__marke {
   position: absolute;
   top: 0.9rem;
@@ -3084,22 +3160,31 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--gold-light);
 }
 
-/* Ruhige Fläche, solange kein Bild da ist — kein buntes Platzhalterkreuz */
-.vergleich__leer {
-  display: grid;
-  place-content: center;
-  height: 100%;
-  background:
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.014) 0 10px, transparent 10px 20px),
-    var(--ink-panel);
+/* Knopf zum Aufklappen weiterer Karten */
+.vabgmehr {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  margin: clamp(1.8rem, 3.6vw, 2.6rem) auto 0;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  background: rgba(200, 148, 46, 0.06);
+  color: var(--gold-light);
+  font-family: inherit;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
 }
 
-.vergleich__leer span {
-  color: var(--dim);
-  font-size: 0.6rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
+.vabgmehr:not([hidden]) { display: inline-flex; }
+.vabgmehr:hover { border-color: var(--gold); background: rgba(200, 148, 46, 0.12); }
+
+.vabgmehr svg { width: 1.1rem; height: 1.1rem; transition: transform 0.4s var(--ease); }
+.vabgmehr.is-offen svg { transform: rotate(180deg); }
 
 /* --------------------------------------------------------------------------
    13. Über uns

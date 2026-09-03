@@ -530,30 +530,52 @@
       <p class="losung__zeile">Der ehrlichste Beweis ist derselbe Wagen zweimal: einmal, wie er ankam &mdash; einmal, wie er zur&uuml;ckgeht.</p>
     </div>
 
-    <div class="vergleich reveal">
-      <figure class="vergleich__paar">
-        <div class="vergleich__seite">
-          <span class="vergleich__marke">Vorher</span>
-          <div class="vergleich__leer"><span>Bild folgt</span></div>
+    <!-- Pro Fahrzeug eine Karte mit Umschaltung Aussen/Innen. Es werden
+         hoechstens zwei Karten gezeigt; weitere klappen ueber den Knopf
+         darunter auf (der Knopf erscheint erst ab der dritten Karte). -->
+    <div class="vabgliste reveal" data-vabgliste>
+
+      <article class="vabg" data-vabg>
+        <div class="vabg__kopf">
+          <div class="vabg__titel">
+            <h3>Audi S3</h3>
+            <p>Komplettaufbereitung &middot; Berlin</p>
+          </div>
+          <div class="vabg__wahl" role="tablist" aria-label="Ansicht w&auml;hlen">
+            <button class="vabg__reiter" role="tab" id="t-s3-aussen" aria-controls="p-s3-aussen" aria-selected="true" type="button">Au&szlig;en</button>
+            <button class="vabg__reiter" role="tab" id="t-s3-innen" aria-controls="p-s3-innen" aria-selected="false" type="button">Innen</button>
+          </div>
         </div>
-        <div class="vergleich__seite">
-          <span class="vergleich__marke vergleich__marke--gold">Nachher</span>
-          <div class="vergleich__leer"><span>Bild folgt</span></div>
-        </div>
-      </figure>
-      <figure class="vergleich__paar">
-        <div class="vergleich__seite">
-          <span class="vergleich__marke">Vorher</span>
-          <div class="vergleich__leer"><span>Bild folgt</span></div>
-        </div>
-        <div class="vergleich__seite">
-          <span class="vergleich__marke vergleich__marke--gold">Nachher</span>
-          <div class="vergleich__leer"><span>Bild folgt</span></div>
-        </div>
-      </figure>
+
+        <figure class="vergleich__paar" role="tabpanel" id="p-s3-aussen" aria-labelledby="t-s3-aussen">
+          <div class="vergleich__seite">
+            <span class="vergleich__marke">Vorher</span>
+            <img src="assets/img/s3-aussen-vorher.jpg" alt="Audi S3 von au&szlig;en vor der Aufbereitung &ndash; Lack staubig" loading="lazy" width="1000" height="1333">
+          </div>
+          <div class="vergleich__seite">
+            <span class="vergleich__marke vergleich__marke--gold">Nachher</span>
+            <img src="assets/img/s3-aussen-nachher.jpg" alt="Audi S3 von au&szlig;en nach der Aufbereitung &ndash; Lack tiefschwarz und gl&auml;nzend" loading="lazy" width="1000" height="1333">
+          </div>
+        </figure>
+
+        <figure class="vergleich__paar" role="tabpanel" id="p-s3-innen" aria-labelledby="t-s3-innen" hidden>
+          <div class="vergleich__seite">
+            <span class="vergleich__marke">Vorher</span>
+            <img src="assets/img/s3-innen-vorher.jpg" alt="Innenraum des Audi S3 vor der Aufbereitung &ndash; Matten verschmutzt" loading="lazy" width="1000" height="1333">
+          </div>
+          <div class="vergleich__seite">
+            <span class="vergleich__marke vergleich__marke--gold">Nachher</span>
+            <img src="assets/img/s3-innen-nachher.jpg" alt="Innenraum des Audi S3 nach der Aufbereitung &ndash; frisch gereinigt" loading="lazy" width="1000" height="1333">
+          </div>
+        </figure>
+      </article>
+
     </div>
 
-    <p class="pending reveal"><span><strong>Dieser Bereich wartet noch auf Aufnahmen.</strong> Sobald zwei Bildpaare vom selben Fahrzeug vorliegen &mdash; einmal vor der Aufbereitung, einmal danach &mdash; kommen sie hier hin.</span></p>
+    <button class="vabgmehr" type="button" data-vabgmehr hidden>
+      <span>Mehr Vorher/Nachher anzeigen</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
   </div>
 </section>
 

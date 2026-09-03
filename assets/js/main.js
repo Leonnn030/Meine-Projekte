@@ -307,6 +307,38 @@
   });
 
   /* ------------------------------------------------------------------------
+     Vorher/Nachher: hoechstens zwei Karten offen, der Rest klappt auf
+     ---------------------------------------------------------------------- */
+  (function () {
+    var liste = document.querySelector("[data-vabgliste]");
+    var knopf = document.querySelector("[data-vabgmehr]");
+    if (!liste || !knopf) return;
+    var karten = Array.prototype.slice.call(liste.querySelectorAll("[data-vabg]"));
+    var GRENZE = 2;
+    if (karten.length <= GRENZE) { knopf.hidden = true; return; }
+
+    var einklappen = function () {
+      karten.forEach(function (k, i) { k.classList.toggle("is-versteckt", i >= GRENZE); });
+    };
+    einklappen();
+    knopf.hidden = false;
+    var offen = false;
+    var text = knopf.querySelector("span");
+    knopf.addEventListener("click", function () {
+      offen = !offen;
+      knopf.classList.toggle("is-offen", offen);
+      if (offen) {
+        karten.forEach(function (k) { k.classList.remove("is-versteckt"); });
+        if (text) text.textContent = "Weniger anzeigen";
+      } else {
+        einklappen();
+        if (text) text.textContent = "Mehr Vorher/Nachher anzeigen";
+        liste.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
      Preis-Konfigurator: Fahrzeugklasse, Bereich, Paket, Zusatzleistungen
      ---------------------------------------------------------------------- */
   var konfig = document.getElementById("leistungen");
